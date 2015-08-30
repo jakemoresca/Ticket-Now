@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Ticket_Now;
-using Ticket_Now.Controllers;
+using TicketNow.UserPortal.Api.Controllers;
 
 namespace Ticket_Now.Tests.Controllers
 {
