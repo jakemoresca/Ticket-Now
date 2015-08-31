@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using Ticket_Now.Identity.Models;
+using Ticket_Now.Repository.Models;
 
 namespace TicketNow.UserPortal.Api
 {

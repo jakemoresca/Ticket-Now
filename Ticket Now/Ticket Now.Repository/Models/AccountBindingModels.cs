@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
 
-namespace Ticket_Now.Identity.Models
+namespace Ticket_Now.Repository.Models
 {
     // Models used as parameters to AccountController actions.
 

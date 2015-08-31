@@ -5,11 +5,13 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using Ticket_Now.Admin.Web.Areas.HelpPage.SampleGeneration;
+
 #if Handle_PageResultOfT
 using System.Web.Http.OData;
 #endif
 
-namespace Ticket_Now.Admin.Web.Areas.HelpPage
+namespace Ticket_Now.Admin.Web.Areas.HelpPage.App_Start
 {
     /// <summary>
     /// Use this class to customize the Help Page.

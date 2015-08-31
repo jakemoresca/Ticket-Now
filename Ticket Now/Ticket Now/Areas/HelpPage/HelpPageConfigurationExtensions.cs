@@ -13,6 +13,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using Ticket_Now.Areas.HelpPage.ModelDescriptions;
 using Ticket_Now.Areas.HelpPage.Models;
+using Ticket_Now.Areas.HelpPage.SampleGeneration;
 
 namespace Ticket_Now.Areas.HelpPage
 {

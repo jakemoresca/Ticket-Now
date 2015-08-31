@@ -1,6 +1,5 @@
 ﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
-using System.Net.Http.Headers;
 
 namespace TicketNow.UserPortal.Api
 {

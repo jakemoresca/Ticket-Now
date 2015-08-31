@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 
-namespace Ticket_Now.Admin.Api.Controllers
+namespace Ticket_Now.Admin.Web.Controllers
 {
     [Authorize]
     public class ValuesController : ApiController

@@ -1,5 +1,6 @@
 using System.Web.Http;
 using System.Web.Mvc;
+using Ticket_Now.Admin.Web.Areas.HelpPage.App_Start;
 
 namespace Ticket_Now.Admin.Web.Areas.HelpPage
 {

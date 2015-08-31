@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Ticket_Now.Identity.Models
+namespace Ticket_Now.Repository.Models
 {
     // Models returned by AccountController actions.
 

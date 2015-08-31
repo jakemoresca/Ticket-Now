@@ -12,13 +12,12 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using Ticket_Now.Identity.Models;
-using Ticket_Now.Identity;
-using Ticket_Now.Identity.Results;
-using Ticket_Now.Identity.Providers;
-using Ticket_Now.Admin.Web;
+using Ticket_Now.Admin.Web.Results;
+using Ticket_Now.Repository;
+using Ticket_Now.Repository.Models;
+using Ticket_Now.Repository.Providers;
 
-namespace Ticket_Now.Admin.Api.Controllers
+namespace Ticket_Now.Admin.Web.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]

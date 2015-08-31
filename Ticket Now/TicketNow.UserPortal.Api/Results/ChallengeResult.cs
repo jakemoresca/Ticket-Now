@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace Ticket_Now.Identity.Results
+namespace TicketNow.UserPortal.Api.Results
 {
     public class ChallengeResult : IHttpActionResult
     {

@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Ticket_Now.UserPortal.Api.Controllers;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TicketNow.UserPortal.Api.Controllers;
 
 namespace Ticket_Now.Tests.Controllers
 {

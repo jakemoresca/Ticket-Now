@@ -2,9 +2,9 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using Ticket_Now.Identity.Models;
+using Ticket_Now.Repository.Models;
 
-namespace Ticket_Now.Admin.Api
+namespace Ticket_Now.Repository
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
 
