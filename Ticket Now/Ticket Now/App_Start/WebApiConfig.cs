@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 
-namespace Ticket_Now
+namespace Ticket_Now.UserPortal.Web
 {
     public static class WebApiConfig
     {

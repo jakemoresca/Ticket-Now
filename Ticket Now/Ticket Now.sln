@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C2551FC3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{ACC89E7A-1562-436C-ABFA-ECCBB9153D74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketNow.UserPortal.Api", "TicketNow.UserPortal.Api\TicketNow.UserPortal.Api.csproj", "{2F7A55E9-09D8-4CFF-8D80-C7B176644E82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket Now.UserPortal.Api", "TicketNow.UserPortal.Api\Ticket Now.UserPortal.Api.csproj", "{2F7A55E9-09D8-4CFF-8D80-C7B176644E82}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket Now.Admin.Web", "Ticket Now.Admin.Web\Ticket Now.Admin.Web.csproj", "{6C1D5999-FDFD-482F-94D8-72A2DA58FCBD}"
 EndProject
@@ -72,25 +72,25 @@ Global
 		SccProjectTopLevelParentUniqueName1 = Ticket\u0020Now.sln
 		SccProjectName1 = Ticket\u0020Now
 		SccLocalPath1 = Ticket\u0020Now
-		SccProjectUniqueName2 = TicketNow.UserPortal.Api\\TicketNow.UserPortal.Api.csproj
+		SccProjectUniqueName2 = Ticket\u0020Now.Admin.Web\\Ticket\u0020Now.Admin.Web.csproj
 		SccProjectTopLevelParentUniqueName2 = Ticket\u0020Now.sln
-		SccProjectName2 = TicketNow.UserPortal.Api
-		SccLocalPath2 = TicketNow.UserPortal.Api
-		SccProjectUniqueName3 = Ticket\u0020Now.Admin.Web\\Ticket\u0020Now.Admin.Web.csproj
+		SccProjectName2 = Ticket\u0020Now.Admin.Web
+		SccLocalPath2 = Ticket\u0020Now.Admin.Web
+		SccProjectUniqueName3 = Ticket\u0020Now.Admin.Api\\Ticket\u0020Now.Admin.Api.csproj
 		SccProjectTopLevelParentUniqueName3 = Ticket\u0020Now.sln
-		SccProjectName3 = Ticket\u0020Now.Admin.Web
-		SccLocalPath3 = Ticket\u0020Now.Admin.Web
-		SccProjectUniqueName4 = Ticket\u0020Now.Admin.Api\\Ticket\u0020Now.Admin.Api.csproj
+		SccProjectName3 = Ticket\u0020Now.Admin.Api
+		SccLocalPath3 = Ticket\u0020Now.Admin.Api
+		SccProjectUniqueName4 = Ticket\u0020Now.Repository\\Ticket\u0020Now.Common.csproj
 		SccProjectTopLevelParentUniqueName4 = Ticket\u0020Now.sln
-		SccProjectName4 = Ticket\u0020Now.Admin.Api
-		SccLocalPath4 = Ticket\u0020Now.Admin.Api
-		SccProjectUniqueName5 = Ticket\u0020Now.Repository\\Ticket\u0020Now.Common.csproj
+		SccProjectName4 = Ticket\u0020Now.Repository
+		SccLocalPath4 = Ticket\u0020Now.Repository
+		SccProjectUniqueName5 = Ticket\u0020Now.Tests\\Ticket\u0020Now.UserPortal.Api.Tests.csproj
 		SccProjectTopLevelParentUniqueName5 = Ticket\u0020Now.sln
-		SccProjectName5 = Ticket\u0020Now.Repository
-		SccLocalPath5 = Ticket\u0020Now.Repository
-		SccProjectUniqueName6 = Ticket\u0020Now.Tests\\Ticket\u0020Now.UserPortal.Api.Tests.csproj
+		SccProjectName5 = Ticket\u0020Now.Tests
+		SccLocalPath5 = Ticket\u0020Now.Tests
+		SccProjectUniqueName6 = TicketNow.UserPortal.Api\\Ticket\u0020Now.UserPortal.Api.csproj
 		SccProjectTopLevelParentUniqueName6 = Ticket\u0020Now.sln
-		SccProjectName6 = Ticket\u0020Now.Tests
-		SccLocalPath6 = Ticket\u0020Now.Tests
+		SccProjectName6 = TicketNow.UserPortal.Api
+		SccLocalPath6 = TicketNow.UserPortal.Api
 	EndGlobalSection
 EndGlobal

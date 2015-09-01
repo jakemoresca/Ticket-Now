@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace Ticket_Now
+namespace Ticket_Now.UserPortal.Web
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

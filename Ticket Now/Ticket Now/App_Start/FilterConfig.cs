@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Ticket_Now
+namespace Ticket_Now.UserPortal.Web
 {
     public class FilterConfig
     {

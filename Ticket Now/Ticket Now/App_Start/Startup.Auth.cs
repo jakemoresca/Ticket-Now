@@ -8,7 +8,7 @@ using Ticket_Now.Repository;
 using Ticket_Now.Repository.Models;
 using Ticket_Now.Repository.Providers;
 
-namespace Ticket_Now
+namespace Ticket_Now.UserPortal.Web
 {
     public partial class Startup
     {
