@@ -1,0 +1,7 @@
+﻿<div class="page-header">
+    <h1>Posts</h1>
+</div>
+<div ng-repeat="post in postCtrl.posts | orderBy: '-CreatedDate'">
+    <post></post>
+    <hr/>
+</div>

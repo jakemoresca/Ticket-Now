@@ -7,6 +7,7 @@ using Owin;
 using Ticket_Now.Repository;
 using Ticket_Now.Repository.Models;
 using Ticket_Now.Repository.Providers;
+using Ticket_Now.Repository.Daos;
 
 namespace Ticket_Now.Admin.Web
 {

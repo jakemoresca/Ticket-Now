@@ -102,15 +102,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Daos\ApplicationDbContext.cs" />
+    <Compile Include="Daos\IApplicationDbContext.cs" />
+    <Compile Include="Daos\IStandardDao.cs" />
+    <Compile Include="Dtos\ApplicationUserDto.cs" />
     <Compile Include="IdentityConfig.cs" />
+    <Compile Include="Mappers\IPostMapper.cs" />
+    <Compile Include="Mappers\PostMapper.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dtos\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>

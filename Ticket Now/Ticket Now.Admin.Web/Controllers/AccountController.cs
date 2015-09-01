@@ -16,6 +16,7 @@ using Ticket_Now.Admin.Web.Results;
 using Ticket_Now.Repository;
 using Ticket_Now.Repository.Models;
 using Ticket_Now.Repository.Providers;
+using Ticket_Now.Repository.Dtos;
 
 namespace Ticket_Now.Admin.Web.Controllers
 {
@@ -250,7 +251,7 @@ namespace Ticket_Now.Admin.Web.Controllers
                 return new ChallengeResult(provider, this);
             }
 
-            ApplicationUser user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
+            ApplicationUserDto user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
                 externalLogin.ProviderKey));
 
             bool hasRegistered = user != null;
@@ -328,7 +329,7 @@ namespace Ticket_Now.Admin.Web.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUserDto() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -357,7 +358,7 @@ namespace Ticket_Now.Admin.Web.Controllers
                 return InternalServerError();
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUserDto() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user);
             if (!result.Succeeded)

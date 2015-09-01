@@ -4,8 +4,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using Ticket_Now.Repository.Models;
 using Ticket_Now.Repository.Providers;
+using Ticket_Now.Repository.Daos;
 
 namespace TicketNow.UserPortal.Api
 {

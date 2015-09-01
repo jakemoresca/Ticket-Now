@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using Ticket_Now.Repository.Models;
+using Ticket_Now.Repository.Dtos;
 
 namespace Ticket_Now.Repository.Providers
 {
@@ -28,7 +28,7 @@ namespace Ticket_Now.Repository.Providers
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
-            ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
+            ApplicationUserDto user = await userManager.FindAsync(context.UserName, context.Password);
 
             if (user == null)
             {

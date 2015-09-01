@@ -1,0 +1,1 @@
+﻿var app = angular.module("Blog", ["ngRoute", "PostModule", "ngSanitize"]);
