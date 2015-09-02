@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Blog_vNext.Daos
+namespace Ticket_Now.Repository.Daos
 {
     public interface IStandardDao<TEntity>
     {

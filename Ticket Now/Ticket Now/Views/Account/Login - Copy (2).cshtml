@@ -1,0 +1,116 @@
+﻿@using System.IO
+@using Blog_vNext.Dtos
+@using Microsoft.AspNet.Hosting
+@using Microsoft.AspNet.Identity
+@inject IHostingEnvironment _appEnvironment
+@inject SignInManager<ApplicationUserDto> SignInManager
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/lib/requirejs/require.js" />
+    @{
+        var rootTemplatesPath = _appEnvironment.MapPath("templates/");
+        var setOfTemplates = Directory.GetFiles(rootTemplatesPath, "*.htm", SearchOption.AllDirectories);
+        var rootPart = new Uri(rootTemplatesPath);
+        var templates = setOfTemplates.Select(templatePath =>
+        {
+            var filePart = new Uri(templatePath);
+            var relativePart = rootPart.MakeRelativeUri(filePart);
+
+            return new
+            {
+                Name = relativePart.ToString().Replace(".htm", ""),
+                File = System.IO.Path.GetFullPath(templatePath)
+            };
+        }).ToList();
+    }
+    @foreach (var template in templates)
+    {
+        <script type="text/html" id="@template.Name">
+            @Html.Raw(File.ReadAllText(template.File))
+        </script>
+    }
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/lib/bootstrap-touch-carousel/dist/css/bootstrap-touch-carousel.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+<div class="container body-content">
+    <h2>@ViewData["Title"].</h2>
+    <div class="row">
+        <!-- ko template: 'login' --><!-- /ko -->
+        <div class="col-md-4">
+            <section>
+                <h4>Use another service to log in.</h4>
+                <hr/>
+                @{
+                    var loginProviders = SignInManager.GetExternalAuthenticationSchemes().ToList();
+                    if (loginProviders.Count == 0)
+                    {
+                        <div>
+                            <p>
+                                There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                for details on setting up this ASP.NET application to support logging in via external services.
+                            </p>
+                        </div>
+                    }
+                    else
+                    {
+                        <form asp-controller="Account" asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal" role="form">
+                            <div>
+                                <p>
+                                    @foreach (var provider in loginProviders)
+                                    {
+                                        <button type="submit" class="btn btn-default" name="provider" value="@provider.AuthenticationScheme" title="Log in using your @provider.Caption account">@provider.AuthenticationScheme</button>
+                                    }
+                                </p>
+                            </div>
+                        </form>
+                    }
+                }
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript">
+        require.config({
+            baseUrl: '@Url.Content("~/js/")',
+            waitSeconds: 45,
+            paths: {
+                'jquery': "../lib/jquery/dist/jquery",
+                'knockout': "../lib/knockout/dist/knockout",
+                'backbone': "../lib/backbone/backbone",
+                'knockback': '../lib/knockback/knockback-core',
+                'underscore': "../lib/underscore/underscore"
+            },
+            shim: {
+                "knockback": { deps: ["knockout", "backbone"] },
+                'knockout': { deps: ['jquery'] },
+                'backbone': {
+                    deps: ['underscore', 'jquery'],
+                    exports: 'Backbone'
+                },
+                'underscore': {
+                    exports: '_'
+                }
+            }
+        });
+
+        require(["app/app-start"], function ()
+        {
+        });
+    </script>
+</div>
+    <hr />
+<footer>
+    <p>&copy; 2015 - My ASP.NET Application</p>
+</footer>
+</body>
+</html>

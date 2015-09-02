@@ -1,0 +1,13 @@
+{
+	"name": "ASP.NET",
+  "private": true,
+  "dependencies": {
+    "jQuery": "*",
+    "angular-full": "*",
+    "underscore": "*",
+    "ckeditor": "*",
+    "angular-ckeditor": "*",
+    "bootstrap": "*",
+    "bootstrap-theme-cosmo": "*"
+  }
+}
