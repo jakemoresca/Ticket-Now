@@ -11,7 +11,7 @@
     {
         $http.post("../api/Account/Login", this.loginInfo).then(function ()
         {
-            window.location.href = window.location.origin;
+            window.location.href = "../Home";
         });
     };
 }]);
