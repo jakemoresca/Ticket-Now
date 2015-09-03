@@ -9,7 +9,7 @@
 
     this.signIn = function ()
     {
-        $http.post("/Account/Login", this.loginInfo).then(function ()
+        $http.post("../api/Account/Login", this.loginInfo).then(function ()
         {
             window.location.href = window.location.origin;
         });
