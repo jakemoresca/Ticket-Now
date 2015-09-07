@@ -2,7 +2,7 @@
 {
     return {
         restrict: "E",
-        templateUrl: "../Content/templates/navbar.htm",
+        templateUrl: "./Content/templates/navbar.htm",
         scope: true
     }
 });

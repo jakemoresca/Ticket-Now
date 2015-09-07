@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace Ticket_Now.Repository.Dtos
 {
@@ -17,6 +19,11 @@ namespace Ticket_Now.Repository.Dtos
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
             // Add custom user claims here
             return userIdentity;
+        }
+
+        public static implicit operator Task<object>(ApplicationUserDto v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

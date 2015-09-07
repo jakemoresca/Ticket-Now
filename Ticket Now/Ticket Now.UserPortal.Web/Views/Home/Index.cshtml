@@ -5,12 +5,10 @@
     <title>@ViewBag.Title - Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="/lib/ckeditor/contents.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-    <link href="/lib/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/lib/bootstrap-touch-carousel/dist/css/bootstrap-touch-carousel.css" />
-    <link rel="stylesheet" href="/css/site.css" />
-
+    <link href="~/Scripts/lib/ckeditor/contents.css" rel="stylesheet" />
+    <link href="~/Scripts/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Scripts/lib/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body ng-controller="MainController as main">
     <navigation-bar></navigation-bar>
@@ -29,6 +27,7 @@
 
     <script src="~/Scripts/app/app.js"></script>
     <script src="~/Scripts/app/base/MainController.js"></script>
+    <script src="~/Scripts/app/base/LoginController.js"></script>
     <!-- Modules -->
     @*<script src="/js/modules/post/post-module.js"></script>
     <script src="/js/modules/post/post-service.js"></script>
@@ -37,11 +36,7 @@
     <script src="/js/modules/post/post-create-controller.js"></script>*@
     <!-- Directives -->
     <script src="~/Scripts/app/base/directives/navbar.js"></script>
-    <script src="~/Scripts/app/base/directives/loginForm.js"></script>
     <script src="~/Scripts/app/base/directives/footer.js"></script>
-    @*<script src="/js/base/directives/navbar.js"></script>
-    <script src="/js/base/directives/post.js"></script>
-    <script src="/js/base/directives/footer.js"></script>*@
 
     <foot-bar></foot-bar>
 </body>
