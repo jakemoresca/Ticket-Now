@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Ticket_Now.Repository.Dtos;
 using Ticket_Now.Repository.Mappers;
 using Ticket_Now.Repository.Models;
 using Ticket_Now.Repository.Repositories;
@@ -44,6 +43,7 @@ namespace Ticket_Now.Authentication.Controllers
         }
 
         [AllowAnonymous]
+        [HttpPost]
         [Route("Login")]
         public async Task<IHttpActionResult> Login(UserModel userModel)
         {

@@ -26,7 +26,7 @@ namespace Ticket_Now.Authentication
             {
                 return Container.Resolve(serviceType);
             }
-            catch (ResolutionFailedException)
+            catch (ResolutionFailedException ex)
             {
                 return null;
             }
@@ -38,7 +38,7 @@ namespace Ticket_Now.Authentication
             {
                 return Container.ResolveAll(serviceType);
             }
-            catch (ResolutionFailedException)
+            catch (ResolutionFailedException ex)
             {
                 return new List<object>();
             }

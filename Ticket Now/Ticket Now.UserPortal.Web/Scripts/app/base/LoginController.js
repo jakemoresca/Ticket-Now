@@ -9,7 +9,7 @@
 
     this.signIn = function ()
     {
-        $http.post("/Ticket Now Auth/api/Account/Login", this.loginInfo).then(function ()
+        $http.post("/TicketNowAuth/api/Account/Login", this.loginInfo).then(function ()
         {
             window.location.href = "../Home";
         });
