@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Microsoft.Owin.Cors;
+using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.OAuth;
 using Microsoft.Practices.Unity;
 using Owin;
@@ -14,6 +15,9 @@ namespace Ticket_Now.Authentication
 {
     public class Startup
     {
+        // add this static variable
+        internal static IDataProtectionProvider DataProtectionProvider { get; private set; }
+
         public virtual HttpConfiguration GetInjectionConfiguration()
         {
             var config = new HttpConfiguration();
@@ -25,6 +29,8 @@ namespace Ticket_Now.Authentication
 
         public void Configuration(IAppBuilder app)
         {
+            DataProtectionProvider = app.GetDataProtectionProvider();
+
             var config = GetInjectionConfiguration();
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {

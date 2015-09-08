@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using Microsoft.Practices.Unity;
 using System.Data.Entity;
+using System.Web;
 using Ticket_Now.Authentication.Controllers;
 using Ticket_Now.Repository;
 using Ticket_Now.Repository.Daos;
@@ -19,7 +22,6 @@ namespace Ticket_Now.Authentication.App_Start
             ////Dao
             //unityContainer.RegisterType<IStandardDao<PostDto>, PostDao>();
 
-            unityContainer.RegisterType<IUserStore<ApplicationUserDto>, UserStore<ApplicationUserDto>>();
             unityContainer.RegisterType<UserManager<ApplicationUserDto>>();
 
             //Repository
@@ -28,8 +30,22 @@ namespace Ticket_Now.Authentication.App_Start
             //Mapper
             unityContainer.RegisterType<IUserMapper, UserMapper>();
 
-            unityContainer.RegisterType<DbContext, ApplicationDbContext>();
-            unityContainer.RegisterType<ApplicationUserManager>();
+            //unityContainer.RegisterType<DbContext, ApplicationDbContext>();
+            //unityContainer.RegisterType<ApplicationUserManager>();
+
+            var userManagerOptions = new IdentityFactoryOptions<ApplicationUserManager>();
+            userManagerOptions.DataProtectionProvider = Startup.DataProtectionProvider;
+
+
+            unityContainer.RegisterType<ApplicationDbContext>();
+            unityContainer.RegisterType<ApplicationUserManager>(
+                new InjectionConstructor(typeof(IUserStore<ApplicationUserDto>), userManagerOptions));
+
+            unityContainer.RegisterType<IAuthenticationManager>(
+                new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication));
+
+            unityContainer.RegisterType<IUserStore<ApplicationUserDto>, UserStore<ApplicationUserDto>>(
+                new InjectionConstructor(typeof(ApplicationDbContext)));
         }
     }
 }
