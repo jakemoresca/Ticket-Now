@@ -20,19 +20,19 @@
                     </ul>
                 </li>
             </ul>
-            <form method="post" id="logoutForm" class="navbar-right" action="Account/LogOff" ng-show="{{main.currentUser != null}}">
+            <form method="post" id="logoutForm" class="navbar-right" action="Account/LogOff" ng-show="{{main.loggedIn()}}">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{main.currentUser.UserName}}<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{main.currentUser.userName}}<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="./Manage">Manage</a></li>
                             <li><a href="./Dashboard">Dashboard</a></li>
                         </ul>
                     </li>
-                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    <li><a href="#" ng-click="main.logOff()">Log off</a></li>
                 </ul>
             </form>
-            <ul class="nav navbar-nav navbar-right" ng-show="{{main.currentUser == null}}">
+            <ul class="nav navbar-nav navbar-right" ng-hide="{{main.loggedIn()}}">
                 <li><a href="./Account/Register">Register</a></li>
                 <li><a href="./Account/Login">Log in</a></li>
             </ul>

@@ -4,6 +4,7 @@
   "dependencies": {
     "jQuery": "*",
     "angular-full": "*",
+    "angular-local-storage": "*",
     "underscore": "*",
     "ckeditor": "*",
     "angular-ckeditor": "*",

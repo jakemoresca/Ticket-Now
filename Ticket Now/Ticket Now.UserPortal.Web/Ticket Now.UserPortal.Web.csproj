@@ -211,7 +211,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\templates\admin-navbar.htm" />
-    <Content Include="Content\templates\foot.htm" />
     <Content Include="Content\templates\footer.htm" />
     <Content Include="Content\templates\home.htm" />
     <Content Include="Content\templates\login.htm" />
@@ -226,16 +225,17 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\base\AdminController.js" />
+    <Content Include="Scripts\app\base\auth\auth-interceptor-service.js" />
     <Content Include="Scripts\app\base\directives\admin-navbar.js" />
     <Content Include="Scripts\app\base\directives\footer.js" />
     <Content Include="Scripts\app\base\directives\loginForm.js" />
     <Content Include="Scripts\app\base\directives\navbar.js" />
     <Content Include="Scripts\app\base\directives\post.js" />
     <Content Include="Scripts\app\base\directives\sidebar.js" />
-    <Content Include="Scripts\app\base\LoginController.js" />
+    <Content Include="Scripts\app\base\auth\auth-service.js" />
+    <Content Include="Scripts\app\base\auth\auth-controller.js" />
     <Content Include="Scripts\app\base\MainController.js" />
     <Content Include="Scripts\app\base\MeController.js" />
-    <Content Include="Scripts\app\modules\current-user\current-user-module.js" />
     <Content Include="Scripts\app\modules\post\post-controller.js" />
     <Content Include="Scripts\app\modules\post\post-create-controller.js" />
     <Content Include="Scripts\app\modules\post\post-detail-controller.js" />
@@ -1027,6 +1027,11 @@
     <Content Include="Scripts\lib\angular-full\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\lib\angular-full\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\lib\angular-full\version.txt" />
+    <Content Include="Scripts\lib\angular-local-storage\demo\demo-app.js" />
+    <Content Include="Scripts\lib\angular-local-storage\demo\demo-style.css" />
+    <Content Include="Scripts\lib\angular-local-storage\demo\demo.html" />
+    <Content Include="Scripts\lib\angular-local-storage\dist\angular-local-storage.js" />
+    <Content Include="Scripts\lib\angular-local-storage\dist\angular-local-storage.min.js" />
     <Content Include="Scripts\lib\bootstrap-theme-cosmo\cosmo.min.css" />
     <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
@@ -3759,6 +3764,16 @@
     <Content Include="Scripts\lib\underscore\LICENSE" />
     <Content Include="Scripts\lib\underscore\README.md" />
     <Content Include="Scripts\lib\underscore\underscore-min.map" />
+    <Content Include="Scripts\lib\angular-local-storage\.bower.json" />
+    <Content Include="Scripts\lib\angular-local-storage\.bowerrc" />
+    <Content Include="Scripts\lib\angular-local-storage\.gitattributes" />
+    <Content Include="Scripts\lib\angular-local-storage\.gitignore" />
+    <Content Include="Scripts\lib\angular-local-storage\.travis.yml" />
+    <Content Include="Scripts\lib\angular-local-storage\bower.json" />
+    <Content Include="Scripts\lib\angular-local-storage\CHANGELOG.md" />
+    <Content Include="Scripts\lib\angular-local-storage\LICENSE" />
+    <Content Include="Scripts\lib\angular-local-storage\package.json" />
+    <Content Include="Scripts\lib\angular-local-storage\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

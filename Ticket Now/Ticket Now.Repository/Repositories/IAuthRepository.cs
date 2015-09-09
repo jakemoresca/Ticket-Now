@@ -9,5 +9,6 @@ namespace Ticket_Now.Repository.Repositories
     {
         Task<IdentityResult> RegisterUser(ApplicationUserDto user);
         Task<ApplicationUserDto> FindUser(string userName, string password);
+        Task<ApplicationUserDto> FindByName(string name);
     }
 }

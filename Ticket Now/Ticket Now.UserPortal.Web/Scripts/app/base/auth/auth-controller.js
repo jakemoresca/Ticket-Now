@@ -1,4 +1,4 @@
-﻿app.controller("LoginController", ["$http", "$location", function ($http, $location) {
+﻿app.controller("authController", ["$http", "$location", "authService", "ngAuthSettings", function ($http, $location, authService, ngAuthSettings) {
     var self = this;
     this.loginInfo = {};
 
@@ -7,9 +7,9 @@
         return self.currentUser.length > 0;
     };
 
-    this.signIn = function ()
+    this.logIn = function ()
     {
-        $http.post("/TicketNowAuth/api/Account/Login", this.loginInfo).then(function ()
+        authService.login(this.loginInfo).then(function ()
         {
             window.location.href = "../Home";
         });

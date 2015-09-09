@@ -11,7 +11,7 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container body-content" ng-controller="LoginController as loginCtrl">
+    <div class="container body-content" ng-controller="authController as authCtrl">
         <h2>@ViewData["Title"]</h2>
         <div class="row">
             <login-form></login-form>
@@ -30,6 +30,7 @@
     <script src="~/Scripts/lib/angular-full/angular-route.min.js"></script>
     <script src="~/Scripts/lib/angular-full/angular-resource.js"></script>
     <script src="~/Scripts/lib/angular-full/angular-sanitize.js"></script>
+    <script src="~/Scripts/lib/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="~/Scripts/lib/underscore/underscore.js"></script>
     <script src="~/Scripts/lib/jQuery/dist/jquery.js"></script>
     <script src="~/Scripts/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -37,7 +38,14 @@
     <script src="~/Scripts/lib/angular-ckeditor/angular-ckeditor.js"></script>
 
     <script src="~/Scripts/app/app.js"></script>
-    <script src="~/Scripts/app/base/LoginController.js"></script>
+
+    <!-- Controllers -->
+    <script src="~/Scripts/app/base/auth/auth-controller.js"></script>
+
+    <!-- Services -->
+    <script src="~/Scripts/app/base/auth/auth-interceptor-service.js"></script>
+    <script src="~/Scripts/app/base/auth/auth-service.js"></script>
+
     <!-- Modules -->
     @*<script src="/js/modules/post/post-module.js"></script>
     <script src="/js/modules/post/post-service.js"></script>
@@ -47,8 +55,8 @@
     <!-- Directives -->
     <script src="~/Scripts/app/base/directives/navbar.js"></script>
     <script src="~/Scripts/app/base/directives/loginForm.js"></script>
-    <script src="~/Scripts/app/base/directives/footer.js"></script>
+    @*<script src="~/Scripts/app/base/directives/footer.js"></script>
 
-    <foot-bar></foot-bar>
+    <foot-bar></foot-bar>*@
 </body>
 </html>

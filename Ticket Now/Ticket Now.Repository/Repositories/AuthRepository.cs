@@ -23,6 +23,13 @@ namespace Ticket_Now.Repository.Repositories
             return user;
         }
 
+        public async Task<ApplicationUserDto> FindByName(string name)
+        {
+            var user = await _userManager.FindByNameAsync(name);
+
+            return user;
+        }
+
         public async Task<IdentityResult> RegisterUser(ApplicationUserDto userModel)
         {
             var result = await _userManager.CreateAsync(userModel);

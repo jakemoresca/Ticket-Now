@@ -42,21 +42,6 @@ namespace Ticket_Now.Authentication.Controllers
             return Ok();
         }
 
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("Login")]
-        public async Task<IHttpActionResult> Login(UserModel userModel)
-        {
-            if(ModelState.IsValid)
-            {
-                var user = await _authRepository.FindUser(userModel.UserName, userModel.Password);
-
-                return Ok(user);
-            }
-
-            return BadRequest("Invalid username and password");
-        }
-
         private IHttpActionResult GetErrorResult(IdentityResult result)
         {
             if (result == null)
