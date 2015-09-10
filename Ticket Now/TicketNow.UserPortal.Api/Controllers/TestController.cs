@@ -11,6 +11,7 @@ namespace TicketNow.UserPortal.Api.Controllers
         }
 
         [Route("test/get/{test}")]
+        [Authorize]
         public string Get(string test)
         {
             return test;

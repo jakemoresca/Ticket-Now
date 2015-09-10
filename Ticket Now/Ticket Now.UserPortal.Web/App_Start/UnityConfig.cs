@@ -1,11 +1,14 @@
-﻿using Microsoft.Owin.Security;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using Microsoft.Practices.Unity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using Ticket_Now.Repository;
 using Ticket_Now.Repository.Daos;
+using Ticket_Now.Repository.Dtos;
+using Ticket_Now.Repository.Mappers;
+using Ticket_Now.Repository.Repositories;
 
 namespace Ticket_Now.UserPortal.Web.App_Start
 {
@@ -14,14 +17,30 @@ namespace Ticket_Now.UserPortal.Web.App_Start
 
         public static void CreateUnityContainer(IUnityContainer unityContainer)
         {
-            ////Dao
+            //Dao
             //unityContainer.RegisterType<IStandardDao<PostDto>, PostDao>();
+            unityContainer.RegisterType<ApplicationDbContext>();
 
-            ////Repository
-            //unityContainer.RegisterType<IPostRepository, PostRepository>();
+            //Identity
+            unityContainer.RegisterType<IAuthenticationManager>(
+                new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication));
 
-            ////Mapper
-            //unityContainer.RegisterType<IPostMapper, PostMapper>();
+            unityContainer.RegisterType<IUserStore<ApplicationUserDto>, UserStore<ApplicationUserDto>>(
+                new InjectionConstructor(typeof(ApplicationDbContext)));
+
+            unityContainer.RegisterType<UserManager<ApplicationUserDto>>();
+
+            var userManagerOptions = new IdentityFactoryOptions<ApplicationUserManager>();
+            userManagerOptions.DataProtectionProvider = Startup.DataProtectionProvider;
+
+            unityContainer.RegisterType<ApplicationUserManager>(
+                new InjectionConstructor(typeof(IUserStore<ApplicationUserDto>), userManagerOptions));
+
+            //Repository
+            unityContainer.RegisterType<IAuthRepository, AuthRepository>();
+
+            //Mapper
+            unityContainer.RegisterType<IUserMapper, UserMapper>();
         }
     }
 }

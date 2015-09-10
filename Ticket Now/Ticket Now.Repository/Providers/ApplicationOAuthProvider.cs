@@ -7,28 +7,54 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Ticket_Now.Repository.Dtos;
+using Ticket_Now.Repository.Repositories;
 
 namespace Ticket_Now.Repository.Providers
 {
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
-        private readonly string _publicClientId;
+        private readonly IAuthRepository _authRepository;
 
-        public ApplicationOAuthProvider(string publicClientId)
+        public ApplicationOAuthProvider(IAuthRepository authRepository)
         {
-            if (publicClientId == null)
+            _authRepository = authRepository;
+        }
+
+        public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
+        {
+            string clientId = string.Empty;
+            string clientSecret = string.Empty;
+            string symmetricKeyAsBase64 = string.Empty;
+
+            if (!context.TryGetBasicCredentials(out clientId, out clientSecret))
             {
-                throw new ArgumentNullException("publicClientId");
+                context.TryGetFormCredentials(out clientId, out clientSecret);
             }
 
-            _publicClientId = publicClientId;
+            if (context.ClientId == null)
+            {
+                context.SetError("invalid_clientId", "client_Id is not set");
+                return Task.FromResult<object>(null);
+            }
+
+            var audience = AudiencesStore.FindAudience(context.ClientId);
+
+            if (audience == null)
+            {
+                context.SetError("invalid_clientId", string.Format("Invalid client_id '{0}'", context.ClientId));
+                return Task.FromResult<object>(null);
+            }
+
+            context.Validated();
+            return Task.FromResult<object>(null);
         }
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
-            ApplicationUserDto user = await userManager.FindAsync(context.UserName, context.Password);
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+
+            ApplicationUserDto user = await _authRepository.FindUser(context.UserName, context.Password);
 
             if (user == null)
             {
@@ -36,60 +62,22 @@ namespace Ticket_Now.Repository.Providers
                 return;
             }
 
-            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
-               OAuthDefaults.AuthenticationType);
-            ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
-                CookieAuthenticationDefaults.AuthenticationType);
+            var identity = new ClaimsIdentity("JWT");
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
-            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
-            context.Validated(ticket);
-            context.Request.Context.Authentication.SignIn(cookiesIdentity);
-        }
+            identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
+            identity.AddClaim(new Claim("sub", context.UserName));
+            identity.AddClaim(new Claim(ClaimTypes.Role, "Manager"));
+            identity.AddClaim(new Claim(ClaimTypes.Role, "Supervisor"));
 
-        public override Task TokenEndpoint(OAuthTokenEndpointContext context)
-        {
-            foreach (KeyValuePair<string, string> property in context.Properties.Dictionary)
-            {
-                context.AdditionalResponseParameters.Add(property.Key, property.Value);
-            }
-
-            return Task.FromResult<object>(null);
-        }
-
-        public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
-        {
-            // Resource owner password credentials does not provide a client ID.
-            if (context.ClientId == null)
-            {
-                context.Validated();
-            }
-
-            return Task.FromResult<object>(null);
-        }
-
-        public override Task ValidateClientRedirectUri(OAuthValidateClientRedirectUriContext context)
-        {
-            if (context.ClientId == _publicClientId)
-            {
-                Uri expectedRootUri = new Uri(context.Request.Uri, "/");
-
-                if (expectedRootUri.AbsoluteUri == context.RedirectUri)
+            var props = new AuthenticationProperties(new Dictionary<string, string>
                 {
-                    context.Validated();
-                }
-            }
+                    {
+                         "audience", (context.ClientId == null) ? string.Empty : context.ClientId
+                    }
+                });
 
-            return Task.FromResult<object>(null);
-        }
-
-        public static AuthenticationProperties CreateProperties(string userName)
-        {
-            IDictionary<string, string> data = new Dictionary<string, string>
-            {
-                { "userName", userName }
-            };
-            return new AuthenticationProperties(data);
+            var ticket = new AuthenticationTicket(identity, props);
+            context.Validated(ticket);
         }
     }
 }

@@ -7,7 +7,8 @@ using Owin;
 using System;
 using System.Web.Http;
 using Ticket_Now.Authentication.App_Start;
-using Ticket_Now.Authentication.Providers;
+using Ticket_Now.Repository.Formats;
+using Ticket_Now.Repository.Providers;
 using Ticket_Now.Repository.Repositories;
 
 [assembly: OwinStartup(typeof(Ticket_Now.Authentication.Startup))]
@@ -32,17 +33,30 @@ namespace Ticket_Now.Authentication
             DataProtectionProvider = app.GetDataProtectionProvider();
 
             var config = GetInjectionConfiguration();
+            //OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
+            //{
+            //    AllowInsecureHttp = true,
+            //    TokenEndpointPath = new PathString("/token"),
+            //    AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+            //    Provider = new SimpleAuthorizationServerProvider((IAuthRepository)config.DependencyResolver.GetService(typeof(IAuthRepository)))
+            //};
+
+            //// Token Generation
+            //app.UseOAuthAuthorizationServer(OAuthServerOptions);
+            //app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
+                //For Dev enviroment only (on production should be AllowInsecureHttp = false)
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider((IAuthRepository)config.DependencyResolver.GetService(typeof(IAuthRepository)))
+                TokenEndpointPath = new PathString("/oauth2/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),
+                Provider = new ApplicationOAuthProvider((IAuthRepository)config.DependencyResolver.GetService(typeof(IAuthRepository))),
+                AccessTokenFormat = new CustomJwtFormat("http://localhost/TicketNowAuth/")
             };
 
-            // Token Generation
+            // OAuth 2.0 Bearer Access Token Generation
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
 
             WebApiConfig.Register(config);
             app.UseCors(CorsOptions.AllowAll);
