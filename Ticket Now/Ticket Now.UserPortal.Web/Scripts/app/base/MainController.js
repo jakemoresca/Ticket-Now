@@ -1,17 +1,17 @@
-﻿app.controller("MainController", ["$http", "authService", function ($http, authService)
+﻿app.controller("MainController", ["$http", "$location", "authService", "$scope", function ($http, $location, authService, $scope)
 {
     var self = this;
-    this.currentUser = authService.authentication;
+    $scope.currentUser = authService.authentication;
 
-    this.loggedIn = function()
+    this.gotoHome = function ()
     {
-        return this.currentUser.isAuth;
+        $location.path("");
     };
 
     this.logOff = function ()
     {
         authService.logOut();
-        this.currentUser = authService.authentication;
-        window.location.href = "Account/Login";
+        $scope.currentUser = authService.authentication;
+        $location.path("");
     };
 }]);

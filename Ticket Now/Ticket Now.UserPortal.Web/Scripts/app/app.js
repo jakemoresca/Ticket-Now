@@ -1,4 +1,4 @@
-﻿var app = angular.module("Blog", ["ngRoute", "LocalStorageModule", "ngSanitize"]);
+﻿var app = angular.module("Blog", ["ngRoute", "AuthModule", "LocalStorageModule", "ngSanitize"]);
 
 //var serviceBase = 'http://localhost:26264/';
 var serviceBase = 'http://localhost/TicketNowAuth/';

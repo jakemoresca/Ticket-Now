@@ -2,7 +2,6 @@
 {
     return {
         restrict: "E",
-        templateUrl: "./Content/templates/navbar.htm",
-        scope: true
+        templateUrl: "./Content/templates/navbar.htm"
     }
 });

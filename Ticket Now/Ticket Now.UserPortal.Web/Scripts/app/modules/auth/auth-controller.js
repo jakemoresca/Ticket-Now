@@ -1,4 +1,4 @@
-﻿app.controller("authController", ["$http", "$location", "authService", "ngAuthSettings", function ($http, $location, authService, ngAuthSettings) {
+﻿authModule.controller("authController", ["$http", "$location", "authService", "ngAuthSettings", function ($http, $location, authService, ngAuthSettings) {
     var self = this;
     this.loginInfo = {};
 
@@ -11,7 +11,7 @@
     {
         authService.login(this.loginInfo).then(function ()
         {
-            window.location.href = "../Home";
+            $location.path("");
         });
     };
 }]);
