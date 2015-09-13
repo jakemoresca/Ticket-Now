@@ -1,6 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Ticket_Now.Repository.Dtos;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using Ticket_Now.Repository.Daos;
 
 namespace Ticket_Now.Repository.Repositories
@@ -8,12 +12,12 @@ namespace Ticket_Now.Repository.Repositories
     public class AuthRepository : IAuthRepository
     {
         private readonly UserManager<ApplicationUserDto> _userManager;
-        private ApplicationDbContext _ctx;
+        private readonly ApplicationDbContext _ctx;
 
         public AuthRepository(UserManager<ApplicationUserDto> userManager, ApplicationDbContext ctx)
         {
-            _ctx = ctx;
             _userManager = userManager;
+            _ctx = ctx;
         }
 
         public async Task<ApplicationUserDto> FindUser(string userName, string password)
@@ -35,6 +39,26 @@ namespace Ticket_Now.Repository.Repositories
             var result = await _userManager.CreateAsync(userModel);
 
             return result;
+        }
+
+        public async Task<bool> DeleteUser(string userName)
+        {
+            var user = await _userManager.FindByNameAsync(userName);
+            var result = await _userManager.DeleteAsync(user);
+            return result.Succeeded;
+        }
+
+        public async Task<ApplicationUserDto> UpdateUser(ApplicationUserDto user)
+        {
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+                return user;
+            throw new Exception("Error occured while updating user.");
+        }
+
+        public List<ApplicationUserDto> GetAllUser()
+        {
+            return _ctx.Users.ToList();
         }
     }
 }

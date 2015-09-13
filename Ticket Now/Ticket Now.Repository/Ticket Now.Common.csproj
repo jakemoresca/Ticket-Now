@@ -116,7 +116,7 @@
     <Compile Include="Daos\IStandardDao.cs" />
     <Compile Include="Dtos\ApplicationUserDto.cs" />
     <Compile Include="Formats\CustomJwtFormat.cs" />
-    <Compile Include="IdentityConfig.cs" />
+    <Compile Include="Daos\ApplicationUserManager.cs" />
     <Compile Include="Mappers\IUserMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Migrations\201509030113007_Init.cs" />
