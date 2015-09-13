@@ -202,7 +202,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -215,6 +214,16 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\templates\admin-navbar.htm" />
+    <Content Include="Content\templates\footer.htm" />
+    <Content Include="Content\templates\home.htm" />
+    <Content Include="Content\templates\login.htm" />
+    <Content Include="Content\templates\navbar.htm" />
+    <Content Include="Content\templates\post-create.htm" />
+    <Content Include="Content\templates\post-edit.htm" />
+    <Content Include="Content\templates\post.htm" />
+    <Content Include="Content\templates\posts.htm" />
+    <Content Include="Content\templates\sidebar.htm" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -224,6 +233,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\base\AdminController.js" />
+    <Content Include="Scripts\app\base\directives\admin-navbar.js" />
+    <Content Include="Scripts\app\base\directives\footer.js" />
+    <Content Include="Scripts\app\base\directives\loginForm.js" />
+    <Content Include="Scripts\app\base\directives\navbar.js" />
+    <Content Include="Scripts\app\base\directives\post.js" />
+    <Content Include="Scripts\app\base\directives\sidebar.js" />
+    <Content Include="Scripts\app\base\MainController.js" />
+    <Content Include="Scripts\app\base\MeController.js" />
+    <Content Include="Scripts\app\modules\auth\auth-controller.js" />
+    <Content Include="Scripts\app\modules\auth\auth-interceptor-service.js" />
+    <Content Include="Scripts\app\modules\auth\auth-module.js" />
+    <Content Include="Scripts\app\modules\auth\auth-service.js" />
+    <Content Include="Scripts\app\modules\post\post-controller.js" />
+    <Content Include="Scripts\app\modules\post\post-create-controller.js" />
+    <Content Include="Scripts\app\modules\post\post-detail-controller.js" />
+    <Content Include="Scripts\app\modules\post\post-module.js" />
+    <Content Include="Scripts\app\modules\post\post-service.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include=".bowerrc" />
     <Content Include="bower.json" />
@@ -1007,6 +1035,11 @@
     <Content Include="Scripts\lib\angular-full\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\lib\angular-full\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\lib\angular-full\version.txt" />
+    <Content Include="Scripts\lib\angular-local-storage\demo\demo-app.js" />
+    <Content Include="Scripts\lib\angular-local-storage\demo\demo-style.css" />
+    <Content Include="Scripts\lib\angular-local-storage\demo\demo.html" />
+    <Content Include="Scripts\lib\angular-local-storage\dist\angular-local-storage.js" />
+    <Content Include="Scripts\lib\angular-local-storage\dist\angular-local-storage.min.js" />
     <Content Include="Scripts\lib\bootstrap-theme-cosmo\cosmo.min.css" />
     <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
@@ -3582,10 +3615,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\lib\angular-ckeditor\.bower.json" />
     <Content Include="Scripts\lib\angular-ckeditor\angular-ckeditor.min.map" />
@@ -3724,6 +3754,16 @@
     <Content Include="Scripts\lib\underscore\LICENSE" />
     <Content Include="Scripts\lib\underscore\README.md" />
     <Content Include="Scripts\lib\underscore\underscore-min.map" />
+    <Content Include="Scripts\lib\angular-local-storage\.bower.json" />
+    <Content Include="Scripts\lib\angular-local-storage\.bowerrc" />
+    <Content Include="Scripts\lib\angular-local-storage\.gitattributes" />
+    <Content Include="Scripts\lib\angular-local-storage\.gitignore" />
+    <Content Include="Scripts\lib\angular-local-storage\.travis.yml" />
+    <Content Include="Scripts\lib\angular-local-storage\bower.json" />
+    <Content Include="Scripts\lib\angular-local-storage\CHANGELOG.md" />
+    <Content Include="Scripts\lib\angular-local-storage\LICENSE" />
+    <Content Include="Scripts\lib\angular-local-storage\package.json" />
+    <Content Include="Scripts\lib\angular-local-storage\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

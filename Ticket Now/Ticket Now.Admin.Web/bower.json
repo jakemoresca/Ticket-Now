@@ -1,9 +1,10 @@
 {
-	"name": "ASP.NET",
+  "name": "ASP.NET",
   "private": true,
   "dependencies": {
     "jQuery": "*",
     "angular-full": "*",
+    "angular-local-storage": "*",
     "underscore": "*",
     "ckeditor": "*",
     "angular-ckeditor": "*",
