@@ -3,7 +3,6 @@ using Microsoft.AspNet.Identity;
 using Ticket_Now.Repository.Dtos;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using Ticket_Now.Repository.Daos;
 

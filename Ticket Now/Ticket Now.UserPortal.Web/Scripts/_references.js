@@ -6,7 +6,6 @@
 /// <reference path="app/base/directives/loginForm.js" />
 /// <reference path="app/base/directives/navbar.js" />
 /// <reference path="app/base/directives/post.js" />
-/// <reference path="app/base/directives/sidebar.js" />
 /// <reference path="app/base/maincontroller.js" />
 /// <reference path="app/base/mecontroller.js" />
 /// <reference path="app/modules/auth/auth-controller.js" />

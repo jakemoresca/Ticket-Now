@@ -245,7 +245,6 @@
     <Content Include="Scripts\app\base\directives\loginForm.js" />
     <Content Include="Scripts\app\base\directives\navbar.js" />
     <Content Include="Scripts\app\base\directives\post.js" />
-    <Content Include="Scripts\app\base\directives\sidebar.js" />
     <Content Include="Scripts\app\modules\auth\auth-module.js" />
     <Content Include="Scripts\app\modules\auth\auth-service.js" />
     <Content Include="Scripts\app\modules\auth\auth-controller.js" />

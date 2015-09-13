@@ -1,16 +1,24 @@
-﻿var app = angular.module("TicketNowAdmin", ["ngRoute", "AuthModule", "LocalStorageModule", "ngSanitize"]);
+﻿var app = angular.module("TicketNowAdmin", ["ngRoute", "AuthModule", "UserModule", "LocalStorageModule", "ngSanitize"]);
 
-//var serviceBase = 'http://localhost:26264/';
-var serviceBase = 'http://localhost/TicketNowAuth/';
-app.constant('ngAuthSettings', {
+var serviceBase = "http://localhost/TicketNowAuth/";
+app.constant("ngAuthSettings", {
     apiServiceBaseUri: serviceBase,
-    clientId: 'ngAuthApp'
+    clientId: "ngAuthApp"
+});
+
+var adminServiceBase = "http://localhost/TicketNow-Admin-Api/";
+app.constant("ngAdminApiSettings", {
+    apiServiceBaseUri: adminServiceBase
 });
 
 app.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('authInterceptorService');
+    $httpProvider.interceptors.push("authInterceptorService");
 });
 
-app.run(['authService', function (authService) {
+app.run(["authService", function (authService) {
     authService.fillAuthData();
+}]);
+
+app.run(["userService", function (userService) {
+    userService.getUsers();
 }]);

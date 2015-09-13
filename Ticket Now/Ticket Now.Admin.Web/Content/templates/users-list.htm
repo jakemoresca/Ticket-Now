@@ -1,0 +1,19 @@
+﻿<div class="page-header">
+    <h1>Users</h1>
+</div>
+<table class="col-md-9">
+    <thead>
+    <tr>
+        <th class="col-md-3">UserName</th>
+        <th class="col-md-3">HomeTown</th>
+        <th class="col-md-3">ZipCode</th>
+    </tr>
+    </thead>
+    <tbody ng-repeat="user in userCtrl.userList">
+        <tr>
+            <td class="col-md-3">{{user.UserName}}</td>
+            <td class="col-md-3">{{user.HomeTown}}</td>
+            <td class="col-md-3">{{user.ZipCode}}</td>
+        </tr>
+    </tbody>
+</table>

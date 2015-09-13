@@ -12,8 +12,10 @@
 </head>
 <body ng-controller="MainController as main">
     <navigation-bar></navigation-bar>
-    <div ng-view class="container"></div>
-
+    <div class="container-fluid">
+        <div ng-view class="container"></div>
+    </div>
+   
     <!-- Libraries -->
     <script src="~/Scripts/lib/angular-full/angular.js"></script>
     <script src="~/Scripts/lib/angular-full/angular-route.min.js"></script>
@@ -38,15 +40,15 @@
     <script src="~/Scripts/app/modules/auth/auth-interceptor-service.js"></script>
     <script src="~/Scripts/app/modules/auth/auth-controller.js"></script>
 
-    @*<script src="/js/modules/post/post-module.js"></script>
-        <script src="/js/modules/post/post-service.js"></script>
-        <script src="/js/modules/post/post-controller.js"></script>
-        <script src="/js/modules/post/post-detail-controller.js"></script>
-        <script src="/js/modules/post/post-create-controller.js"></script>*@
+<script src="~/Scripts/app/modules/users/user-module.js"></script>
+    <script src="~/Scripts/app/modules/users/user-service.js"></script>
+<script src="~/Scripts/app/modules/users/user-controller.js"></script>
+
     <!-- Directives -->
     <script src="~/Scripts/app/base/directives/navbar.js"></script>
     <script src="~/Scripts/app/base/directives/footer.js"></script>
     <script src="~/Scripts/app/base/directives/loginForm.js"></script>
+<script src="~/Scripts/app/base/directives/user-row.js"></script>
     <foot-bar></foot-bar>
 </body>
 </html>
