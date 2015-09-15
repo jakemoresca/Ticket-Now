@@ -1,0 +1,23 @@
+﻿<button type="button" class="btn btn-primary btn-sm">
+    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+</button>
+<table class="table table-striped table-responsive">
+    <thead>
+        <tr>
+            <th></th>
+            <th>UserName</th>
+            <th>HomeTown</th>
+            <th>ZipCode</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="user in userCtrl.userList">
+        <tr>
+            <td>
+                <input type="checkbox" name="UserName" ng-model="user.forDeletion" />
+            </td>
+            <td ng-bind="user.UserName"></td>
+            <td ng-bind="user.HomeTown"></td>
+            <td ng-bind="user.ZipCode"></td>
+        </tr>
+    </tbody>
+</table>

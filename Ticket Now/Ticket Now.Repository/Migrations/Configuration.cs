@@ -1,3 +1,4 @@
+using Microsoft.AspNet.Identity;
 using System.Data.Entity.Migrations;
 using Ticket_Now.Repository.Daos;
 using Ticket_Now.Repository.Dtos;
@@ -15,13 +16,15 @@ namespace Ticket_Now.Repository.Migrations
         {
             //  This method will be called after migrating to the latest version.
 
+            var passwordHasher = new PasswordHasher();
+
             context.Users.AddOrUpdate(new ApplicationUserDto
             {
                 Id = "575a5d27-c1af-4ace-b643-e3f90e71f56c",
                 Hometown = "Cainta",
                 Email = "jmoresca@gmail.com",
                 EmailConfirmed = false,
-                PasswordHash ="AEwUF5CTBh1yKsTqZzbD22CwffWl7mXqksr4kDIISbZczUPmtUgfWMq5L4Ds/6L0HQ==",
+                PasswordHash = passwordHasher.HashPassword("1234"),
                 SecurityStamp = "6fd7dd4a-a0ca-47dc-8863-05c5d9fa5139",
                 UserName = "jmoresca@gmail.com",
                 ZipCode = 1900

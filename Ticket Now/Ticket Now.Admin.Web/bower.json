@@ -9,6 +9,7 @@
     "ckeditor": "*",
     "angular-ckeditor": "*",
     "bootstrap": "*",
-    "bootstrap-theme-cosmo": "*"
+    "bootstrap-theme-cosmo": "*",
+    "restangular": "*"
   }
 }

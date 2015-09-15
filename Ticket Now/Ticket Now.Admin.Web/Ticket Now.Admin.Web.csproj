@@ -231,7 +231,7 @@
     <Content Include="Content\templates\post-edit.htm" />
     <Content Include="Content\templates\post.htm" />
     <Content Include="Content\templates\sidebar.htm" />
-    <Content Include="Content\templates\user-row.htm" />
+    <Content Include="Content\templates\user-table.htm" />
     <Content Include="Content\templates\users-list.htm" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -246,7 +246,7 @@
     <Content Include="Scripts\app\base\AdminController.js" />
     <Content Include="Scripts\app\base\directives\footer.js" />
     <Content Include="Scripts\app\base\directives\loginForm.js" />
-    <Content Include="Scripts\app\base\directives\user-row.js" />
+    <Content Include="Scripts\app\base\directives\user-table.js" />
     <Content Include="Scripts\app\base\directives\navbar.js" />
     <Content Include="Scripts\app\base\directives\post.js" />
     <Content Include="Scripts\app\base\MainController.js" />
@@ -1046,6 +1046,10 @@
     <Content Include="Scripts\lib\angular-local-storage\demo\demo.html" />
     <Content Include="Scripts\lib\angular-local-storage\dist\angular-local-storage.js" />
     <Content Include="Scripts\lib\angular-local-storage\dist\angular-local-storage.min.js" />
+    <Content Include="Scripts\lib\angular\angular-csp.css" />
+    <Content Include="Scripts\lib\angular\angular.js" />
+    <Content Include="Scripts\lib\angular\angular.min.js" />
+    <Content Include="Scripts\lib\angular\index.js" />
     <Content Include="Scripts\lib\bootstrap-theme-cosmo\cosmo.min.css" />
     <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
@@ -3606,6 +3610,15 @@
     <Content Include="Scripts\lib\jQuery\src\var\support.js" />
     <Content Include="Scripts\lib\jQuery\src\var\toString.js" />
     <Content Include="Scripts\lib\jQuery\src\wrap.js" />
+    <Content Include="Scripts\lib\lodash\lodash.js" />
+    <Content Include="Scripts\lib\lodash\lodash.min.js" />
+    <Content Include="Scripts\lib\restangular\dist\restangular.js" />
+    <Content Include="Scripts\lib\restangular\dist\restangular.min.js" />
+    <Content Include="Scripts\lib\restangular\Gruntfile.js" />
+    <Content Include="Scripts\lib\restangular\karma.conf.js" />
+    <Content Include="Scripts\lib\restangular\karma.underscore.conf.js" />
+    <Content Include="Scripts\lib\restangular\src\restangular.js" />
+    <Content Include="Scripts\lib\restangular\test\restangularSpec.js" />
     <Content Include="Scripts\lib\underscore\underscore-min.js" />
     <Content Include="Scripts\lib\underscore\underscore.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -3770,6 +3783,27 @@
     <Content Include="Scripts\lib\angular-local-storage\LICENSE" />
     <Content Include="Scripts\lib\angular-local-storage\package.json" />
     <Content Include="Scripts\lib\angular-local-storage\README.md" />
+    <Content Include="Scripts\lib\angular\.bower.json" />
+    <Content Include="Scripts\lib\angular\angular.min.js.gzip" />
+    <Content Include="Scripts\lib\angular\angular.min.js.map" />
+    <Content Include="Scripts\lib\angular\bower.json" />
+    <Content Include="Scripts\lib\angular\package.json" />
+    <Content Include="Scripts\lib\angular\README.md" />
+    <Content Include="Scripts\lib\lodash\.bower.json" />
+    <Content Include="Scripts\lib\lodash\bower.json" />
+    <Content Include="Scripts\lib\lodash\LICENSE" />
+    <Content Include="Scripts\lib\restangular\.bower.json" />
+    <Content Include="Scripts\lib\restangular\.editorconfig" />
+    <Content Include="Scripts\lib\restangular\.gitignore" />
+    <Content Include="Scripts\lib\restangular\.jshintrc" />
+    <Content Include="Scripts\lib\restangular\.travis.yml" />
+    <Content Include="Scripts\lib\restangular\bower.json" />
+    <Content Include="Scripts\lib\restangular\CHANGELOG.md" />
+    <Content Include="Scripts\lib\restangular\CONTRIBUTE.md" />
+    <Content Include="Scripts\lib\restangular\dist\restangular.zip" />
+    <Content Include="Scripts\lib\restangular\license.md" />
+    <Content Include="Scripts\lib\restangular\package.json" />
+    <Content Include="Scripts\lib\restangular\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
