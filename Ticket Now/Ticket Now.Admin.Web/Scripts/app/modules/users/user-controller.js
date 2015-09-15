@@ -2,4 +2,12 @@
     var self = this;
     this.userList = userService.userList;
     
+    this.deleteUsers = function ()
+    {
+        var forDeletionUsers = _.where(self.userList, { forDeletion: true });
+        _.each(forDeletionUsers, function (user)
+        {
+            alert(user.UserName);
+        })
+    };
 }]);
