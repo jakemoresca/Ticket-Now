@@ -30,6 +30,19 @@ namespace Ticket_Now.Repository.Migrations
                 ZipCode = 1900
             });
 
+            context.Users.AddOrUpdate(new ApplicationUserDto
+            {
+                Id = "E3C317FE-CB45-4B07-ABAF-78AC649A695E",
+                Hometown = "Cainta",
+                Email = "dummy@dummy.com",
+                EmailConfirmed = false,
+                PasswordHash = passwordHasher.HashPassword("1234"),
+                SecurityStamp = "59EA4DD2-B4A0-4384-A971-CFA40FA0D181",
+                UserName = "dummy@dummy.com",
+                ZipCode = 1900
+            });
+
+
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //

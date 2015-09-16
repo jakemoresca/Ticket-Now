@@ -9,7 +9,7 @@ using Ticket_Now.Repository.Repositories;
 
 namespace Ticket_Now.Admin.Api.Controllers
 {
-    [RoutePrefix("api/User")]
+    [RoutePrefix("User")]
     public class UserController : ApiController
     {
         private readonly IAuthRepository _authRepository;
@@ -57,6 +57,7 @@ namespace Ticket_Now.Admin.Api.Controllers
         }
 
         [HttpDelete]
+        [Route("User/{username}")]
         [Authorize]
         public async Task<bool> Delete(string username)
         {

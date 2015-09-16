@@ -6,16 +6,26 @@ function ($http, $q, localStorageService, ngAdminApiSettings, Restangular) {
     Restangular.setBaseUrl(ngAdminApiSettings.apiServiceBaseUri);
     var baseUsers = Restangular.all('User');
 
-    var authServiceFactory = {};
+    var userServiceFactory = {};
 
     var userList = {};
 
-    var getUsers = function () {
-        authServiceFactory.userList = Restangular.all('User').getList().$object;
+    var getUsers = function ()
+    {
+        userServiceFactory.userList = Restangular.all('User').getList().$object;
     }
 
-    authServiceFactory.getUsers = getUsers;
-    authServiceFactory.userList = userList;
+    var deleteUser = function (user)
+    {
+        Restangular.one("User", user.UserName).remove().then(function () {
+            var index = userServiceFactory.userList.indexOf(product);
+            if (index > -1) userServiceFactory.userList.splice(index, 1);
+        });
+    }
 
-    return authServiceFactory;
+    userServiceFactory.getUsers = getUsers;
+    userServiceFactory.userList = userList;
+    userServiceFactory.deleteUser = deleteUser;
+
+    return userServiceFactory;
 }]);

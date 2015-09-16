@@ -7,7 +7,7 @@
         var forDeletionUsers = _.where(self.userList, { forDeletion: true });
         _.each(forDeletionUsers, function (user)
         {
-            alert(user.UserName);
+            userService.deleteUser(user);
         })
     };
 }]);
