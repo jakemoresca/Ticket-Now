@@ -11,6 +11,12 @@ var userModule = angular.module("UserModule", [
 
 userModule.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider) {
     $routeProvider
+        .when("/Users/Create",
+        {
+            templateUrl: "Content/templates/user-create.htm",
+            controller: "userCreateController",
+            controllerAs: "userCtrl"
+        })
         .when("/Users",
         {
             templateUrl: "Content/templates/users-list.htm",

@@ -57,8 +57,8 @@ namespace Ticket_Now.Admin.Api.Controllers
         }
 
         [HttpDelete]
-        [Route("User/{username}")]
         [Authorize]
+        [Route("{username}")]
         public async Task<bool> Delete(string username)
         {
             return await _authRepository.DeleteUser(username);

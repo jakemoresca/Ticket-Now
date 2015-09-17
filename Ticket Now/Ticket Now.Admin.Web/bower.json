@@ -5,6 +5,7 @@
     "jQuery": "*",
     "angular-full": "*",
     "angular-local-storage": "*",
+    "angular-loading-bar": "*",
     "underscore": "*",
     "ckeditor": "*",
     "angular-ckeditor": "*",

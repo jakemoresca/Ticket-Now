@@ -18,14 +18,22 @@ function ($http, $q, localStorageService, ngAdminApiSettings, Restangular) {
     var deleteUser = function (user)
     {
         Restangular.one("User", user.UserName).remove().then(function () {
-            var index = userServiceFactory.userList.indexOf(product);
+            var index = userServiceFactory.userList.indexOf(user);
             if (index > -1) userServiceFactory.userList.splice(index, 1);
         });
+    }
+
+    var createUser = function (newUser)
+    {
+        baseUsers.post(newUser).then(function (result) {
+            userServiceFactory.userList.push(result);
+        })
     }
 
     userServiceFactory.getUsers = getUsers;
     userServiceFactory.userList = userList;
     userServiceFactory.deleteUser = deleteUser;
+    userServiceFactory.createUser = createUser;
 
     return userServiceFactory;
 }]);

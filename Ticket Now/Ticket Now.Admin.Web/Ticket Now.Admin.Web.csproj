@@ -231,6 +231,7 @@
     <Content Include="Content\templates\post-edit.htm" />
     <Content Include="Content\templates\post.htm" />
     <Content Include="Content\templates\sidebar.htm" />
+    <Content Include="Content\templates\user-create.htm" />
     <Content Include="Content\templates\user-table.htm" />
     <Content Include="Content\templates\users-list.htm" />
     <Content Include="favicon.ico" />
@@ -256,6 +257,7 @@
     <Content Include="Scripts\app\modules\users\user-controller.js" />
     <Content Include="Scripts\app\modules\auth\auth-interceptor-service.js" />
     <Content Include="Scripts\app\modules\auth\auth-module.js" />
+    <Content Include="Scripts\app\modules\users\user-create-controller.js" />
     <Content Include="Scripts\app\modules\users\user-service.js" />
     <Content Include="Scripts\app\modules\users\user-module.js" />
     <Content Include="Scripts\errors.json" />
@@ -1041,6 +1043,14 @@
     <Content Include="Scripts\lib\angular-full\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\lib\angular-full\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\lib\angular-full\version.txt" />
+    <Content Include="Scripts\lib\angular-loading-bar\build\loading-bar.css" />
+    <Content Include="Scripts\lib\angular-loading-bar\build\loading-bar.js" />
+    <Content Include="Scripts\lib\angular-loading-bar\build\loading-bar.min.css" />
+    <Content Include="Scripts\lib\angular-loading-bar\build\loading-bar.min.js" />
+    <Content Include="Scripts\lib\angular-loading-bar\Gruntfile.js" />
+    <Content Include="Scripts\lib\angular-loading-bar\index.js" />
+    <Content Include="Scripts\lib\angular-loading-bar\src\loading-bar.css" />
+    <Content Include="Scripts\lib\angular-loading-bar\src\loading-bar.js" />
     <Content Include="Scripts\lib\angular-local-storage\demo\demo-app.js" />
     <Content Include="Scripts\lib\angular-local-storage\demo\demo-style.css" />
     <Content Include="Scripts\lib\angular-local-storage\demo\demo.html" />
@@ -3804,6 +3814,12 @@
     <Content Include="Scripts\lib\restangular\license.md" />
     <Content Include="Scripts\lib\restangular\package.json" />
     <Content Include="Scripts\lib\restangular\README.md" />
+    <Content Include="Scripts\lib\angular-loading-bar\.bower.json" />
+    <Content Include="Scripts\lib\angular-loading-bar\bower.json" />
+    <Content Include="Scripts\lib\angular-loading-bar\CHANGELOG.md" />
+    <Content Include="Scripts\lib\angular-loading-bar\LICENSE" />
+    <Content Include="Scripts\lib\angular-loading-bar\package.json" />
+    <Content Include="Scripts\lib\angular-loading-bar\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
