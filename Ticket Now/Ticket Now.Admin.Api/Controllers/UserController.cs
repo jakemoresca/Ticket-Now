@@ -50,7 +50,8 @@ namespace Ticket_Now.Admin.Api.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<UserModel> Put([FromBody] UserModel user)
+        [Route("{username}")]
+        public async Task<UserModel> Put([FromBody] UserModel user, string username)
         {
             var updatedUserDto = await _authRepository.UpdateUser(_userMapper.ToDto(user));
             return _userMapper.ToModel(updatedUserDto);

@@ -47,8 +47,13 @@ namespace Ticket_Now.Repository.Repositories
             return result.Succeeded;
         }
 
-        public async Task<ApplicationUserDto> UpdateUser(ApplicationUserDto user)
+        public async Task<ApplicationUserDto> UpdateUser(ApplicationUserDto updatedUser)
         {
+            var user = await _userManager.FindByNameAsync(updatedUser.UserName);
+            user.PasswordHash = updatedUser.PasswordHash;
+            user.Hometown = updatedUser.Hometown;
+            user.ZipCode = updatedUser.ZipCode;
+
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
                 return user;

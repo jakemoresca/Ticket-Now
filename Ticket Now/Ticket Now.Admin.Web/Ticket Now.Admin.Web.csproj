@@ -231,6 +231,7 @@
     <Content Include="Content\templates\post-edit.htm" />
     <Content Include="Content\templates\post.htm" />
     <Content Include="Content\templates\sidebar.htm" />
+    <Content Include="Content\templates\user-edit.htm" />
     <Content Include="Content\templates\user-create.htm" />
     <Content Include="Content\templates\user-table.htm" />
     <Content Include="Content\templates\users-list.htm" />
@@ -258,6 +259,7 @@
     <Content Include="Scripts\app\modules\auth\auth-interceptor-service.js" />
     <Content Include="Scripts\app\modules\auth\auth-module.js" />
     <Content Include="Scripts\app\modules\users\user-create-controller.js" />
+    <Content Include="Scripts\app\modules\users\user-edit-controller.js" />
     <Content Include="Scripts\app\modules\users\user-service.js" />
     <Content Include="Scripts\app\modules\users\user-module.js" />
     <Content Include="Scripts\errors.json" />

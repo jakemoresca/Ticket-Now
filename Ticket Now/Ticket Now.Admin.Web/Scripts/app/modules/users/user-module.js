@@ -17,6 +17,11 @@ userModule.config(["$routeProvider", "$locationProvider", function ($routeProvid
             controller: "userCreateController",
             controllerAs: "userCtrl"
         })
+        .when("/Users/:userName", {
+            templateUrl: "Content/templates/user-edit.htm",
+            controller: "userEditController",
+            controllerAs: "userCtrl"
+        })
         .when("/Users",
         {
             templateUrl: "Content/templates/users-list.htm",

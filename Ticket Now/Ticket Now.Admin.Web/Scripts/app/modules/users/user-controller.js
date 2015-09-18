@@ -10,4 +10,9 @@
             userService.deleteUser(user);
         })
     };
+
+    this.editUser = function(user)
+    {
+        $location.path("/Users/" + user.UserName);
+    }
 }]);

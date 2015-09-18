@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Admin", "Admin", "{5D43B3DC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket Now.Authentication", "Ticket Now.Authentication\Ticket Now.Authentication.csproj", "{3D57707F-8D91-47CF-875B-80F39C24DF4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket Now.Admin.Api.Tests", "Ticket Now.AdminPortal.Api.Tests\Ticket Now.Admin.Api.Tests.csproj", "{F332A60A-563D-419B-B32A-45190EF58B76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{3D57707F-8D91-47CF-875B-80F39C24DF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D57707F-8D91-47CF-875B-80F39C24DF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D57707F-8D91-47CF-875B-80F39C24DF4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F332A60A-563D-419B-B32A-45190EF58B76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F332A60A-563D-419B-B32A-45190EF58B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F332A60A-563D-419B-B32A-45190EF58B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F332A60A-563D-419B-B32A-45190EF58B76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,9 +77,10 @@ Global
 		{D5722F08-1D54-4935-861F-A095DE030D15} = {5D43B3DC-4314-49F3-80D4-58BC7B66F404}
 		{29D3D5BD-3F88-45DF-B211-85F63D5B2FC3} = {6E53C84F-DB78-4F14-9D07-4BD0430C9405}
 		{3D57707F-8D91-47CF-875B-80F39C24DF4A} = {6E53C84F-DB78-4F14-9D07-4BD0430C9405}
+		{F332A60A-563D-419B-B32A-45190EF58B76} = {C2551FC3-26AE-4967-B9CF-001AEBCE3728}
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
+		SccNumberOfProjects = 9
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://jakemoresca.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -105,5 +112,9 @@ Global
 		SccProjectTopLevelParentUniqueName7 = Ticket\u0020Now.sln
 		SccProjectName7 = Ticket\u0020Now.Authentication
 		SccLocalPath7 = Ticket\u0020Now.Authentication
+		SccProjectUniqueName8 = Ticket\u0020Now.AdminPortal.Api.Tests\\Ticket\u0020Now.Admin.Api.Tests.csproj
+		SccProjectTopLevelParentUniqueName8 = Ticket\u0020Now.sln
+		SccProjectName8 = Ticket\u0020Now.AdminPortal.Api.Tests
+		SccLocalPath8 = Ticket\u0020Now.AdminPortal.Api.Tests
 	EndGlobalSection
 EndGlobal

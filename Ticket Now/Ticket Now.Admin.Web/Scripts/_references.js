@@ -14,6 +14,7 @@
 /// <reference path="app/modules/auth/auth-service.js" />
 /// <reference path="app/modules/users/user-controller.js" />
 /// <reference path="app/modules/users/user-create-controller.js" />
+/// <reference path="app/modules/users/user-edit-controller.js" />
 /// <reference path="app/modules/users/user-module.js" />
 /// <reference path="app/modules/users/user-service.js" />
 /// <reference path="jquery.validate.js" />
