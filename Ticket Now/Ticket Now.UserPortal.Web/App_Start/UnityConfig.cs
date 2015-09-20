@@ -41,6 +41,7 @@ namespace Ticket_Now.UserPortal.Web.App_Start
 
             //Mapper
             unityContainer.RegisterType<IUserMapper, UserMapper>();
+            unityContainer.RegisterType<IClaimMapper, ClaimMapper>();
         }
     }
 }

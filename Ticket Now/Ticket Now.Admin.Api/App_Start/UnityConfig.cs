@@ -42,6 +42,7 @@ namespace Ticket_Now.Admin.Api
 
             //Mapper
             unityContainer.RegisterType<IUserMapper, UserMapper>();
+            unityContainer.RegisterType<IClaimMapper, ClaimMapper>();
         }
     }
 }

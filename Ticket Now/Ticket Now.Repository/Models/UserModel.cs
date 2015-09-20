@@ -1,4 +1,6 @@
-﻿namespace Ticket_Now.Repository.Models
+﻿using System.Collections.Generic;
+
+namespace Ticket_Now.Repository.Models
 {
     public class UserModel
     {
@@ -6,5 +8,7 @@
         public int ZipCode { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
+
+        public List<Claim> Claims { get; set; }
     }
 }

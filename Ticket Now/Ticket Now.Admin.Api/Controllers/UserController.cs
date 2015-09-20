@@ -64,5 +64,7 @@ namespace Ticket_Now.Admin.Api.Controllers
         {
             return await _authRepository.DeleteUser(username);
         }
+
+
     }
 }

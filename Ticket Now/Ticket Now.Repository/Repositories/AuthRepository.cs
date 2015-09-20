@@ -3,7 +3,11 @@ using Microsoft.AspNet.Identity;
 using Ticket_Now.Repository.Dtos;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Practices.ObjectBuilder2;
 using Ticket_Now.Repository.Daos;
 
 namespace Ticket_Now.Repository.Repositories
@@ -22,7 +26,7 @@ namespace Ticket_Now.Repository.Repositories
         public async Task<ApplicationUserDto> FindUser(string userName, string password)
         {
             var user = await _userManager.FindAsync(userName, password);
-
+            
             return user;
         }
 
@@ -54,6 +58,35 @@ namespace Ticket_Now.Repository.Repositories
             user.Hometown = updatedUser.Hometown;
             user.ZipCode = updatedUser.ZipCode;
 
+            #region claims removal
+            var claimsToRemove = new List<IdentityUserClaim>();
+
+            user.Claims.ForEach(c =>
+            {
+                if (IsClaimRemoved(c, updatedUser.Claims))
+                    claimsToRemove.Add(c);
+            });
+
+
+
+            claimsToRemove.ForEach(c =>
+            {
+                user.Claims.Remove(c);
+
+                _ctx.Database.ExecuteSqlCommand("DELETE AspNetUserClaims WHERE ClaimType = @Type AND UserId = @UserId",
+                    new SqlParameter("@Type", c.ClaimType),
+                    new SqlParameter("@UserId", user.Id));
+            });
+            #endregion
+
+            #region claims insertion
+            updatedUser.Claims.ForEach(c =>
+            {
+                if (IsNewClaim(c))
+                    user.Claims.Add(c);
+            });
+            #endregion
+
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
                 return user;
@@ -63,6 +96,40 @@ namespace Ticket_Now.Repository.Repositories
         public List<ApplicationUserDto> GetAllUser()
         {
             return _ctx.Users.ToList();
+        }
+
+        private bool IsNewClaim(IdentityUserClaim claim)
+        {
+            return claim.Id == 0;
+        }
+
+        private bool IsClaimRemoved(IdentityUserClaim claim, IEnumerable<IdentityUserClaim> updatedClaims)
+        {
+            return updatedClaims.All(uc => uc.ClaimType != claim.ClaimType);
+        }
+
+        public async Task<IdentityUserClaim> AddUserClaim(IdentityUserClaim claim, string userName)
+        {
+            var user = await _userManager.FindByEmailAsync(userName);
+            if (user.Claims.All(uc => uc.ClaimType != claim.ClaimType))
+                user.Claims.Add(claim);
+            else
+                throw new Exception("Claims already exists.");
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+                return user.Claims.FirstOrDefault(cu => cu.ClaimType == claim.ClaimType);
+            throw new Exception("An Error occured while adding user claim");
+        }
+
+        public async Task<bool> DeleteUserClaim(int userClaimId, string userName)
+        {
+            var user = await _userManager.FindByEmailAsync(userName);
+            var userClaim = user.Claims.FirstOrDefault(uc => uc.Id == userClaimId);
+            user.Claims.Remove(userClaim);
+
+            var result = await _userManager.UpdateAsync(user);
+            return result.Succeeded;
         }
     }
 }

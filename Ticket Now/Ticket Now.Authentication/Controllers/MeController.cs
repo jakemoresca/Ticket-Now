@@ -26,7 +26,7 @@ namespace Ticket_Now.Authentication.Controllers
         public async Task<UserModel> Get()
         {
             var identity = (ClaimsIdentity)User.Identity;
-            IEnumerable<Claim> claims = identity.Claims;
+            IEnumerable<System.Security.Claims.Claim> claims = identity.Claims;
 
             var user = await _authRepository.FindByName(IdentityHelper.GetUserNameFromClaims(claims));
             return _userMapper.ToModel(user);

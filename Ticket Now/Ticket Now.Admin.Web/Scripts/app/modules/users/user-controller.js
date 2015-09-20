@@ -8,7 +8,7 @@
         _.each(forDeletionUsers, function (user)
         {
             userService.deleteUser(user);
-        })
+        });
     };
 
     this.editUser = function(user)

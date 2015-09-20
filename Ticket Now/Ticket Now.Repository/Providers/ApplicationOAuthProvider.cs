@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using Ticket_Now.Repository.Dtos;
+using Microsoft.Practices.ObjectBuilder2;
 using Ticket_Now.Repository.Repositories;
 
 namespace Ticket_Now.Repository.Providers
@@ -22,9 +19,9 @@ namespace Ticket_Now.Repository.Providers
 
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
-            string clientId = string.Empty;
-            string clientSecret = string.Empty;
-            string symmetricKeyAsBase64 = string.Empty;
+            string clientId;
+            string clientSecret;
+            var symmetricKeyAsBase64 = string.Empty;
 
             if (!context.TryGetBasicCredentials(out clientId, out clientSecret))
             {
@@ -41,7 +38,7 @@ namespace Ticket_Now.Repository.Providers
 
             if (audience == null)
             {
-                context.SetError("invalid_clientId", string.Format("Invalid client_id '{0}'", context.ClientId));
+                context.SetError("invalid_clientId", $"Invalid client_id '{context.ClientId}'");
                 return Task.FromResult<object>(null);
             }
 
@@ -54,7 +51,7 @@ namespace Ticket_Now.Repository.Providers
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            ApplicationUserDto user = await _authRepository.FindUser(context.UserName, context.Password);
+            var user = await _authRepository.FindUser(context.UserName, context.Password);
 
             if (user == null)
             {
@@ -66,13 +63,18 @@ namespace Ticket_Now.Repository.Providers
 
             identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
             identity.AddClaim(new Claim("sub", context.UserName));
-            identity.AddClaim(new Claim(ClaimTypes.Role, "Manager"));
-            identity.AddClaim(new Claim(ClaimTypes.Role, "Supervisor"));
+            user.Claims.ForEach(uc =>
+            {
+                identity.AddClaim(new Claim(uc.ClaimType, uc.ClaimValue));
+            });
+
+            //identity.AddClaim(new Claim(ClaimTypes.Role, "Manager"));
+            //identity.AddClaim(new Claim(ClaimTypes.Role, "Supervisor"));
 
             var props = new AuthenticationProperties(new Dictionary<string, string>
                 {
                     {
-                         "audience", (context.ClientId == null) ? string.Empty : context.ClientId
+                         "audience", context.ClientId ?? string.Empty
                     }
                 });
 
