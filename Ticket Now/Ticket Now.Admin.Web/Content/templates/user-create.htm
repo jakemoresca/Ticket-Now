@@ -4,43 +4,49 @@
             <div class="page-header">
                 <h1>Create User</h1>
             </div>
-            <div class="form-group" ng-class="{ 'has-error' : userForm.userName.$invalid && !userForm.userName.$pristine }">
-                <label for="userName" class="col-sm-3 control-label">UserName (Email) :</label>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.userName.$invalid }">
+                <label for="userName" class="col-sm-3 control-label">UserName (Email) : *</label>
                 <div class="col-sm-9">
-                    <input id="userName" name="userName" type="email" class="form-control" ng-model="UserName" placeholder="Email" required />
+                    <input id="userName" name="userName" type="email" class="form-control" ng-model="user.UserName" placeholder="Email" required />
                 </div>
             </div>
-            <div class="form-group" ng-class="{ 'has-error': userForm.Password.$invalid && !userForm.Password.$pristine }">
-                <label for="passWord" class="col-sm-3 control-label">Password :</label>
+            <div class="form-group" ng-class="{ 'has-error': userForm.passWord.$invalid }">
+                <label for="passWord" class="col-sm-3 control-label">Password : *</label>
                 <div class="col-sm-9">
-                    <input id="passWord" name="passWord" type="password" class="form-control" 
-                           ng-model="Password" placeholder="Password" required />
+                    <input name="passWord" type="password" class="form-control"
+                           ng-model="user.Password" placeholder="Password" required />
                 </div>
             </div>
-            <div class="form-group" ng-class="{ 'has-error': userForm.ConfirmPassword.$invalid && !userForm.ConfirmPassword.$pristine }">
-                <label for="confirmPassWord" class="col-sm-3 control-label">Confirm Password :</label>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.confirmPassword.$invalid }">
+                <label for="confirmPassWord" class="col-sm-3 control-label">Confirm Password : *</label>
                 <div class="col-sm-9">
-                    <input id="confirmPassWord" name="confirmPassword" type="password" class="form-control"
-                            ng-model="ConfirmPassword" placeholder="Confirm Password" required />
+                    <input name="confirmPassword" type="password" class="form-control"
+                           ng-model="user.ConfirmPassword" placeholder="Confirm Password" required match="user.Password" />
+                    <div ng-messages="userForm.confirmPassword.$error" ng-show="!userForm.confirmPassword.$pristine">
+                        <p class="text-danger" ng-message="unique">Confirm Password must match the Password.</p>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="homeTown" class="col-sm-3 control-label">HomeTown :</label>
                 <div class="col-sm-9">
-                    <input id="homeTown" name="homeTown" type="text" class="form-control" 
-                           ng-model="HomeTown" placeholder="HomeTown" />
+                    <input id="homeTown" name="homeTown" type="text" class="form-control"
+                           ng-model="user.HomeTown" placeholder="HomeTown" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="zipCode" class="col-sm-3 control-label">ZipCode :</label>
                 <div class="col-sm-9">
-                    <input id="zipCode" name="zipCode" type="text" class="form-control" 
-                           ng-model="ZipCode" placeholder="ZipCode" />
+                    <input id="zipCode" name="zipCode" type="text" class="form-control"
+                           ng-model="user.ZipCode" placeholder="ZipCode" />
                 </div>
             </div>
             <div class="form-group">
+                <div ng-include="'./Content/templates/claims-list.htm'"></div>
+            </div>
+            <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" ng-click="submit()" class="btn btn-primary">Submit</button>
+                    <button type="submit" ng-click="submit()" ng-disabled="userForm.$invalid" class="btn btn-primary">Submit</button>
                     <button type="button" ng-click="cancel()" class="btn btn-default">Cancel</button>
                 </div>
             </div>

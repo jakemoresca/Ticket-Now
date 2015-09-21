@@ -11,7 +11,7 @@
     {
         authService.login(this.loginInfo).then(function ()
         {
-            $location.path("");
+            document.location.href = "./";
         });
     };
 }]);

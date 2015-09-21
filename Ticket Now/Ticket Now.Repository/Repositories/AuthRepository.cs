@@ -38,7 +38,21 @@ namespace Ticket_Now.Repository.Repositories
 
         public async Task<IdentityResult> RegisterUser(ApplicationUserDto userModel)
         {
-            var result = await _userManager.CreateAsync(userModel);
+            var user = new ApplicationUserDto
+            {
+                Email = userModel.Email,
+                PasswordHash = userModel.PasswordHash,
+                UserName = userModel.UserName,
+                Hometown = userModel.Hometown,
+                ZipCode = userModel.ZipCode
+            };
+
+            var result = await _userManager.CreateAsync(user);
+
+            if(result.Succeeded)
+                UpdateClaims(userModel, user);
+
+            result = await _userManager.UpdateAsync(user);
 
             return result;
         }

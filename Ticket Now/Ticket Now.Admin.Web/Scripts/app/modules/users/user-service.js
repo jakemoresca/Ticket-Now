@@ -6,15 +6,16 @@ function ($http, $q, localStorageService, ngAdminApiSettings, Restangular) {
     Restangular.setBaseUrl(serviceBase);
     Restangular.setRestangularFields({ "id": "UserName" });
 
-    //Restangular.withConfig(function (config) {
-    //    config.setRestangularFields({ "id": "UserName" });
-    //});
-
     var baseUsers = Restangular.all('User');
 
     var userServiceFactory = {};
 
     var userList = {};
+
+    var clearUsersList = function()
+    {
+        userServiceFactory.userList = {};
+    }
 
     var getUsers = function ()
     {
@@ -28,7 +29,6 @@ function ($http, $q, localStorageService, ngAdminApiSettings, Restangular) {
 
     var deleteUser = function (user)
     {
-        //Restangular.one("User", user.UserName).remove()
         user.remove().then(function () {
             var index = userServiceFactory.userList.indexOf(user);
             if (index > -1) userServiceFactory.userList.splice(index, 1);
@@ -53,6 +53,7 @@ function ($http, $q, localStorageService, ngAdminApiSettings, Restangular) {
     userServiceFactory.deleteUser = deleteUser;
     userServiceFactory.createUser = createUser;
     userServiceFactory.editUser = editUser;
+    userServiceFactory.clearUsersList = clearUsersList;
 
     return userServiceFactory;
 }]);
