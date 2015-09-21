@@ -3,9 +3,10 @@
     <button type="button" class="btn btn-default btn-xs" ng-click="addClaim()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
-    <button type="button" class="btn btn-primary btn-xs" ng-click="removeClaims()">
+    <button type="button" class="btn btn-default btn-xs" ng-click="removeClaims()">
         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
     </button>
+    <p class="text-danger" ng-show="!hasUniqueClaims()">Must have unique claim types</p>
     <table class="table table-striped table-responsive">
         <thead>
             <tr>
@@ -21,11 +22,13 @@
                 </td>
                 <td>
                     <input id="claimType" name="claimType" type="text" class="form-control"
-                           ng-model="claim.Type" placeholder="Type" required />
+                           ng-model="claim.Type" ng-show="claim.Id == 0" placeholder="Type" required />
+                    <div ng-show="claim.Id > 0" ng-bind="claim.Type"></div>
                 </td>
                 <td>
                     <input id="claimValue" name="claimValue" type="text" class="form-control"
-                           ng-model="claim.Value" placeholder="Value" required />
+                           ng-model="claim.Value" ng-show="claim.Id == 0" placeholder="Value" required />
+                    <div ng-show="claim.Id > 0" ng-bind="claim.Value"></div>
                 </td>
             </tr>
         </tbody>

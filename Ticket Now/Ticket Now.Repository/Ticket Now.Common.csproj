@@ -125,6 +125,10 @@
     <Compile Include="Migrations\201509030113007_Init.Designer.cs">
       <DependentUpon>201509030113007_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509210019215_RemapUserClaims.cs" />
+    <Compile Include="Migrations\201509210019215_RemapUserClaims.Designer.cs">
+      <DependentUpon>201509210019215_RemapUserClaims.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Dtos\Audience.cs" />
     <Compile Include="Models\AudienceModel.cs" />
@@ -144,6 +148,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201509030113007_Init.resx">
       <DependentUpon>201509030113007_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509210019215_RemapUserClaims.resx">
+      <DependentUpon>201509210019215_RemapUserClaims.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

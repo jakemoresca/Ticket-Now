@@ -15,6 +15,12 @@ function ($scope, $routeParams, $http, $location, userService)
         $scope.user.Claims = updatedClaims;
     }
 
+    $scope.hasUniqueClaims = function()
+    {
+        var uniqueClaimTypes = _.uniq($scope.user.Claims, function (claim) { return claim.Type; });
+        return (uniqueClaimTypes.length == $scope.user.Claims.length);
+    }
+
     $scope.submit = function ()
     {
         userService.editUser($scope.user);

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Ticket_Now.Repository.Dtos;
 
 namespace Ticket_Now.Repository.Repositories
@@ -14,7 +13,5 @@ namespace Ticket_Now.Repository.Repositories
         Task<bool> DeleteUser(string userName);
         Task<ApplicationUserDto> UpdateUser(ApplicationUserDto user);
         List<ApplicationUserDto> GetAllUser();
-        Task<bool> DeleteUserClaim(int userClaimId, string userName);
-        Task<IdentityUserClaim> AddUserClaim(IdentityUserClaim claim, string userName);
     }
 }

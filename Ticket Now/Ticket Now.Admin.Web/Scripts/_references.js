@@ -3,6 +3,7 @@
 /// <reference path="app/base/AdminController.js" />
 /// <reference path="app/base/directives/footer.js" />
 /// <reference path="app/base/directives/loginform.js" />
+/// <reference path="app/base/directives/match.js" />
 /// <reference path="app/base/directives/navbar.js" />
 /// <reference path="app/base/directives/post.js" />
 /// <reference path="app/base/directives/user-table.js" />

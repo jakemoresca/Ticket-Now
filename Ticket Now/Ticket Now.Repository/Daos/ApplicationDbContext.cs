@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 using Ticket_Now.Repository.Dtos;
 
 namespace Ticket_Now.Repository.Daos
