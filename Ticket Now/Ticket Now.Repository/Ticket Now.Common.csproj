@@ -116,28 +116,36 @@
     <Compile Include="Daos\IApplicationDbContext.cs" />
     <Compile Include="Daos\IStandardDao.cs" />
     <Compile Include="Dtos\ApplicationUserDto.cs" />
+    <Compile Include="Dtos\LocationDto.cs" />
     <Compile Include="Dtos\RoleDto.cs" />
+    <Compile Include="Dtos\ThumbnailDto.cs" />
     <Compile Include="Formats\CustomJwtFormat.cs" />
     <Compile Include="Daos\ApplicationUserManager.cs" />
     <Compile Include="Mappers\ClaimMapper.cs" />
     <Compile Include="Mappers\IClaimMapper.cs" />
+    <Compile Include="Mappers\ILocationMapper.cs" />
     <Compile Include="Mappers\IRoleMapper.cs" />
+    <Compile Include="Mappers\IThumbnailMapper.cs" />
     <Compile Include="Mappers\IUserMapper.cs" />
+    <Compile Include="Mappers\LocationMapper.cs" />
     <Compile Include="Mappers\RoleMapper.cs" />
+    <Compile Include="Mappers\ThumbnailMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Migrations\201509030113007_Init.cs" />
     <Compile Include="Migrations\201509030113007_Init.Designer.cs">
       <DependentUpon>201509030113007_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201509210019215_RemapUserClaims.cs" />
-    <Compile Include="Migrations\201509210019215_RemapUserClaims.Designer.cs">
-      <DependentUpon>201509210019215_RemapUserClaims.cs</DependentUpon>
+    <Compile Include="Migrations\201509232332435_AddLocationsAndThumbnailTables.cs" />
+    <Compile Include="Migrations\201509232332435_AddLocationsAndThumbnailTables.Designer.cs">
+      <DependentUpon>201509232332435_AddLocationsAndThumbnailTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Dtos\Audience.cs" />
     <Compile Include="Models\AudienceModel.cs" />
     <Compile Include="Models\Claim.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Thumbnail.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -149,15 +157,17 @@
     <Compile Include="Repositories\AudienceRepository.cs" />
     <Compile Include="Repositories\IAuthRepository.cs" />
     <Compile Include="Repositories\AuthRepository.cs" />
+    <Compile Include="Repositories\ILocationRepository.cs" />
     <Compile Include="Repositories\IRoleRepository.cs" />
+    <Compile Include="Repositories\LocationRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201509030113007_Init.resx">
       <DependentUpon>201509030113007_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509210019215_RemapUserClaims.resx">
-      <DependentUpon>201509210019215_RemapUserClaims.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201509232332435_AddLocationsAndThumbnailTables.resx">
+      <DependentUpon>201509232332435_AddLocationsAndThumbnailTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

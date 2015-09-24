@@ -7,13 +7,13 @@ namespace Ticket_Now.Repository.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class RemapUserClaims : IMigrationMetadata
+    public sealed partial class AddLocationsAndThumbnailTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RemapUserClaims));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddLocationsAndThumbnailTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201509210019215_RemapUserClaims"; }
+            get { return "201509232332435_AddLocationsAndThumbnailTables"; }
         }
         
         string IMigrationMetadata.Source

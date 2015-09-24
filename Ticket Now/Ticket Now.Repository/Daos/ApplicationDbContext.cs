@@ -11,6 +11,9 @@ namespace Ticket_Now.Repository.Daos
         {
         }
 
+        public DbSet<LocationDto> Locations { get; set; }
+        public DbSet<ThumbnailDto> ThumbnailDto { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
