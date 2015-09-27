@@ -1,11 +1,11 @@
-﻿using Ticket_Now.Repository.Dtos;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using Ticket_Now.Repository.Models;
 
 namespace Ticket_Now.Repository.Mappers
 {
     public interface IRoleMapper
     {
-        RoleDto ToDto(Role model);
-        Role ToModel(RoleDto dto);
+        IdentityRole ToDto(Role model);
+        Role ToModel(IdentityRole dto);
     }
 }

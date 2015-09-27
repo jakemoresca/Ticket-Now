@@ -1,6 +1,5 @@
 namespace Ticket_Now.Repository.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class AddLocationsAndThumbnailTables : DbMigration

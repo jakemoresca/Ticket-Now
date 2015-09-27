@@ -1,17 +1,26 @@
-﻿userModule.controller("userController", ["$http", "$location", "userService", function ($http, $location, userService) {
-    var self = this;
-    this.userList = userService.userList;
-    
-    this.deleteUsers = function ()
+﻿userModule.controller("userController", ["$scope", "$location", "userService", "roleService", "ngAdminSettings",
+function ($scope, $location, userService, roleService, ngAdminSettings)
+{
+    $scope.userList = userService.userList;
+    $scope.roleList = roleService.roleList;
+    $scope.moduleName = "Users";
+    $scope.tableTemplate = ngAdminSettings.contentTemplateBaseUri + "user-table.htm";
+
+    $scope.mapRole = function (user)
     {
-        var forDeletionUsers = _.where(self.userList, { forDeletion: true });
+        user.Role.Name = _.findWhere($scope.roleList, { Id: user.Role.Id });
+    }
+
+    $scope.deleteUsers = function ()
+    {
+        var forDeletionUsers = _.where($scope.userList, { forDeletion: true });
         _.each(forDeletionUsers, function (user)
         {
             userService.deleteUser(user);
         });
     };
 
-    this.editUser = function(user)
+    $scope.editUser = function (user)
     {
         $location.path("/Users/" + user.UserName);
     }

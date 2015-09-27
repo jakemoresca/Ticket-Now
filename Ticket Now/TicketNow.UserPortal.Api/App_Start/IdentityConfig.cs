@@ -4,7 +4,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Ticket_Now.Repository.Daos;
 using Ticket_Now.Repository.Dtos;
-using Ticket_Now.Repository.Models;
 
 namespace TicketNow.UserPortal.Api
 {

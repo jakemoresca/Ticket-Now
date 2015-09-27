@@ -1,0 +1,24 @@
+﻿<div class="role-table-actions" ng-show="roleList.length > 0">
+    <button type="button" class="btn btn-primary btn-sm" ng-click="deleteRoles()">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+    </button>
+</div>
+<table class="table table-striped table-responsive">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="role in roleList">
+        <tr>
+            <td>
+                <input type="checkbox" name="id" ng-model="role.forDeletion" />
+                <button type="button" class="btn btn-default btn-xs" ng-click="editRole(role)">
+                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td ng-bind="role.Name"></td>
+        </tr>
+    </tbody>
+</table>

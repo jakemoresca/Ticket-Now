@@ -1,5 +1,6 @@
 using Microsoft.AspNet.Identity;
 using System.Data.Entity.Migrations;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Ticket_Now.Repository.Daos;
 using Ticket_Now.Repository.Dtos;
 
@@ -42,6 +43,35 @@ namespace Ticket_Now.Repository.Migrations
                 ZipCode = 1900
             });
 
+            context.Roles.AddOrUpdate(new IdentityRole
+            {
+                Id = "2dcc73b8-5fd4-4142-8cea-a00d6377c8af",
+                Name = "Administrator"
+            });
+
+            context.Roles.AddOrUpdate(new IdentityRole
+            {
+                Id = "4AF8F3E1-CB0F-43C4-80D1-830B497262B5",
+                Name = "User"
+            });
+
+            context.Roles.AddOrUpdate(new IdentityRole
+            {
+                Id = "205391BA-40AC-4CA6-968B-D45981D8EF88",
+                Name = "Event Manager"
+            });
+
+            context.Roles.AddOrUpdate(new IdentityRole
+            {
+                Id = "9B5D2739-38CC-4970-BD4F-480A8D8BFC4C",
+                Name = "Facilities Manager"
+            });
+
+            context.Roles.AddOrUpdate(new IdentityRole
+            {
+                Id = "4C497DD4-A6A7-4F9B-B8D7-DE53FBE657A0",
+                Name = "Reservation Officer"
+            });
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.

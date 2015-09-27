@@ -1,4 +1,4 @@
-﻿userModule.controller('userEditController', ["$scope", "$routeParams", "$http", "$location", "userService",
+﻿userModule.controller("userEditController", ["$scope", "$routeParams", "$http", "$location", "userService",
 function ($scope, $routeParams, $http, $location, userService)
 {
     var self = this;
@@ -18,7 +18,7 @@ function ($scope, $routeParams, $http, $location, userService)
     $scope.hasUniqueClaims = function()
     {
         var uniqueClaimTypes = _.uniq($scope.user.Claims, function (claim) { return claim.Type; });
-        return (uniqueClaimTypes.length == $scope.user.Claims.length);
+        return (uniqueClaimTypes.length === $scope.user.Claims.length);
     }
 
     $scope.submit = function ()

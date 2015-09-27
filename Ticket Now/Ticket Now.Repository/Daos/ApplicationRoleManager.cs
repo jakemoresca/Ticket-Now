@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Ticket_Now.Repository.Dtos;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Ticket_Now.Repository.Daos
 {
-    public class ApplicationRoleManager : RoleManager<RoleDto>
+    public class ApplicationRoleManager : RoleManager<IdentityRole>
     {
-        public ApplicationRoleManager(IRoleStore<RoleDto> store)
+        public ApplicationRoleManager(IRoleStore<IdentityRole, string> store)
         : base(store)
         {
-            RoleValidator = new RoleValidator<RoleDto>(this)
+            RoleValidator = new RoleValidator<IdentityRole>(this)
             {
                 
             };

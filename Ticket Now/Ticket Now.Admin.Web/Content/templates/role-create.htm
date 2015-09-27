@@ -1,0 +1,21 @@
+﻿<div class="row">
+    <div class="col-md-10">
+        <form id="userForm" name="roleForm" class="form-horizontal" novalidate>
+            <div class="page-header">
+                <h1>Create Role</h1>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : roleForm.name.$invalid }">
+                <label for="name" class="col-sm-3 control-label">Name : *</label>
+                <div class="col-sm-9">
+                    <input id="name" name="name" type="text" class="form-control" ng-model="role.Name" placeholder="Name" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" ng-click="submit()" ng-disabled="roleForm.$invalid" class="btn btn-primary">Submit</button>
+                    <button type="button" ng-click="cancel()" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -10,5 +10,7 @@ namespace Ticket_Now.Repository.Models
         public string Password { get; set; }
 
         public List<Claim> Claims { get; set; }
+
+        public Role Role { get; set; }
     }
 }

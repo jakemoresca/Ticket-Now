@@ -1,9 +1,7 @@
-﻿using Microsoft.Practices.Unity;
-using Newtonsoft.Json.Serialization;
+﻿using Newtonsoft.Json.Serialization;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
-using Ticket_Now.Authentication.App_Start;
 
 namespace Ticket_Now.Authentication
 {

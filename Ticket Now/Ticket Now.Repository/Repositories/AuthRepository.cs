@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Ticket_Now.Repository.Dtos;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -14,11 +15,13 @@ namespace Ticket_Now.Repository.Repositories
     public class AuthRepository : IAuthRepository
     {
         private readonly UserManager<ApplicationUserDto> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ApplicationDbContext _ctx;
 
-        public AuthRepository(UserManager<ApplicationUserDto> userManager, ApplicationDbContext ctx)
+        public AuthRepository(UserManager<ApplicationUserDto> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext ctx)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
             _ctx = ctx;
         }
 
@@ -49,9 +52,10 @@ namespace Ticket_Now.Repository.Repositories
 
             var result = await _userManager.CreateAsync(user);
 
-            if(result.Succeeded)
+            if (result.Succeeded)
                 UpdateClaims(userModel, user);
 
+            await AssignRole(user, userModel.RoleId);
             result = await _userManager.UpdateAsync(user);
 
             return result;
@@ -72,6 +76,8 @@ namespace Ticket_Now.Repository.Repositories
             user.ZipCode = updatedUser.ZipCode;
 
             user = UpdateClaims(updatedUser, user);
+            await RemoveRoles(user);
+            await AssignRole(user, updatedUser.RoleId);
 
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
@@ -81,7 +87,7 @@ namespace Ticket_Now.Repository.Repositories
 
         public List<ApplicationUserDto> GetAllUser()
         {
-            return _ctx.Users.ToList();
+            return _ctx.Users.Include(u => u.Roles).ToList();
         }
 
         private ApplicationUserDto UpdateClaims(ApplicationUserDto updatedUser, ApplicationUserDto currentUser)
@@ -99,6 +105,18 @@ namespace Ticket_Now.Repository.Repositories
             });
 
             return currentUser;
+        }
+
+        private async Task<IdentityResult> AssignRole(ApplicationUserDto user, string roleId)
+        {
+            var role = await _roleManager.FindByIdAsync(roleId);
+            return await _userManager.AddToRolesAsync(user.Id, role.Name);
+        }
+
+        private async Task<IdentityResult> RemoveRoles(ApplicationUserDto user)
+        {
+            var roles = _roleManager.Roles.Select(r => r.Name).ToArray();
+            return await _userManager.RemoveFromRolesAsync(user.Id, roles);
         }
 
         private bool IsNewClaim(IdentityUserClaim claim)

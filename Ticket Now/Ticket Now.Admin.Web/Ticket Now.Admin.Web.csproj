@@ -232,10 +232,13 @@
     <Content Include="Content\templates\post-edit.htm" />
     <Content Include="Content\templates\post.htm" />
     <Content Include="Content\templates\sidebar.htm" />
+    <Content Include="Content\templates\role-create.htm" />
+    <Content Include="Content\templates\role-edit.htm" />
     <Content Include="Content\templates\user-edit.htm" />
     <Content Include="Content\templates\user-create.htm" />
+    <Content Include="Content\templates\role-table.htm" />
     <Content Include="Content\templates\user-table.htm" />
-    <Content Include="Content\templates\users-list.htm" />
+    <Content Include="Content\templates\list-form.htm" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -257,6 +260,11 @@
     <Content Include="Scripts\app\base\MeController.js" />
     <Content Include="Scripts\app\modules\auth\auth-controller.js" />
     <Content Include="Scripts\app\modules\auth\auth-service.js" />
+    <Content Include="Scripts\app\modules\roles\role-controller.js" />
+    <Content Include="Scripts\app\modules\roles\role-create-controller.js" />
+    <Content Include="Scripts\app\modules\roles\role-edit-controller.js" />
+    <Content Include="Scripts\app\modules\roles\role-module.js" />
+    <Content Include="Scripts\app\modules\roles\role-service.js" />
     <Content Include="Scripts\app\modules\users\user-controller.js" />
     <Content Include="Scripts\app\modules\auth\auth-interceptor-service.js" />
     <Content Include="Scripts\app\modules\auth\auth-module.js" />

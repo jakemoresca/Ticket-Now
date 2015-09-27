@@ -4,7 +4,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Practices.Unity;
 using System.Web;
-using Ticket_Now.Repository;
 using Ticket_Now.Repository.Daos;
 using Ticket_Now.Repository.Dtos;
 using Ticket_Now.Repository.Mappers;

@@ -1,12 +1,14 @@
-﻿userModule.controller('userCreateController', ["$scope", "$http", "$location", "userService", function ($scope, $http, $location, userService)
+﻿userModule.controller("userCreateController", ["$scope", "$http", "$location", "userService", "roleService",
+function ($scope, $http, $location, userService, roleService)
 {
     var self = this;
-    $scope.user = {Claims: []};
+    $scope.user = { Claims: [] };
+    $scope.roleList = roleService.roleList;
 
     $scope.submit = function ()
     {
         var newUser = {
-            UserName: $scope.user.UserName, Password: $scope.user.Password,
+            UserName: $scope.user.UserName, Password: $scope.user.Password, Role: $scope.user.Role,
             HomeTown: $scope.user.HomeTown, ZipCode: $scope.user.ZipCode, Claims: $scope.user.Claims
         };
         userService.createUser(newUser);

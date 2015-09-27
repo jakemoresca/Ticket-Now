@@ -1,5 +1,6 @@
 ﻿var app = angular.module("TicketNowAdmin",
-    ["ngRoute", "ngMessages", "restangular", "angular-loading-bar", "ngAnimate", "AuthModule", "UserModule", "LocalStorageModule", "ngSanitize"]);
+    ["ngRoute", "ngMessages", "restangular", "angular-loading-bar", "ngAnimate",
+        "AuthModule", "UserModule", "RoleModule", "LocalStorageModule", "ngSanitize"]);
 
 var serviceBase = "http://localhost/TicketNowAuth/";
 app.constant("ngAuthSettings", {
@@ -22,4 +23,8 @@ app.run(["authService", function (authService) {
 
 app.run(["userService", function (userService) {
     userService.getUsers();
+}]);
+
+app.run(["roleService", function (roleService) {
+    roleService.getRoles();
 }]);

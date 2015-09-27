@@ -27,8 +27,11 @@ namespace Ticket_Now.Admin.Api
             unityContainer.RegisterType<IUserStore<ApplicationUserDto>, UserStore<ApplicationUserDto>>(
                 new InjectionConstructor(typeof(ApplicationDbContext)));
 
+            unityContainer.RegisterType<IRoleStore<IdentityRole, string>, RoleStore<IdentityRole>>(
+                new InjectionConstructor(typeof (ApplicationDbContext)));
+                
             unityContainer.RegisterType<UserManager<ApplicationUserDto>>();
-            unityContainer.RegisterType<RoleManager<RoleDto>>();
+            unityContainer.RegisterType<RoleManager<IdentityRole>>();
 
             var userManagerOptions = new IdentityFactoryOptions<ApplicationUserManager>
             {
@@ -38,7 +41,7 @@ namespace Ticket_Now.Admin.Api
             unityContainer.RegisterType<ApplicationUserManager>(
                 new InjectionConstructor(typeof(IUserStore<ApplicationUserDto>), userManagerOptions));
             unityContainer.RegisterType<ApplicationRoleManager>(
-                new InjectionConstructor(typeof(IRoleStore<RoleDto>)));
+                new InjectionConstructor(typeof(IRoleStore<IdentityRole, string>)));
 
             //Repository
             unityContainer.RegisterType<IAuthRepository, AuthRepository>();

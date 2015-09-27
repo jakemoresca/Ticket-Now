@@ -50,8 +50,8 @@ namespace Ticket_Now.Admin.Api.Controllers
 
         [HttpPut]
         [Authorize]
-        [Route("{name}")]
-        public async Task<Role> Put([FromBody] Role role, string name)
+        [Route("{Id}")]
+        public async Task<Role> Put([FromBody] Role role, string id)
         {
             var updatedRoleDto = await _roleRepository.UpdateRole(_roleMapper.ToDto(role));
             return _roleMapper.ToModel(updatedRoleDto);
@@ -59,10 +59,10 @@ namespace Ticket_Now.Admin.Api.Controllers
 
         [HttpDelete]
         [Authorize]
-        [Route("{name}")]
-        public async Task<bool> Delete(string name)
+        [Route("{Id}")]
+        public async Task<bool> Delete(string id)
         {
-            return await _roleRepository.DeleteRole(name);
+            return await _roleRepository.DeleteRole(id);
         }
     }
 }

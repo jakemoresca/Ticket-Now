@@ -3,10 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Practices.Unity;
-using System.Data.Entity;
 using System.Web;
-using Ticket_Now.Authentication.Controllers;
-using Ticket_Now.Repository;
 using Ticket_Now.Repository.Daos;
 using Ticket_Now.Repository.Dtos;
 using Ticket_Now.Repository.Mappers;
@@ -30,19 +27,30 @@ namespace Ticket_Now.Authentication.App_Start
             unityContainer.RegisterType<IUserStore<ApplicationUserDto>, UserStore<ApplicationUserDto>>(
                 new InjectionConstructor(typeof(ApplicationDbContext)));
 
-            unityContainer.RegisterType<UserManager<ApplicationUserDto>>();
+            unityContainer.RegisterType<IRoleStore<IdentityRole, string>, RoleStore<IdentityRole>>(
+                new InjectionConstructor(typeof(ApplicationDbContext)));
 
-            var userManagerOptions = new IdentityFactoryOptions<ApplicationUserManager>();
-            userManagerOptions.DataProtectionProvider = Startup.DataProtectionProvider;
+            unityContainer.RegisterType<UserManager<ApplicationUserDto>>();
+            unityContainer.RegisterType<RoleManager<IdentityRole>>();
+
+            var userManagerOptions = new IdentityFactoryOptions<ApplicationUserManager>
+            {
+                DataProtectionProvider = Startup.DataProtectionProvider
+            };
 
             unityContainer.RegisterType<ApplicationUserManager>(
                 new InjectionConstructor(typeof(IUserStore<ApplicationUserDto>), userManagerOptions));
+            unityContainer.RegisterType<ApplicationRoleManager>(
+                new InjectionConstructor(typeof(IRoleStore<IdentityRole, string>)));
 
             //Repository
             unityContainer.RegisterType<IAuthRepository, AuthRepository>();
+            unityContainer.RegisterType<IRoleRepository, RoleRepository>();
 
             //Mapper
             unityContainer.RegisterType<IUserMapper, UserMapper>();
+            unityContainer.RegisterType<IRoleMapper, RoleMapper>();
+            unityContainer.RegisterType<IClaimMapper, ClaimMapper>();
         }
     }
 }

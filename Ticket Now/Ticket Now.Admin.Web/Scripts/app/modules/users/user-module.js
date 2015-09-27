@@ -2,29 +2,34 @@
 var userModule = angular.module("UserModule", [
     // Angular modules 
     "ngRoute",
-    "ngResource"
-
+    "ngResource",
     // Custom modules 
-
+    "RoleModule"
     // 3rd Party Modules
 ]);
 
-userModule.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider) {
+var adminContentBase = "http://localhost/TicketNow-Admin/";
+userModule.constant("ngAdminSettings", {
+    adminContentBaseUri: adminContentBase,
+    contentTemplateBaseUri: "Content/templates/"
+});
+
+userModule.config(["$routeProvider", "$locationProvider", "ngAdminSettings", function ($routeProvider, $locationProvider, ngAdminSettings) {
     $routeProvider
         .when("/Users/Create",
         {
-            templateUrl: "Content/templates/user-create.htm",
+            templateUrl: ngAdminSettings.contentTemplateBaseUri + "user-create.htm",
             controller: "userCreateController",
             controllerAs: "userCtrl"
         })
         .when("/Users/:userName", {
-            templateUrl: "Content/templates/user-edit.htm",
+            templateUrl: ngAdminSettings.contentTemplateBaseUri + "user-edit.htm",
             controller: "userEditController",
             controllerAs: "userCtrl"
         })
         .when("/Users",
         {
-            templateUrl: "Content/templates/users-list.htm",
+            templateUrl: ngAdminSettings.contentTemplateBaseUri + "list-form.htm",
             controller: "userController",
             controllerAs: "userCtrl"
         });

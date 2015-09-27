@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ticket_Now.Repository.Dtos
 {
@@ -11,6 +12,9 @@ namespace Ticket_Now.Repository.Dtos
     {
         public string Hometown { get; set; }
         public int ZipCode { get; set; }
+
+        [NotMapped]
+        public virtual string RoleId { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUserDto> manager, string authenticationType)
         {
