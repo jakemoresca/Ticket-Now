@@ -6,7 +6,6 @@ using Microsoft.Practices.Unity;
 using Owin;
 using System;
 using System.Web.Http;
-using Ticket_Now.Authentication.App_Start;
 using Ticket_Now.Repository.Formats;
 using Ticket_Now.Repository.Providers;
 using Ticket_Now.Repository.Repositories;

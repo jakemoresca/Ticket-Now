@@ -1,8 +1,9 @@
-﻿userModule.controller("userEditController", ["$scope", "$routeParams", "$http", "$location", "userService",
-function ($scope, $routeParams, $http, $location, userService)
+﻿userModule.controller("userEditController", ["$scope", "$routeParams", "$http", "$location", "userService", "roleService",
+function ($scope, $routeParams, $http, $location, userService, roleService)
 {
     var self = this;
     $scope.user = userService.getUser($routeParams.userName);
+    $scope.roleList = roleService.roleList;
 
     $scope.addClaim = function ()
     {

@@ -157,7 +157,7 @@
     <Compile Include="Repositories\AudienceRepository.cs" />
     <Compile Include="Repositories\IAuthRepository.cs" />
     <Compile Include="Repositories\AuthRepository.cs" />
-    <Compile Include="Repositories\ILocationRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IRoleRepository.cs" />
     <Compile Include="Repositories\LocationRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />

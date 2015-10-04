@@ -4,7 +4,7 @@ function ($http, $q, localStorageService, ngAdminApiSettings, Restangular)
 {
     var serviceBase = ngAdminApiSettings.apiServiceBaseUri;
     Restangular.setBaseUrl(serviceBase);
-    Restangular.setRestangularFields({ "id": "UserName" });
+    Restangular.setRestangularFields({ "id": "Id" });
 
     var baseUsers = Restangular.all("User");
 
@@ -29,7 +29,7 @@ function ($http, $q, localStorageService, ngAdminApiSettings, Restangular)
 
     var deleteUser = function (user)
     {
-        user.remove().then(function ()
+        user.remove(user.UserName).then(function ()
         {
             var index = userServiceFactory.userList.indexOf(user);
             if (index > -1) userServiceFactory.userList.splice(index, 1);

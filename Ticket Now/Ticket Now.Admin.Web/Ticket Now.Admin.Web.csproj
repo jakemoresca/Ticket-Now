@@ -231,6 +231,9 @@
     <Content Include="Content\templates\post-create.htm" />
     <Content Include="Content\templates\post-edit.htm" />
     <Content Include="Content\templates\post.htm" />
+    <Content Include="Content\templates\location-table.htm" />
+    <Content Include="Content\templates\location-create.htm" />
+    <Content Include="Content\templates\location-edit.htm" />
     <Content Include="Content\templates\sidebar.htm" />
     <Content Include="Content\templates\role-create.htm" />
     <Content Include="Content\templates\role-edit.htm" />
@@ -260,6 +263,11 @@
     <Content Include="Scripts\app\base\MeController.js" />
     <Content Include="Scripts\app\modules\auth\auth-controller.js" />
     <Content Include="Scripts\app\modules\auth\auth-service.js" />
+    <Content Include="Scripts\app\modules\locations\location-controller.js" />
+    <Content Include="Scripts\app\modules\locations\location-create-controller.js" />
+    <Content Include="Scripts\app\modules\locations\location-edit-controller.js" />
+    <Content Include="Scripts\app\modules\locations\location-service.js" />
+    <Content Include="Scripts\app\modules\locations\location-module.js" />
     <Content Include="Scripts\app\modules\roles\role-controller.js" />
     <Content Include="Scripts\app\modules\roles\role-create-controller.js" />
     <Content Include="Scripts\app\modules\roles\role-edit-controller.js" />
@@ -3546,6 +3554,8 @@
     <Content Include="Scripts\lib\ckeditor\plugins\wsc\dialogs\wsc.js" />
     <Content Include="Scripts\lib\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
     <Content Include="Scripts\lib\ckeditor\plugins\xml\plugin.js" />
+    <Content Include="Scripts\lib\flow.js\dist\flow.js" />
+    <Content Include="Scripts\lib\flow.js\dist\flow.min.js" />
     <Content Include="Scripts\lib\jQuery\dist\jquery.js" />
     <Content Include="Scripts\lib\jQuery\dist\jquery.min.js" />
     <Content Include="Scripts\lib\jQuery\MIT-LICENSE.txt" />
@@ -3634,6 +3644,19 @@
     <Content Include="Scripts\lib\jQuery\src\wrap.js" />
     <Content Include="Scripts\lib\lodash\lodash.js" />
     <Content Include="Scripts\lib\lodash\lodash.min.js" />
+    <Content Include="Scripts\lib\ng-flow\dist\ng-flow-standalone.js" />
+    <Content Include="Scripts\lib\ng-flow\dist\ng-flow-standalone.min.js" />
+    <Content Include="Scripts\lib\ng-flow\dist\ng-flow.js" />
+    <Content Include="Scripts\lib\ng-flow\dist\ng-flow.min.js" />
+    <Content Include="Scripts\lib\ng-flow\src\angular-flow.js" />
+    <Content Include="Scripts\lib\ng-flow\src\directives\btn.js" />
+    <Content Include="Scripts\lib\ng-flow\src\directives\drag-events.js" />
+    <Content Include="Scripts\lib\ng-flow\src\directives\drop.js" />
+    <Content Include="Scripts\lib\ng-flow\src\directives\events.js" />
+    <Content Include="Scripts\lib\ng-flow\src\directives\img.js" />
+    <Content Include="Scripts\lib\ng-flow\src\directives\init.js" />
+    <Content Include="Scripts\lib\ng-flow\src\directives\transfers.js" />
+    <Content Include="Scripts\lib\ng-flow\src\provider.js" />
     <Content Include="Scripts\lib\restangular\dist\restangular.js" />
     <Content Include="Scripts\lib\restangular\dist\restangular.min.js" />
     <Content Include="Scripts\lib\restangular\Gruntfile.js" />
@@ -3832,9 +3855,16 @@
     <Content Include="Scripts\lib\angular-loading-bar\LICENSE" />
     <Content Include="Scripts\lib\angular-loading-bar\package.json" />
     <Content Include="Scripts\lib\angular-loading-bar\README.md" />
+    <Content Include="Scripts\lib\flow.js\.bower.json" />
+    <Content Include="Scripts\lib\flow.js\bower.json" />
+    <Content Include="Scripts\lib\flow.js\LICENSE" />
+    <Content Include="Scripts\lib\flow.js\README.md" />
+    <Content Include="Scripts\lib\ng-flow\.bower.json" />
+    <Content Include="Scripts\lib\ng-flow\bower.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\lib\flow.js\src\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

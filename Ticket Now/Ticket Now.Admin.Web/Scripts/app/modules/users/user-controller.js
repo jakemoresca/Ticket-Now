@@ -1,8 +1,8 @@
-﻿userModule.controller("userController", ["$scope", "$location", "userService", "roleService", "ngAdminSettings",
-function ($scope, $location, userService, roleService, ngAdminSettings)
+﻿userModule.controller("userController", ["$scope", "$location", "roleService", "userService", "ngAdminSettings",
+function ($scope, $location, roleService, userService, ngAdminSettings)
 {
-    $scope.userList = userService.userList;
     $scope.roleList = roleService.roleList;
+    $scope.userList = userService.userList;
     $scope.moduleName = "Users";
     $scope.tableTemplate = ngAdminSettings.contentTemplateBaseUri + "user-table.htm";
 

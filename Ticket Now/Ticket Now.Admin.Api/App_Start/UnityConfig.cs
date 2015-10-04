@@ -17,7 +17,6 @@ namespace Ticket_Now.Admin.Api
         public static void CreateUnityContainer(IUnityContainer unityContainer)
         {
             //Dao
-            //unityContainer.RegisterType<IStandardDao<PostDto>, PostDao>();
             unityContainer.RegisterType<ApplicationDbContext>();
 
             //Identity
@@ -46,11 +45,13 @@ namespace Ticket_Now.Admin.Api
             //Repository
             unityContainer.RegisterType<IAuthRepository, AuthRepository>();
             unityContainer.RegisterType<IRoleRepository, RoleRepository>();
+            unityContainer.RegisterType<IRepository<LocationDto>, LocationRepository>();
 
             //Mapper
             unityContainer.RegisterType<IUserMapper, UserMapper>();
             unityContainer.RegisterType<IRoleMapper, RoleMapper>();
             unityContainer.RegisterType<IClaimMapper, ClaimMapper>();
+            unityContainer.RegisterType<ILocationMapper, LocationMapper>();
         }
     }
 }

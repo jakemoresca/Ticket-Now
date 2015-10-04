@@ -41,6 +41,13 @@
                            ng-model="user.ZipCode" placeholder="ZipCode"/>
                 </div>
             </div>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.role.$invalid }">
+                <label for="role" class="col-sm-3 control-label">Role :</label>
+                <div class="col-sm-9">
+                    <select id="role" name="role" class="form-control" placeholder="Select Role"
+                            ng-model="user.Role" ng-options="option.Name for option in roleList track by option.Id" required></select>
+                </div>
+            </div>
             <div class="form-group">
                 <div ng-include="'./Content/templates/claims-list.htm'"></div>
             </div>

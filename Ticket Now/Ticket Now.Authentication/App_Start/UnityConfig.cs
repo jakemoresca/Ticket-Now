@@ -1,23 +1,21 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Web;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Practices.Unity;
-using System.Web;
 using Ticket_Now.Repository.Daos;
 using Ticket_Now.Repository.Dtos;
 using Ticket_Now.Repository.Mappers;
 using Ticket_Now.Repository.Repositories;
 
-namespace Ticket_Now.Authentication.App_Start
+namespace Ticket_Now.Authentication
 {
     public class UnityConfig
     {
-
         public static void CreateUnityContainer(IUnityContainer unityContainer)
         {
             //Dao
-            //unityContainer.RegisterType<IStandardDao<PostDto>, PostDao>();
             unityContainer.RegisterType<ApplicationDbContext>();
 
             //Identity
@@ -46,11 +44,13 @@ namespace Ticket_Now.Authentication.App_Start
             //Repository
             unityContainer.RegisterType<IAuthRepository, AuthRepository>();
             unityContainer.RegisterType<IRoleRepository, RoleRepository>();
+            unityContainer.RegisterType<IRepository<LocationDto>, LocationRepository>();
 
             //Mapper
             unityContainer.RegisterType<IUserMapper, UserMapper>();
             unityContainer.RegisterType<IRoleMapper, RoleMapper>();
             unityContainer.RegisterType<IClaimMapper, ClaimMapper>();
+            unityContainer.RegisterType<ILocationMapper, LocationMapper>();
         }
     }
 }

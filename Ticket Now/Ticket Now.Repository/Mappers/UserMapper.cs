@@ -21,6 +21,7 @@ namespace Ticket_Now.Repository.Mappers
 
             var user = new ApplicationUserDto
             {
+                Id = model.Id,
                 UserName = model.UserName,
                 PasswordHash = pwHash.HashPassword(model.Password),
                 ZipCode = model.ZipCode,
@@ -38,6 +39,7 @@ namespace Ticket_Now.Repository.Mappers
             var identityUserRole = dto.Roles.FirstOrDefault() ?? new IdentityUserRole();
             return new UserModel
             {
+                Id = dto.Id,
                 UserName = dto.UserName,
                 ZipCode = dto.ZipCode,
                 HomeTown = dto.Hometown,

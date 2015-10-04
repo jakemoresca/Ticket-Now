@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNet.Identity;
 using System.Data.Entity.Migrations;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -71,6 +72,14 @@ namespace Ticket_Now.Repository.Migrations
             {
                 Id = "4C497DD4-A6A7-4F9B-B8D7-DE53FBE657A0",
                 Name = "Reservation Officer"
+            });
+
+            context.Locations.AddOrUpdate(new LocationDto
+            {
+                Id = new Guid("1D206926-7F40-4314-AD5A-B1EE571BE3B5"),
+                Deleted = false,
+                Description = "Test Description",
+                Name = "Test Location"
             });
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

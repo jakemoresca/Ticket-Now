@@ -11,6 +11,7 @@
     "angular-ckeditor": "*",
     "bootstrap": "*",
     "bootstrap-theme-cosmo": "*",
-    "restangular": "*"
+    "restangular": "*",
+    "ng-flow": "*"
   }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Ticket_Now.Repository.Dtos;
 using Ticket_Now.Repository.Mappers;
 using Ticket_Now.Repository.Models;
 using Ticket_Now.Repository.Repositories;
@@ -11,10 +12,10 @@ namespace Ticket_Now.Admin.Api.Controllers
     [RoutePrefix("Location")]
     public class LocationController : ApiController
     {
-        private readonly ILocationRepository _locationRepository;
+        private readonly IRepository<LocationDto> _locationRepository;
         private readonly ILocationMapper _locationMapper;
 
-        public LocationController(ILocationRepository locationRepository, ILocationMapper locationMapper)
+        public LocationController(IRepository<LocationDto> locationRepository, ILocationMapper locationMapper)
         {
             _locationRepository = locationRepository;
             _locationMapper = locationMapper;
@@ -24,13 +25,13 @@ namespace Ticket_Now.Admin.Api.Controllers
         [Authorize]
         public List<Location> Get()
         {
-            var roles = _locationRepository.GetAll().Select(u => _locationMapper.ToModel(u));
-            return roles.ToList();
+            var locations = _locationRepository.GetAll().Select(u => _locationMapper.ToModel(u));
+            return locations.ToList();
         }
 
         [HttpGet]
         [Authorize]
-        public Location Get(Guid id)
+        public Location Get(string id)
         {
             var locationDto = _locationRepository.FindById(id);
             return _locationMapper.ToModel(locationDto);
@@ -40,24 +41,26 @@ namespace Ticket_Now.Admin.Api.Controllers
         [Authorize]
         public Location Post([FromBody]Location location)
         {
-            var locationDto = _locationRepository.AddLocation(_locationMapper.ToDto(location));
+            location.Id = Guid.NewGuid();
+            var locationDto = _locationRepository.Add(_locationMapper.ToDto(location));
             return _locationMapper.ToModel(locationDto);
         }
 
         [HttpPut]
         [Authorize]
-        [Route("{name}")]
-        public Location Put([FromBody]Location location, string name)
+        [Route("{id}")]
+        public Location Put([FromBody]Location location, string id)
         {
-            var updatedRoleDto = _locationRepository.UpdateLocation(_locationMapper.ToDto(location));
+            var updatedRoleDto = _locationRepository.Update(_locationMapper.ToDto(location));
             return _locationMapper.ToModel(updatedRoleDto);
         }
 
         [HttpDelete]
         [Authorize]
-        public bool Delete(Guid id)
+        [Route("{id}")]
+        public bool Delete(string id)
         {
-            return _locationRepository.DeleteLocation(id);
+            return _locationRepository.Delete(id);
         }
     }
 }

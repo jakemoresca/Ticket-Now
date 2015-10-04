@@ -7,23 +7,23 @@ using Ticket_Now.Repository.Dtos;
 
 namespace Ticket_Now.Repository.Repositories
 {
-    public class LocationRepository : ILocationRepository
+    public class LocationRepository : IRepository<LocationDto>
     {
-        private ApplicationDbContext _ctx;
+        private readonly ApplicationDbContext _ctx;
 
         public LocationRepository(ApplicationDbContext ctx)
         {
             _ctx = ctx;
         }
 
-        public LocationDto AddLocation(LocationDto location)
+        public LocationDto Add(LocationDto location)
         {
             var newLocation = _ctx.Locations.Add(location);
             _ctx.SaveChanges();
             return newLocation;
         }
 
-        public bool DeleteLocation(Guid id)
+        public bool Delete(string id)
         {
             var location = FindById(id);
             _ctx.Locations.Remove(location);
@@ -31,14 +31,14 @@ namespace Ticket_Now.Repository.Repositories
             return true;
         }
 
-        public LocationDto FindById(Guid id)
+        public LocationDto FindById(string id)
         {
-            return _ctx.Locations.Find(id);
+            return _ctx.Locations.FirstOrDefault(l => l.Id == new Guid(id));
         }
 
-        public LocationDto FindByName(string locationName)
+        public LocationDto FindByName(string name)
         {
-            return _ctx.Locations.Where(l => l.Name == locationName).FirstOrDefault();
+            return _ctx.Locations.FirstOrDefault(l => l.Name == name);
         }
 
         public List<LocationDto> GetAll()
@@ -46,7 +46,7 @@ namespace Ticket_Now.Repository.Repositories
             return _ctx.Locations.ToList();
         }
 
-        public LocationDto UpdateLocation(LocationDto updatedLocation)
+        public LocationDto Update(LocationDto updatedLocation)
         {
             _ctx.Entry(updatedLocation).State = EntityState.Modified;
             _ctx.SaveChanges();

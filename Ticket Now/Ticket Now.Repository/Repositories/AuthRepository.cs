@@ -28,14 +28,18 @@ namespace Ticket_Now.Repository.Repositories
         public async Task<ApplicationUserDto> FindUser(string userName, string password)
         {
             var user = await _userManager.FindAsync(userName, password);
-            
             return user;
         }
 
+        public async Task<ApplicationUserDto> FindById(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            return user;
+        }
+        
         public async Task<ApplicationUserDto> FindByName(string name)
         {
             var user = await _userManager.FindByNameAsync(name);
-
             return user;
         }
 
@@ -61,9 +65,9 @@ namespace Ticket_Now.Repository.Repositories
             return result;
         }
 
-        public async Task<bool> DeleteUser(string userName)
+        public async Task<bool> DeleteUser(string id)
         {
-            var user = await _userManager.FindByNameAsync(userName);
+            var user = await _userManager.FindByIdAsync(id);
             var result = await _userManager.DeleteAsync(user);
             return result.Succeeded;
         }
