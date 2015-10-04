@@ -46,12 +46,16 @@ namespace Ticket_Now.Admin.Api
             unityContainer.RegisterType<IAuthRepository, AuthRepository>();
             unityContainer.RegisterType<IRoleRepository, RoleRepository>();
             unityContainer.RegisterType<IRepository<LocationDto>, LocationRepository>();
+            unityContainer.RegisterType<IRepository<EventDto>, EventRepository>();
+            unityContainer.RegisterType<IRepository<ScheduleDto>, ScheduleRepository>();
 
             //Mapper
             unityContainer.RegisterType<IUserMapper, UserMapper>();
             unityContainer.RegisterType<IRoleMapper, RoleMapper>();
             unityContainer.RegisterType<IClaimMapper, ClaimMapper>();
             unityContainer.RegisterType<ILocationMapper, LocationMapper>();
+            unityContainer.RegisterType<IEventMapper, EventMapper>();
+            unityContainer.RegisterType<IScheduleMapper, ScheduleMapper>();
         }
     }
 }
