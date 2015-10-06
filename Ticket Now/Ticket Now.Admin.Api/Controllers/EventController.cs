@@ -9,6 +9,7 @@ using Ticket_Now.Repository.Repositories;
 
 namespace Ticket_Now.Admin.Api.Controllers
 {
+    [RoutePrefix("Event")]
     public class EventController : ApiController
     {
         private readonly IRepository<EventDto> _eventRepository;

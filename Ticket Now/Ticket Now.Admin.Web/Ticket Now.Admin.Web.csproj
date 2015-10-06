@@ -226,6 +226,9 @@
     <Content Include="Content\templates\claims-list.htm" />
     <Content Include="Content\templates\footer.htm" />
     <Content Include="Content\templates\home.htm" />
+    <Content Include="Content\templates\event-table.htm" />
+    <Content Include="Content\templates\event-create.htm" />
+    <Content Include="Content\templates\event-edit.htm" />
     <Content Include="Content\templates\login.htm" />
     <Content Include="Content\templates\navbar.htm" />
     <Content Include="Content\templates\post-create.htm" />
@@ -263,6 +266,11 @@
     <Content Include="Scripts\app\base\MeController.js" />
     <Content Include="Scripts\app\modules\auth\auth-controller.js" />
     <Content Include="Scripts\app\modules\auth\auth-service.js" />
+    <Content Include="Scripts\app\modules\events\event-controller.js" />
+    <Content Include="Scripts\app\modules\events\event-create-controller.js" />
+    <Content Include="Scripts\app\modules\events\event-edit-controller.js" />
+    <Content Include="Scripts\app\modules\events\event-module.js" />
+    <Content Include="Scripts\app\modules\events\event-service.js" />
     <Content Include="Scripts\app\modules\locations\location-controller.js" />
     <Content Include="Scripts\app\modules\locations\location-create-controller.js" />
     <Content Include="Scripts\app\modules\locations\location-edit-controller.js" />

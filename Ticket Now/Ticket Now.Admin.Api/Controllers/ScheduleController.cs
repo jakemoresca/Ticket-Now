@@ -9,6 +9,7 @@ using Ticket_Now.Repository.Repositories;
 
 namespace Ticket_Now.Admin.Api.Controllers
 {
+    [RoutePrefix("Schedule")]
     public class ScheduleController : ApiController
     {
         private readonly IRepository<ScheduleDto> _scheduleRepository;

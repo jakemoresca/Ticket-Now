@@ -1,6 +1,6 @@
 ﻿var app = angular.module("TicketNowAdmin",
     ["ngRoute", "ngMessages", "restangular", "angular-loading-bar", "ngAnimate",
-        "AuthModule", "UserModule", "RoleModule", "LocationModule",
+        "AuthModule", "UserModule", "RoleModule", "LocationModule", "EventModule",
         "LocalStorageModule", "ngSanitize"]);
 
 var serviceBase = "http://localhost/TicketNowAuth/";
@@ -37,4 +37,8 @@ app.run(["roleService", function (roleService)
 app.run(["locationService", function (locationService)
 {
     locationService.getLocations();
+}]);
+
+app.run(["eventService", function (eventService) {
+    eventService.getEvents();
 }]);
