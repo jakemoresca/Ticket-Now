@@ -1,7 +1,7 @@
 ﻿"use strict";
 var userModule = angular.module("UserModule", [
     // Angular modules 
-    "ngRoute",
+    "ui.router",
     "ngResource",
     // Custom modules 
     "RoleModule"
@@ -9,30 +9,36 @@ var userModule = angular.module("UserModule", [
 ]);
 
 var adminContentBase = "http://localhost/TicketNow-Admin/";
-userModule.constant("ngAdminSettings", {
+userModule.constant("ngAdminSettings",
+    {
     adminContentBaseUri: adminContentBase,
     contentTemplateBaseUri: "Content/templates/"
 });
 
-userModule.config(["$routeProvider", "$locationProvider", "ngAdminSettings", function ($routeProvider, $locationProvider, ngAdminSettings) {
-    $routeProvider
-        .when("/Users/Create",
-        {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "user-create.htm",
-            controller: "userCreateController",
-            controllerAs: "userCtrl"
-        })
-        .when("/Users/:userName", {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "user-edit.htm",
-            controller: "userEditController",
-            controllerAs: "userCtrl"
-        })
-        .when("/Users",
-        {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "list-form.htm",
-            controller: "userController",
-            controllerAs: "userCtrl"
-        });
-    // configure html5 to get links working on jsfiddle
-    //$locationProvider.html5Mode(true);
+userModule.config(["$stateProvider", "$urlRouterProvider", "ngAdminSettings",
+function ($stateProvider, $urlRouterProvider, ngAdminSettings)
+{
+    // Now set up the states
+    $stateProvider
+      .state('Users.Create',
+      {
+          url: "/Create",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "user-create.htm",
+          controller: "userCreateController",
+          controllerAs: "userCtrl"
+      })
+      .state('Users.Edit',
+      {
+          url: "/:userName",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "user-edit.htm",
+          controller: "userEditController",
+          controllerAs: "userCtrl"
+      })
+      .state('Users',
+      {
+          url: "/Users",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "list-form.htm",
+          controller: "userController",
+          controllerAs: "userCtrl"
+      });
 }]);

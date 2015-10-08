@@ -2,16 +2,16 @@
   "name": "ASP.NET",
   "private": true,
   "dependencies": {
-    "jQuery": "*",
-    "angular-full": "*",
-    "angular-local-storage": "*",
-    "angular-loading-bar": "*",
-    "underscore": "*",
-    "ckeditor": "*",
     "angular-ckeditor": "*",
+    "angular-full": "*",
+    "angular-loading-bar": "*",
+    "angular-local-storage": "*",
     "bootstrap": "*",
     "bootstrap-theme-cosmo": "*",
+    "ckeditor": "*",
+    "ng-flow": "*",
     "restangular": "*",
-    "ng-flow": "*"
+    "underscore": "*",
+    "angular-ui-router": "~0.2.15"
   }
 }

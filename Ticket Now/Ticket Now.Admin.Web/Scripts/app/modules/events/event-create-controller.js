@@ -9,7 +9,7 @@
         eventService.createEvent(newevent);
         self.gotoEventsList();
     };
-
+    
     $scope.cancel = function()
     {
         self.gotoEventsList();
@@ -17,6 +17,6 @@
 
     this.gotoEventsList = function()
     {
-        $event.path("/Events");
+        $location.path("/Events");
     }
 }]);

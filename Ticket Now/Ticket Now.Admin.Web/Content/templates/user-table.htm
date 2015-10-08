@@ -16,7 +16,7 @@
     <tbody ng-repeat="user in userList">
     <tr>
         <td>
-            <input type="checkbox" name="UserName" ng-model="user.forDeletion"/>
+            <input type="checkbox" name="UserName" ng-model="user.forDeletion" />
             <button type="button" class="btn btn-default btn-xs" ng-click="editUser(user)">
                 <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
             </button>
@@ -31,3 +31,4 @@
     </tr>
     </tbody>
 </table>
+<div ui-view></div>

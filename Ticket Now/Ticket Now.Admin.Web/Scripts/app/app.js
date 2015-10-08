@@ -1,5 +1,5 @@
 ﻿var app = angular.module("TicketNowAdmin",
-    ["ngRoute", "ngMessages", "restangular", "angular-loading-bar", "ngAnimate",
+    ["ui.router", "ngMessages", "restangular", "angular-loading-bar", "ngAnimate",
         "AuthModule", "UserModule", "RoleModule", "LocationModule", "EventModule",
         "LocalStorageModule", "ngSanitize"]);
 

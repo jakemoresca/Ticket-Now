@@ -13,10 +13,9 @@ namespace Ticket_Now.Repository.Dtos
         [Required]
         public string Name { get; set; }
 
-        [Required]
         public string Description { get; set; }
 
         [Required]
-        public TimeSpan Duration { get; set; }
+        public int Duration { get; set; }
     }
 }

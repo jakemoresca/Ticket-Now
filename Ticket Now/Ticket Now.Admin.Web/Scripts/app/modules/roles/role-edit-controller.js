@@ -1,8 +1,8 @@
-﻿roleModule.controller("roleEditController", ["$scope", "$routeParams", "$http", "$location", "roleService",
-function ($scope, $routeParams, $http, $location, roleService)
+﻿roleModule.controller("roleEditController", ["$scope", "$stateParams", "$http", "$location", "roleService",
+function ($scope, $stateParams, $http, $location, roleService)
 {
     var self = this;
-    $scope.role = roleService.getRole($routeParams.id);
+    $scope.role = roleService.getRole($stateParams.id);
 
     $scope.submit = function ()
     {

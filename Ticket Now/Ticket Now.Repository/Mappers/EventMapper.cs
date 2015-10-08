@@ -1,4 +1,5 @@
-﻿using Ticket_Now.Repository.Dtos;
+﻿using System;
+using Ticket_Now.Repository.Dtos;
 using Ticket_Now.Repository.Models;
 
 namespace Ticket_Now.Repository.Mappers
@@ -12,7 +13,7 @@ namespace Ticket_Now.Repository.Mappers
                 Id = dto.Id,
                 Name = dto.Name,
                 Description = dto.Description,
-                Duration = dto.Duration
+                Duration = TimeSpan.FromSeconds(dto.Duration)
             };
         }
 
@@ -23,7 +24,7 @@ namespace Ticket_Now.Repository.Mappers
                 Id = model.Id,
                 Name = model.Name,
                 Description = model.Description,
-                Duration = model.Duration
+                Duration = Convert.ToInt32(model.Duration.TotalSeconds)
             };
         }
     }

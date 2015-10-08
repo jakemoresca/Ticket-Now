@@ -1,8 +1,8 @@
-﻿eventModule.controller("eventEditController", ["$scope", "$routeParams", "$http", "$location", "eventService",
-function ($scope, $routeParams, $http, $location, eventService)
+﻿eventModule.controller("eventEditController", ["$scope", "$stateParams", "$http", "$location", "eventService",
+function ($scope, $stateParams, $http, $location, eventService)
 {
     var self = this;
-    $scope.event = eventService.getEvent($routeParams.id);
+    $scope.event = eventService.getEvent($stateParams.id);
 
     $scope.submit = function ()
     {

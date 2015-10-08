@@ -1,8 +1,8 @@
-﻿locationModule.controller("locationEditController", ["$scope", "$routeParams", "$http", "$location", "locationService",
-function ($scope, $routeParams, $http, $location, locationService)
+﻿locationModule.controller("locationEditController", ["$scope", "$stateParams", "$http", "$location", "locationService",
+function ($scope, $stateParams, $http, $location, locationService)
 {
     var self = this;
-    $scope.location = locationService.getLocation($routeParams.id);
+    $scope.location = locationService.getLocation($stateParams.id);
 
     $scope.submit = function ()
     {

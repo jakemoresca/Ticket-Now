@@ -2,6 +2,7 @@
 /// <reference path="app/app.js" />
 /// <reference path="app/base/AdminController.js" />
 /// <reference path="app/base/directives/footer.js" />
+/// <reference path="app/base/directives/listgroup.js" />
 /// <reference path="app/base/directives/loginform.js" />
 /// <reference path="app/base/directives/match.js" />
 /// <reference path="app/base/directives/navbar.js" />

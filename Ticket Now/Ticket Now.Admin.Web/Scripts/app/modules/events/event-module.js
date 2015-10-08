@@ -1,7 +1,7 @@
 ﻿"use strict";
 var eventModule = angular.module("EventModule", [
     // Angular modules 
-    "ngRoute",
+    "ui.router",
     "ngResource"
 
     // Custom modules 
@@ -15,25 +15,29 @@ eventModule.constant("ngAdminSettings", {
     contentTemplateBaseUri: "Content/templates/"
 });
 
-eventModule.config(["$routeProvider", "$locationProvider", "ngAdminSettings", function ($routeProvider, $locationProvider, ngAdminSettings) {
-    $routeProvider
-        .when("/Events/Create",
-        {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "event-create.htm",
-            controller: "eventCreateController",
-            controllerAs: "eventCtrl"
-        })
-        .when("/Events/:id", {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "event-edit.htm",
-            controller: "eventEditController",
-            controllerAs: "eventCtrl"
-        })
-        .when("/Events",
-        {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "list-form.htm",
-            controller: "eventController",
-            controllerAs: "eventCtrl"
-        });
-    // configure html5 to get links working on jsfiddle
-    //$locationProvider.html5Mode(true);
+eventModule.config(["$stateProvider", "$urlRouterProvider", "ngAdminSettings",
+function ($stateProvider, $urlRouterProvider, ngAdminSettings)
+{
+    $stateProvider
+      .state('Events.Create',
+      {
+          url: "/Create",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "event-create.htm",
+          controller: "eventCreateController",
+          controllerAs: "eventCtrl"
+      })
+      .state('Events.Edit',
+      {
+          url: "/:id",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "event-edit.htm",
+          controller: "eventEditController",
+          controllerAs: "eventCtrl"
+      })
+      .state('Events',
+      {
+          url: "/Events",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "list-form.htm",
+          controller: "eventController",
+          controllerAs: "eventCtrl"
+      });
 }]);

@@ -12,9 +12,9 @@ namespace Ticket_Now.Repository.Migrations
                 c => new
                     {
                         Id = c.Guid(nullable: false),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                         Description = c.String(),
-                        Duration = c.Time(nullable: false, precision: 7),
+                        Duration = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

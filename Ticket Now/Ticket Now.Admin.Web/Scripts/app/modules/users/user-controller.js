@@ -6,11 +6,6 @@ function ($scope, $location, roleService, userService, ngAdminSettings)
     $scope.moduleName = "Users";
     $scope.tableTemplate = ngAdminSettings.contentTemplateBaseUri + "user-table.htm";
 
-    $scope.mapRole = function (user)
-    {
-        user.Role.Name = _.findWhere($scope.roleList, { Id: user.Role.Id });
-    }
-
     $scope.deleteUsers = function ()
     {
         var forDeletionUsers = _.where($scope.userList, { forDeletion: true });

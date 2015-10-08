@@ -1,7 +1,7 @@
 ﻿"use strict";
 var locationModule = angular.module("LocationModule", [
     // Angular modules 
-    "ngRoute",
+    "ui.router",
     "ngResource"
 
     // Custom modules 
@@ -15,25 +15,29 @@ locationModule.constant("ngAdminSettings", {
     contentTemplateBaseUri: "Content/templates/"
 });
 
-locationModule.config(["$routeProvider", "$locationProvider", "ngAdminSettings", function ($routeProvider, $locationProvider, ngAdminSettings) {
-    $routeProvider
-        .when("/Locations/Create",
-        {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "location-create.htm",
-            controller: "locationCreateController",
-            controllerAs: "locationCtrl"
-        })
-        .when("/Locations/:id", {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "location-edit.htm",
-            controller: "locationEditController",
-            controllerAs: "locationCtrl"
-        })
-        .when("/Locations",
-        {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "list-form.htm",
-            controller: "locationController",
-            controllerAs: "locationCtrl"
-        });
-    // configure html5 to get links working on jsfiddle
-    //$locationProvider.html5Mode(true);
+locationModule.config(["$stateProvider", "$urlRouterProvider", "ngAdminSettings",
+function ($stateProvider, $urlRouterProvider, ngAdminSettings)
+{
+    $stateProvider
+      .state('Locations.Create',
+      {
+          url: "/Create",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "location-create.htm",
+          controller: "locationCreateController",
+          controllerAs: "locationCtrl"
+      })
+      .state('Locations.Edit',
+      {
+          url: "/:id",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "location-edit.htm",
+          controller: "locationEditController",
+          controllerAs: "locationCtrl"
+      })
+      .state('Locations',
+      {
+          url: "/Locations",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "list-form.htm",
+          controller: "locationController",
+          controllerAs: "locationCtrl"
+      });
 }]);

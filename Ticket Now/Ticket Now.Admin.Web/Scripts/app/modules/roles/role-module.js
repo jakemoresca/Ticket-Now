@@ -1,7 +1,7 @@
 ﻿"use strict";
 var roleModule = angular.module("RoleModule", [
     // Angular modules 
-    "ngRoute",
+    "ui.router",
     "ngResource"
 
     // Custom modules 
@@ -15,25 +15,29 @@ roleModule.constant("ngAdminSettings", {
     contentTemplateBaseUri: "Content/templates/"
 });
 
-roleModule.config(["$routeProvider", "$locationProvider", "ngAdminSettings", function ($routeProvider, $locationProvider, ngAdminSettings) {
-    $routeProvider
-        .when("/Roles/Create",
-        {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "role-create.htm",
-            controller: "roleCreateController",
-            controllerAs: "roleCtrl"
-        })
-        .when("/Roles/:id", {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "role-edit.htm",
-            controller: "roleEditController",
-            controllerAs: "roleCtrl"
-        })
-        .when("/Roles",
-        {
-            templateUrl: ngAdminSettings.contentTemplateBaseUri + "list-form.htm",
-            controller: "roleController",
-            controllerAs: "roleCtrl"
-        });
-    // configure html5 to get links working on jsfiddle
-    //$locationProvider.html5Mode(true);
+roleModule.config(["$stateProvider", "$urlRouterProvider", "ngAdminSettings", 
+function ($stateProvider, $urlRouterProvider, ngAdminSettings)
+{
+    $stateProvider
+      .state('Roles.Create',
+      {
+          url: "/Roles/Create",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "role-create.htm",
+          controller: "roleCreateController",
+          controllerAs: "roleCtrl"
+      })
+      .state('Roles.Edit',
+      {
+          url: "/Roles/:id",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "role-edit.htm",
+          controller: "roleEditController",
+          controllerAs: "roleCtrl"
+      })
+      .state('Roles',
+      {
+          url: "/Roles",
+          templateUrl: ngAdminSettings.contentTemplateBaseUri + "list-form.htm",
+          controller: "roleController",
+          controllerAs: "roleCtrl"
+      });
 }]);

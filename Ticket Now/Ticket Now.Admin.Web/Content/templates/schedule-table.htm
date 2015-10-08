@@ -1,0 +1,28 @@
+﻿<div class="event-table-actions" ng-show="eventList.length > 0">
+    <button type="button" class="btn btn-primary btn-sm" ng-click="deleteEvents()">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+    </button>
+</div>
+<table class="table table-striped table-responsive">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Duration</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="event in eventList">
+        <tr>
+            <td>
+                <input type="checkbox" name="id" ng-model="event.forDeletion" />
+                <button type="button" class="btn btn-default btn-xs" ng-click="editEvent(event)">
+                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td ng-bind="event.Name"></td>
+            <td ng-bind="event.Description"></td>
+            <td ng-bind="event.Duration"></td>
+        </tr>
+    </tbody>
+</table>

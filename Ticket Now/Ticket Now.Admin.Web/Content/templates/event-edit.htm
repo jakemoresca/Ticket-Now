@@ -1,13 +1,23 @@
-﻿<div class="row">
-    <div class="col-md-10">
+﻿<div class="panel panel-default">
+
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title pull-left">Event Details</h3>
+        <div class="btn-group pull-right visible-xs">
+            <a class="btn btn-primary" href="/companies"
+               data-toggle="modal"
+               data-target="#editModal">
+                <i class="fa fa-pencil"></i>
+                <span>Edit</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="panel-body">
         <form id="eventForm" name="eventForm" class="form-horizontal" novalidate>
-            <div class="page-header">
-                <h1>Event : {{event.Name}}</h1>
-            </div>
             <div class="form-group" ng-class="{ 'has-error' : eventForm.name.$invalid }">
                 <label for="name" class="col-sm-3 control-label">Name : *</label>
                 <div class="col-sm-9">
-                    <input id="name" name="name" type="text" class="form-control" ng-model="event.Name" placeholder="Name" required/>
+                    <input id="name" name="name" type="text" class="form-control" ng-model="event.Name" placeholder="Name" required />
                 </div>
             </div>
             <div class="form-group">
@@ -19,7 +29,7 @@
             <div class="form-group" ng-class="{ 'has-error' : eventForm.duration.$invalid }">
                 <label for="duration" class="col-sm-3 control-label">Duration : *</label>
                 <div class="col-sm-9">
-                    <input id="duration" name="duration" type="time" class="form-control" ng-model="event.Duration" placeholder="Duration" required />
+                    <input id="duration" name="duration" type="text" class="form-control" ng-model="event.Duration" placeholder="Duration" required />
                 </div>
             </div>
             <div class="form-group">

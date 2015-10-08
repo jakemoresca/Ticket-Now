@@ -4,18 +4,20 @@ function ($scope, $location, locationService, ngAdminSettings)
     $scope.locationList = locationService.locationList;
     $scope.moduleName = "Locations";
     $scope.tableTemplate = ngAdminSettings.contentTemplateBaseUri + "location-table.htm";
-    
-    $scope.deleteLocations = function ()
+
+    $scope.deleteLocation = function (location, $event)
     {
-        var forDeletionLocations = _.where($scope.locationList, { forDeletion: true });
-        _.each(forDeletionLocations, function (location)
-        {
-            locationService.deleteLocation(location);
-        });
+        $event.stopPropagation();
+        locationService.deleteLocation(location);
     };
 
     $scope.editLocation = function (location)
     {
         $location.path("/Locations/" + location.Id);
-    }
+    };
+
+    $scope.createEvent = function ()
+    {
+        $location.path("/Locations/Create");
+    };
 }]);

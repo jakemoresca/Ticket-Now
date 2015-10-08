@@ -1,13 +1,24 @@
-﻿var authModule = angular.module("AuthModule", ["ngRoute", "ngResource"]);
+﻿var authModule = angular.module("AuthModule", ["ui.router", "ngResource"]);
 
-authModule.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider) {
-    $routeProvider
-        .when("/login",
-        {
-            templateUrl: "Content/templates/login.htm",
-            controller: "authController",
-            controllerAs: "authCtrl"
-        });
+authModule.config(["$stateProvider", "$urlRouterProvider",
+function ($stateProvider, $urlRouterProvider) {
+
+    $stateProvider
+      .state('Login',
+      {
+          url: "/login",
+          templateUrl: "Content/templates/login.htm",
+          controller: "authController",
+          controllerAs: "authCtrl"
+      });
+
+    //$routeProvider
+    //    .when("/login",
+    //    {
+    //        templateUrl: "Content/templates/login.htm",
+    //        controller: "authController",
+    //        controllerAs: "authCtrl"
+    //    });
     // configure html5 to get links working on jsfiddle
     //$locationProvider.html5Mode(true);
 }]);

@@ -4,17 +4,19 @@
     $scope.moduleName = "Roles";
     $scope.tableTemplate = ngAdminSettings.contentTemplateBaseUri + "role-table.htm";
     
-    $scope.deleteRoles = function ()
+    $scope.deleteRole = function (role, $event)
     {
-        var forDeletionRoles = _.where($scope.roleList, { forDeletion: true });
-        _.each(forDeletionRoles, function (role)
-        {
-            roleService.deleteRole(role);
-        });
+        $event.stopPropagation();
+        roleService.deleteRole(role);
     };
 
     $scope.editRole = function (role)
     {
         $location.path("/Roles/" + role.Id);
-    }
+    };
+
+    $scope.createRoles = function ()
+    {
+        $location.path("/Roles/Create");
+    };
 }]);
