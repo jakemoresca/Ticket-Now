@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(Ticket_Now.Admin.Web.Startup))]
+[assembly: OwinStartup("AdminWebConfiguration", typeof(Ticket_Now.Admin.Web.Startup))]
 
 namespace Ticket_Now.Admin.Web
 {

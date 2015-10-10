@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(Ticket_Now.Admin.Api.Startup))]
+[assembly: OwinStartup("AdminApiConfiguration", typeof(Ticket_Now.Admin.Api.Startup))]
 
 namespace Ticket_Now.Admin.Api
 {
