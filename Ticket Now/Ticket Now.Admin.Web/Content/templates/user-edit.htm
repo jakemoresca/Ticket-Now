@@ -1,5 +1,18 @@
-﻿<div class="row">
-    <div class="col-md-10">
+﻿<div class="panel panel-default">
+
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title pull-left">User Details</h3>
+        <div class="btn-group pull-right visible-xs">
+            <a class="btn btn-primary" href="/companies"
+               data-toggle="modal"
+               data-target="#editModal">
+                <i class="fa fa-pencil"></i>
+                <span>Edit</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="panel-body">
         <form id="userForm" name="userForm" class="form-horizontal" novalidate>
             <div class="page-header">
                 <h1>User : {{user.UserName}}</h1>
@@ -13,7 +26,7 @@
             <div class="form-group" ng-class="{ 'has-error': userForm.passWord.$invalid }">
                 <label for="passWord" class="col-sm-3 control-label">Password : *</label>
                 <div class="col-sm-9">
-                    <input name="passWord" type="password" class="form-control" 
+                    <input name="passWord" type="password" class="form-control"
                            ng-model="user.Password" placeholder="Password" required />
                 </div>
             </div>
@@ -21,7 +34,7 @@
                 <label for="confirmPassWord" class="col-sm-3 control-label">Confirm Password : *</label>
                 <div class="col-sm-9">
                     <input name="confirmPassword" type="password" class="form-control"
-                            ng-model="user.ConfirmPassword" placeholder="Confirm Password" required match="user.Password" />
+                           ng-model="user.ConfirmPassword" placeholder="Confirm Password" required match="user.Password" />
                     <div ng-messages="userForm.confirmPassword.$error" ng-show="!userForm.confirmPassword.$pristine">
                         <p class="text-danger" ng-message="unique">Confirm Password must match the Password.</p>
                     </div>
@@ -30,7 +43,7 @@
             <div class="form-group">
                 <label for="homeTown" class="col-sm-3 control-label">HomeTown :</label>
                 <div class="col-sm-9">
-                    <input id="homeTown" name="homeTown" type="text" class="form-control" 
+                    <input id="homeTown" name="homeTown" type="text" class="form-control"
                            ng-model="user.HomeTown" placeholder="HomeTown" />
                 </div>
             </div>
@@ -38,7 +51,7 @@
                 <label for="zipCode" class="col-sm-3 control-label">ZipCode :</label>
                 <div class="col-sm-9">
                     <input id="zipCode" name="zipCode" type="text" class="form-control"
-                           ng-model="user.ZipCode" placeholder="ZipCode"/>
+                           ng-model="user.ZipCode" placeholder="ZipCode" />
                 </div>
             </div>
             <div class="form-group" ng-class="{ 'has-error' : userForm.role.$invalid }">

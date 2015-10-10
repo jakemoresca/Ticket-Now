@@ -1,0 +1,36 @@
+﻿<div class="panel panel-default col-md-5" ng-class="cssClass">
+    <div class="panel-body">
+        <div class="search-form">
+            <div class="row">
+                <div class="col-xs-9">
+                    <div class="form-group">
+                        <input type="text" placeholder="Search Events..." class="form-control">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <a ng-click="createItem()" class="btn btn-primary btn-block">
+                        <i class="fa fa-plus"></i>
+                        <span>Add</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-group" ng-repeat="item in list">
+        <div class="list-group-item" ng-click="editItem({item: item})">
+            <div class="row">
+                <div class="col-sm-9">
+                    <i class="fa fa-3x fa-building-o pull-left"></i>
+                    <h4 class="list-group-item-heading" ng-bind="item.UserName"></h4>
+                    <p class="list-group-item-text" ng-bind="item.UserName"></p>
+                </div>
+                <div class="col-sm-3">
+                    <a class="btn btn-primary btn-sm" ng-click="deleteItem({item: item, event: $event})">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
-﻿roleModule.controller("roleController", ["$scope", "$location", "roleService", "ngAdminSettings", function ($scope, $location, roleService, ngAdminSettings)
+﻿roleModule.controller("roleController", ["$scope", "$location", "roleService", "ngAdminSettings",
+function ($scope, $location, roleService, ngAdminSettings)
 {
     $scope.roleList = roleService.roleList;
     $scope.moduleName = "Roles";
@@ -15,7 +16,7 @@
         $location.path("/Roles/" + role.Id);
     };
 
-    $scope.createRoles = function ()
+    $scope.createRole = function ()
     {
         $location.path("/Roles/Create");
     };

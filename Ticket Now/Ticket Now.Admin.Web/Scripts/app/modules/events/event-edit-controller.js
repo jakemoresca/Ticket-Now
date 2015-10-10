@@ -1,5 +1,5 @@
-﻿eventModule.controller("eventEditController", ["$scope", "$stateParams", "$http", "$location", "eventService",
-function ($scope, $stateParams, $http, $location, eventService)
+﻿eventModule.controller("eventEditController", ["$scope", "$stateParams", "$http", "$location", "eventService", "scheduleService", "ngAdminSettings",
+function ($scope, $stateParams, $http, $location, eventService, scheduleService, ngAdminSettings)
 {
     var self = this;
     $scope.event = eventService.getEvent($stateParams.id);
@@ -19,4 +19,21 @@ function ($scope, $stateParams, $http, $location, eventService)
     {
         $location.path("/Events");
     }
+
+    $scope.scheduleList = scheduleService.scheduleList;
+    $scope.moduleName = "Schedules";
+    $scope.tableTemplate = ngAdminSettings.contentTemplateBaseUri + "schedule-table.htm";
+
+    $scope.deleteSchedule = function (schedule, $schedule) {
+        $schedule.stopPropagation();
+        scheduleService.deleteSchedule(schedule);
+    };
+
+    $scope.editSchedule = function (schedule) {
+        $location.path("/Schedules/" + schedule.Id);
+    };
+
+    $scope.createSchedule = function () {
+        $location.path("/Events/" + $stateParams.id + "/Schedules/Create");
+    };
 }]);

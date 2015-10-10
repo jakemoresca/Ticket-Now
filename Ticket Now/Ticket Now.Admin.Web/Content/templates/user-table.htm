@@ -1,34 +1,5 @@
-﻿<div class="role-table-actions" ng-show="userList.length > 0">
-    <button type="button" class="btn btn-primary btn-sm" ng-click="deleteUsers()">
-        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-    </button>
+﻿<list-group group="User" list="userList" cssClass="col-md-5"
+            edit-item="editUser(item)" create-item="createUser()" delete-item="deleteUser(item, event)" template-url="./Content/templates/user-list-group.htm"></list-group>
+<div class="col-md-7">
+    <div ui-view></div>
 </div>
-<table class="table table-striped table-responsive">
-    <thead>
-    <tr>
-        <th></th>
-        <th>UserName</th>
-        <th>Role</th>
-        <th>HomeTown</th>
-        <th>ZipCode</th>
-    </tr>
-    </thead>
-    <tbody ng-repeat="user in userList">
-    <tr>
-        <td>
-            <input type="checkbox" name="UserName" ng-model="user.forDeletion" />
-            <button type="button" class="btn btn-default btn-xs" ng-click="editUser(user)">
-                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-            </button>
-        </td>
-        <td ng-bind="user.UserName"></td>
-        <td>
-            <select id="role" name="role" class="form-control" placeholder="Select Role"
-                    ng-model="user.Role" ng-options="option.Name for option in roleList track by option.Id" disabled></select>
-        </td>
-        <td ng-bind="user.HomeTown"></td>
-        <td ng-bind="user.ZipCode"></td>
-    </tr>
-    </tbody>
-</table>
-<div ui-view></div>

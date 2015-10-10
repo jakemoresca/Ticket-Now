@@ -10,6 +10,10 @@
             createItem: '&',
             deleteItem: '&'
         },
-        templateUrl: "./Content/templates/list-group.htm"
+        templateUrl: function(elem,attrs)
+        {
+            return attrs.templateUrl == null ? "./Content/templates/list-group.htm" : attrs.templateUrl;
+        }
+        //templateUrl: "./Content/templates/list-group.htm"
     }
 });

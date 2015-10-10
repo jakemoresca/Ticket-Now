@@ -13,6 +13,7 @@
     "restangular": "*",
     "underscore": "*",
     "angular-ui-router": "~0.2.15",
-    "startbootstrap-sb-admin-2": "~1.0.7"
+    "startbootstrap-sb-admin-2": "~1.0.7",
+    "angular-ui-bootstrap": "~0.14.0"
   }
 }

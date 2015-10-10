@@ -1,0 +1,60 @@
+﻿<div class="panel panel-default">
+
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title pull-left">Schedule Details</h3>
+        <div class="btn-group pull-right visible-xs">
+            <a class="btn btn-primary" href="/companies"
+               data-toggle="modal"
+               data-target="#editModal">
+                <i class="fa fa-pencil"></i>
+                <span>Create</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <form id="scheduleForm" name="scheduleForm" class="form-horizontal" novalidate>
+            <div class="form-group" ng-class="{ 'has-error' : scheduleForm.name.$invalid }">
+                <label for="name" class="col-sm-3 control-label">Name : *</label>
+                <div class="col-sm-9">
+                    <input id="name" name="name" type="text" class="form-control" ng-model="schedule.Name" placeholder="Name" required maxlength="400" />
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : scheduleForm.start.$invalid }">
+                <label for="start" class="col-sm-3 control-label">Start : *</label>
+                <div class="col-sm-9">
+                    <p class="input-group">
+                        <input id="start" type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="schedule.Start" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                    <!--<input id="start" name="start" type="datetime" class="form-control" ng-model="schedule.Start" placeholder="Start" required/>-->
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : scheduleForm.end.$invalid }">
+                <label for="end" class="col-sm-3 control-label">End : *</label>
+                <div class="col-sm-9">
+                    <p class="input-group">
+                        <input id="end" type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="schedule.End" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                    <!--<input id="end" name="end" type="datetime" class="form-control" ng-model="schedule.End" placeholder="End" required/>-->
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="end" class="col-sm-3 control-label">Event : </label>
+                <div class="col-sm-9" ng-bind="schedule.Event.Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" ng-click="submit()" ng-disabled="scheduleForm.$invalid" class="btn btn-primary">Submit</button>
+                    <button type="button" ng-click="cancel()" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

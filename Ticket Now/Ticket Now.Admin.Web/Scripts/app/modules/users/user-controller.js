@@ -6,17 +6,19 @@ function ($scope, $location, roleService, userService, ngAdminSettings)
     $scope.moduleName = "Users";
     $scope.tableTemplate = ngAdminSettings.contentTemplateBaseUri + "user-table.htm";
 
-    $scope.deleteUsers = function ()
+    $scope.deleteUser = function (user, $event)
     {
-        var forDeletionUsers = _.where($scope.userList, { forDeletion: true });
-        _.each(forDeletionUsers, function (user)
-        {
-            userService.deleteUser(user);
-        });
-    };
+        $event.stopPropagation();
+        userService.deleteUser(user);
+    }
 
     $scope.editUser = function (user)
     {
         $location.path("/Users/" + user.UserName);
+    }
+
+    $scope.createUser = function()
+    {
+        $location.path("/Users/Create");
     }
 }]);

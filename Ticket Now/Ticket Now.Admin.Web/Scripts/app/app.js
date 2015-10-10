@@ -1,6 +1,6 @@
 ﻿var app = angular.module("TicketNowAdmin",
     ["ui.router", "ngMessages", "restangular", "angular-loading-bar", "ngAnimate",
-        "AuthModule", "UserModule", "RoleModule", "LocationModule", "EventModule",
+        "AuthModule", "UserModule", "RoleModule", "LocationModule", "EventModule", "ScheduleModule",
         "LocalStorageModule", "ngSanitize"]);
 
 var serviceBase = "http://localhost/TicketNowAuth/";
@@ -39,6 +39,16 @@ app.run(["locationService", function (locationService)
     locationService.getLocations();
 }]);
 
-app.run(["eventService", function (eventService) {
+app.run(["eventService", function (eventService)
+{
     eventService.getEvents();
 }]);
+
+app.run(["scheduleService", function (scheduleService)
+{
+    scheduleService.getSchedules();
+}]);
+
+app.run(($rootScope) => {
+    $rootScope.$on("$stateChangeError", console.log.bind(console));
+});

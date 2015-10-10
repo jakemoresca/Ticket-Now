@@ -16,7 +16,7 @@ function ($scope, $location, locationService, ngAdminSettings)
         $location.path("/Locations/" + location.Id);
     };
 
-    $scope.createEvent = function ()
+    $scope.createLocation = function ()
     {
         $location.path("/Locations/Create");
     };

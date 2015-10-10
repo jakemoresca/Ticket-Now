@@ -21,14 +21,14 @@ function ($stateProvider, $urlRouterProvider, ngAdminSettings)
     $stateProvider
       .state('Roles.Create',
       {
-          url: "/Roles/Create",
+          url: "/Create",
           templateUrl: ngAdminSettings.contentTemplateBaseUri + "role-create.htm",
           controller: "roleCreateController",
           controllerAs: "roleCtrl"
       })
       .state('Roles.Edit',
       {
-          url: "/Roles/:id",
+          url: "/:id",
           templateUrl: ngAdminSettings.contentTemplateBaseUri + "role-edit.htm",
           controller: "roleEditController",
           controllerAs: "roleCtrl"
