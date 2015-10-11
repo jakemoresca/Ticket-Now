@@ -303,8 +303,8 @@
     <Content Include="Scripts\app\modules\users\user-module.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include=".bowerrc" />
-    <Content Include="bower.json" />
     <Content Include="package.json" />
+    <Content Include="bower.json" />
     <None Include="Properties\PublishProfiles\TicketNowDemo - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\TicketNowDemo - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TicketNowDemo.pubxml" />
@@ -3738,6 +3738,13 @@
     <Content Include="Scripts\lib\jquery\MIT-LICENSE.txt" />
     <Content Include="Scripts\lib\lodash\lodash.js" />
     <Content Include="Scripts\lib\lodash\lodash.min.js" />
+    <Content Include="Scripts\lib\metisMenu\dist\metisMenu.css" />
+    <Content Include="Scripts\lib\metisMenu\dist\metisMenu.js" />
+    <Content Include="Scripts\lib\metisMenu\dist\metisMenu.min.css" />
+    <Content Include="Scripts\lib\metisMenu\dist\metisMenu.min.js" />
+    <Content Include="Scripts\lib\metisMenu\Gruntfile.js" />
+    <Content Include="Scripts\lib\metisMenu\src\metisMenu.css" />
+    <Content Include="Scripts\lib\metisMenu\src\metisMenu.js" />
     <Content Include="Scripts\lib\ng-flow\dist\ng-flow-standalone.js" />
     <Content Include="Scripts\lib\ng-flow\dist\ng-flow-standalone.min.js" />
     <Content Include="Scripts\lib\ng-flow\dist\ng-flow.js" />
@@ -3998,13 +4005,6 @@
     <Content Include="Scripts\lib\font-awesome\scss\_spinning.scss" />
     <Content Include="Scripts\lib\font-awesome\scss\_stacked.scss" />
     <Content Include="Scripts\lib\font-awesome\scss\_variables.scss" />
-    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\.bower.json" />
-    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\bower.json" />
-    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\less\mixins.less" />
-    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\less\sb-admin-2.less" />
-    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\less\variables.less" />
-    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\LICENSE" />
-    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\README.md" />
     <Content Include="Scripts\lib\angular-ui-bootstrap\.bower.json" />
     <Content Include="Scripts\lib\angular-ui-bootstrap\.editorconfig" />
     <Content Include="Scripts\lib\angular-ui-bootstrap\.gitattributes" />
@@ -4034,6 +4034,18 @@
     <Content Include="Scripts\lib\angular-ui-bootstrap\src\timepicker\docs\readme.md" />
     <Content Include="Scripts\lib\angular-ui-bootstrap\src\tooltip\docs\readme.md" />
     <Content Include="Scripts\lib\angular-ui-bootstrap\src\typeahead\docs\readme.md" />
+    <Content Include="Scripts\lib\metisMenu\.bower.json" />
+    <Content Include="Scripts\lib\metisMenu\bower.json" />
+    <Content Include="Scripts\lib\metisMenu\LICENSE" />
+    <Content Include="Scripts\lib\metisMenu\package.json" />
+    <Content Include="Scripts\lib\metisMenu\README.md" />
+    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\.bower.json" />
+    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\bower.json" />
+    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\less\mixins.less" />
+    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\less\sb-admin-2.less" />
+    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\less\variables.less" />
+    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\LICENSE" />
+    <Content Include="Scripts\lib\startbootstrap-sb-admin-2\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

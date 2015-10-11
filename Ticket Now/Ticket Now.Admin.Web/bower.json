@@ -1,19 +1,6 @@
 {
-  "name": "ASP.NET",
-  "private": true,
+  "name": "myproject",
   "dependencies": {
-    "angular-ckeditor": "*",
-    "angular-full": "*",
-    "angular-loading-bar": "*",
-    "angular-local-storage": "*",
-    "bootstrap": "*",
-    "bootstrap-theme-cosmo": "*",
-    "ckeditor": "*",
-    "ng-flow": "*",
-    "restangular": "*",
-    "underscore": "*",
-    "angular-ui-router": "~0.2.15",
-    "startbootstrap-sb-admin-2": "~1.0.7",
-    "angular-ui-bootstrap": "~0.14.0"
+    "startbootstrap-sb-admin-2": "~1.0.7"
   }
 }
