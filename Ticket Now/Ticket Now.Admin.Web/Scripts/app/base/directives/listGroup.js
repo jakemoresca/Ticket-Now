@@ -5,7 +5,7 @@
         scope: {
             groupName: '=group',
             list: '=list',
-            cssClass: '=cssClass',
+            css: '=css',
             editItem: '&',
             createItem: '&',
             deleteItem: '&'

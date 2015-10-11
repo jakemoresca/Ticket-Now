@@ -24,7 +24,7 @@
                 <label for="start" class="col-sm-3 control-label">Start : *</label>
                 <div class="col-sm-9">
                     <p class="input-group">
-                        <input id="start" type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="schedule.Start" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <input id="start" type="datetime" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="schedule.Start" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
@@ -36,7 +36,7 @@
                 <label for="end" class="col-sm-3 control-label">End : *</label>
                 <div class="col-sm-9">
                     <p class="input-group">
-                        <input id="end" type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="schedule.End" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <input id="end" type="datetime" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="schedule.End" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
@@ -47,6 +47,13 @@
             <div class="form-group">
                 <label for="end" class="col-sm-3 control-label">Event : </label>
                 <div class="col-sm-9" ng-bind="schedule.Event.Name">
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : scheduleForm.location.$invalid }">
+                <label for="location" class="col-sm-3 control-label">Location : *</label>
+                <div class="col-sm-9">
+                    <select id="location" name="location" class="form-control" placeholder="Select Location"
+                            ng-model="schedule.Location" ng-options="option.Name for option in locationList track by option.Id" required></select>
                 </div>
             </div>
             <div class="form-group">

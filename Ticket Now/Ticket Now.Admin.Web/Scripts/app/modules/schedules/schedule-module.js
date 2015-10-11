@@ -5,7 +5,8 @@ var scheduleModule = angular.module("ScheduleModule", [
     "ngResource",
 
     // Custom modules 
-    "EventModule"
+    "EventModule",
+    "LocationModule"
     // 3rd Party Modules
     //'ui.bootstrap'
 ]);
