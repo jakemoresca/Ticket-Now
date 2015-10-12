@@ -1,7 +1,7 @@
 ﻿app.directive("loginForm", function () {
     return {
         restrict: "E",
-        templateUrl: "../Content/templates/login.htm",
+        templateUrl: "./Scripts/app/base/directives/login.htm",
         scope: true
     }
 });

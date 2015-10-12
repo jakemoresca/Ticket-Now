@@ -2,6 +2,6 @@
 {
     return {
         restrict: "E",
-        templateUrl: "./Content/templates/footer.htm"
+        templateUrl: "./Scripts/app/base/directives/footer.htm"
     }
 });

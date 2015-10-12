@@ -12,8 +12,7 @@
         },
         templateUrl: function(elem,attrs)
         {
-            return attrs.templateUrl == null ? "./Content/templates/list-group.htm" : attrs.templateUrl;
+            return attrs.templateUrl == null ? "./Scripts/app/base/directives/list-group.htm" : attrs.templateUrl;
         }
-        //templateUrl: "./Content/templates/list-group.htm"
     }
 });

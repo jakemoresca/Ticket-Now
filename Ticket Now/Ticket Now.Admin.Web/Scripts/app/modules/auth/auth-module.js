@@ -7,7 +7,7 @@ function ($stateProvider, $urlRouterProvider) {
       .state('Login',
       {
           url: "/login",
-          templateUrl: "Content/templates/login.htm",
+          template: "<login-form></login-form>",
           controller: "authController",
           controllerAs: "authCtrl"
       });

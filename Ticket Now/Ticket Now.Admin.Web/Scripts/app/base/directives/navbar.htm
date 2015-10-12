@@ -1,0 +1,41 @@
+﻿<div class="navbar navbar-default navbar-static-top" style="margin-bottom: 0" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="~/Home" class="navbar-brand">Ticket Now Admin</a>
+        </div>
+        <ul class="nav navbar-top-links navbar-right" ng-show="currentUser.isAuth">
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false">
+                    <i class="fa fa-user fa-fw"></i>{{currentUser.userName}} 
+                    <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#" ng-click="main.logOff()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <ul class="nav navbar-top-links navbar-right" ng-hide="currentUser.isAuth">
+            <li><a href="./Account/Register">Register</a></li>
+            <li><a href="#/login">Log in</a></li>
+        </ul>
+        <side-menu></side-menu>
+    </div>
+</div>
