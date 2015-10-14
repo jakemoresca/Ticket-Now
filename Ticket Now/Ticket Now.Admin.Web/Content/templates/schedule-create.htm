@@ -23,25 +23,15 @@
             <div class="form-group" ng-class="{ 'has-error' : scheduleForm.start.$invalid }">
                 <label for="start" class="col-sm-3 control-label">Start : *</label>
                 <div class="col-sm-9">
-                    <p class="input-group">
-                        <input id="start" type="datetime" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="schedule.Start" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </p>
-                    <!--<input id="start" name="start" type="datetime" class="form-control" ng-model="schedule.Start" placeholder="Start" required/>-->
+                    <input type="text" class="form-control" ng-model="schedule.Start" 
+                           date-time-picker required />
                 </div>
             </div>
             <div class="form-group" ng-class="{ 'has-error' : scheduleForm.end.$invalid }">
                 <label for="end" class="col-sm-3 control-label">End : *</label>
                 <div class="col-sm-9">
-                    <p class="input-group">
-                        <input id="end" type="datetime" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="schedule.End" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </p>
-                    <!--<input id="end" name="end" type="datetime" class="form-control" ng-model="schedule.End" placeholder="End" required/>-->
+                    <input type="text" class="form-control" ng-model="schedule.End"
+                           date-time-picker required />
                 </div>
             </div>
             <div class="form-group">

@@ -8,20 +8,23 @@
     <link href="~/Scripts/lib/ckeditor/contents.css" rel="stylesheet" />
     <link href="~/Scripts/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/Scripts/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    @*<link href="~/Scripts/lib/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet" />*@
     <link href="~/Scripts/lib/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet" />
     <link href="~/Scripts/lib/startbootstrap-sb-admin-2/dist/css/timeline.css" rel="stylesheet" />
     @*<link href="~/Content/Site.css" rel="stylesheet" />*@
+    <link href="~/Scripts/lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet" />
     <link href="~/Scripts/lib/angular-loading-bar/src/loading-bar.css" rel="stylesheet" />
     <link href="~/Scripts/lib/metisMenu/dist/metisMenu.css" rel="stylesheet" />
 </head>
-<body ng-controller="MainController as main">
+<body ng-controller="MainController as main" style="background-color: white">
     <navigation-bar></navigation-bar>
-
-    <div id="page-wrapper">
-        <div ui-view></div>
+    <div class="container-fluid">
+        <div class="row">
+            <side-menu class="col-md-3 no-padding"></side-menu>
+            <div class="col-md-9 body-content">
+                <div ui-view></div>
+            </div>
+        </div>
     </div>
-
     <!-- Libraries -->
     <script src="~/Scripts/lib/angular-full/angular.js"></script>
     <script src="~/Scripts/lib/angular-full/angular-route.min.js"></script>
@@ -41,8 +44,9 @@
     <script src="~/Scripts/lib/flow.js/dist/flow.js"></script>
     <script src="~/Scripts/lib/ng-flow/dist/ng-flow.js"></script>
     <script src="~/Scripts/lib/metisMenu/dist/metisMenu.js"></script>
-    <script src="~/Scripts/lib/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
-
+    <script src="~/Scripts/lib/moment/moment.js"></script>
+    @*<script src="~/Scripts/lib/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>*@
+    <script src="~/Scripts/lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 
     <script src="~/Scripts/app/app.js"></script>
 
@@ -93,6 +97,7 @@
     <script src="~/Scripts/app/base/directives/loginForm.js"></script>
     <script src="~/Scripts/app/base/directives/listGroup.js"></script>
     <script src="~/Scripts/app/base/directives/sideMenu.js"></script>
-    <foot-bar></foot-bar>
+    <script src="~/Scripts/app/base/directives/metisMenu.js"></script>
+    <script src="~/Scripts/app/base/directives/datetimepicker.js"></script>
 </body>
 </html>

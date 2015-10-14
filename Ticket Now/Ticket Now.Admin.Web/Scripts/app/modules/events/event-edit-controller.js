@@ -29,11 +29,13 @@ function ($scope, $stateParams, $http, $location, eventService, scheduleService,
         scheduleService.deleteSchedule(schedule);
     };
 
-    $scope.editSchedule = function (schedule) {
-        $location.path("/Schedules/" + schedule.Id);
+    $scope.editSchedule = function (schedule)
+    {
+        $location.path("/Events/" + $stateParams.id + "/Schedules/" + schedule.Id);
     };
 
-    $scope.createSchedule = function () {
+    $scope.createSchedule = function ()
+    {
         $location.path("/Events/" + $stateParams.id + "/Schedules/Create");
     };
 }]);

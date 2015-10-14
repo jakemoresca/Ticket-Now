@@ -130,9 +130,9 @@ body {
 @media(min-width:768px) {
     .sidebar {
         z-index: 1;
-        position: absolute;
-        width: 250px;
-        margin-top: 51px;
+        /*position: absolute;*/
+        /*width: 250px;*/
+        /*margin-top: 51px;*/
     }
 
     .navbar-top-links .dropdown-messages,
@@ -351,4 +351,9 @@ table.dataTable thead .sorting:after {
 
 .panel-yellow a:hover {
     color: #df8a13;
+}
+
+.no-padding {
+   padding: 0 !important;
+   margin: 0 !important;
 }

@@ -1,0 +1,58 @@
+﻿<div class="panel panel-default">
+
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title pull-left">Schedule Details</h3>
+        <div class="btn-group pull-right visible-xs">
+            <a class="btn btn-primary" href="/companies"
+               data-toggle="modal"
+               data-target="#editModal">
+                <i class="fa fa-pencil"></i>
+                <span>Create</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <form id="scheduleForm" name="scheduleForm" class="form-horizontal" novalidate>
+            <div class="form-group" ng-class="{ 'has-error' : scheduleForm.name.$invalid }">
+                <label for="name" class="col-sm-3 control-label">Name : *</label>
+                <div class="col-sm-9">
+                    <input id="name" name="name" type="text" class="form-control" ng-model="schedule.Name" placeholder="Name" required maxlength="400" />
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : scheduleForm.start.$invalid }">
+                <label for="start" class="col-sm-3 control-label">Start : *</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" ng-model="schedule.Start"
+                           date-time-picker required />
+                    {{schedule.Start}}
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : scheduleForm.end.$invalid }">
+                <label for="end" class="col-sm-3 control-label">End : *</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" ng-model="schedule.End"
+                           date-time-picker required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="end" class="col-sm-3 control-label">Event : </label>
+                <div class="col-sm-9" ng-bind="event.Name">
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : scheduleForm.location.$invalid }">
+                <label for="location" class="col-sm-3 control-label">Location : *</label>
+                <div class="col-sm-9">
+                    <select id="location" name="location" class="form-control" placeholder="Select Location"
+                            ng-model="schedule.Location" ng-options="option.Name for option in locationList track by option.Id" required></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" ng-click="submit()" ng-disabled="scheduleForm.$invalid" class="btn btn-primary">Submit</button>
+                    <button type="button" ng-click="cancel()" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,8 +1,10 @@
-﻿scheduleModule.controller("scheduleEditController", ["$scope", "$stateParams", "$http", "$location", "scheduleService",
-function ($scope, $stateParams, $http, $location, scheduleService)
+﻿scheduleModule.controller("scheduleEditController", ["$scope", "$stateParams", "$http", "$location", "scheduleService", "eventService", "locationService",
+function ($scope, $stateParams, $http, $location, scheduleService, eventService, locationService)
 {
     var self = this;
     $scope.schedule = scheduleService.getSchedule($stateParams.id);
+    $scope.locationList = locationService.locationList;
+    $scope.event = eventService.getEvent($stateParams.eventId);
 
     $scope.submit = function ()
     {
@@ -17,6 +19,6 @@ function ($scope, $stateParams, $http, $location, scheduleService)
 
     this.gotoSchedulesList = function ()
     {
-        $location.path("/Schedules");
+        $location.path("/Events/" + $stateParams.eventId + "/Schedules");
     }
 }]);
