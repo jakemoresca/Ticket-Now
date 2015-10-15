@@ -2,9 +2,24 @@
 function ($scope, $stateParams, $http, $location, scheduleService, eventService, locationService)
 {
     var self = this;
+
+    $scope.isStartDateOpen = false;
+    $scope.isEndDateOpen = false;
+
     $scope.schedule = scheduleService.getSchedule($stateParams.id);
     $scope.locationList = locationService.locationList;
     $scope.event = eventService.getEvent($stateParams.eventId);
+
+    $scope.minStartDate = moment();
+    $scope.minEndDate = moment($scope.schedule.Start);
+
+    $scope.openStartDate = function () {
+        $scope.isStartDateOpen = true;
+    }
+
+    $scope.openEndDate = function () {
+        $scope.isEndDateOpen = true;
+    }
 
     $scope.submit = function ()
     {

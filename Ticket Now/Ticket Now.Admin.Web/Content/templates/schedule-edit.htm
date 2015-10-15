@@ -23,21 +23,17 @@
             <div class="form-group" ng-class="{ 'has-error' : scheduleForm.start.$invalid }">
                 <label for="start" class="col-sm-3 control-label">Start : *</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" ng-model="schedule.Start"
-                           date-time-picker required />
-                    {{schedule.Start}}
+                    <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" is-open="isStartDateOpen" ng-click="openStartDate()"
+                           ng-model="schedule.Start" min-date="minStartDate" ng-required="true" close-text="Close" />
+                    <uib-timepicker ng-model="schedule.Start" hour-step="1" minute-step="1"></uib-timepicker>
                 </div>
             </div>
             <div class="form-group" ng-class="{ 'has-error' : scheduleForm.end.$invalid }">
                 <label for="end" class="col-sm-3 control-label">End : *</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" ng-model="schedule.End"
-                           date-time-picker required />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="end" class="col-sm-3 control-label">Event : </label>
-                <div class="col-sm-9" ng-bind="event.Name">
+                    <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" is-open="isEndDateOpen" ng-click="openEndDate()"
+                           ng-model="schedule.End" min-date="minEndDate" ng-required="true" close-text="Close" />
+                    <uib-timepicker ng-model="schedule.End" hour-step="1" minute-step="1"></uib-timepicker>
                 </div>
             </div>
             <div class="form-group" ng-class="{ 'has-error' : scheduleForm.location.$invalid }">

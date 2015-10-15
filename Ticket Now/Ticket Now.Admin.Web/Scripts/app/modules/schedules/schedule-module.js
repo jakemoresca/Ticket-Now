@@ -6,9 +6,9 @@ var scheduleModule = angular.module("ScheduleModule", [
 
     // Custom modules 
     "EventModule",
-    "LocationModule"
+    "LocationModule",
     // 3rd Party Modules
-    //'ui.bootstrap'
+    'ui.bootstrap'
 ]);
 
 var adminContentBase = "http://localhost/TicketNow-Admin/";
