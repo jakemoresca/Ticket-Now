@@ -1,4 +1,8 @@
-﻿var app = angular.module("TicketNow", ["ngRoute", "AuthModule", "LocalStorageModule", "ngSanitize"]);
+﻿var app = angular.module("TicketNow", [
+    "ui.router", "restangular", "angular-loading-bar", "ngAnimate",
+    "AuthModule",
+    "LocalStorageModule", "ngSanitize"
+]);
 
 //var serviceBase = 'http://localhost:26264/';
 var serviceBase = 'http://localhost/TicketNowAuth/';
