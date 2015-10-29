@@ -2,6 +2,6 @@
 {
     return {
         restrict: "E",
-        templateUrl: "./Content/templates/navbar.htm"
+        templateUrl: "./Scripts/app/base/directives/navbar.htm"
     }
 });
