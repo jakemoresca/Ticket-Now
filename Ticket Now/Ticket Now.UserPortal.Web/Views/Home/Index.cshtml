@@ -5,11 +5,8 @@
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    @*<link href="~/Scripts/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
     <link href="~/Scripts/lib/material-design-lite/material.css" rel="stylesheet" />
     <link href="~/Scripts/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    @*<link href="~/Scripts/lib/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet" />
-        <link href="~/Scripts/lib/startbootstrap-sb-admin-2/dist/css/timeline.css" rel="stylesheet" />*@
     <link href="~/Scripts/lib/angular-loading-bar/src/loading-bar.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
@@ -31,6 +28,10 @@
 
         .main-content .content-card {
             margin: 0 auto;
+        }
+
+        .content-card {
+            width: 400px;
         }
 
         .wide-card {
@@ -115,8 +116,6 @@
 </head>
 <body ng-controller="MainController as main" class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 
-
-    <!-- Simple header with scrollable tabs. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
         <header class="mdl-layout__header">
             <div class="mdl-layout--large-screen-only mdl-layout__header-row">
@@ -129,16 +128,6 @@
                 <a href="#scroll-tab-3" class="mdl-layout__tab">Coming Soon</a>
             </div>
         </header>
-        @*<div class="mdl-layout__drawer mdl-color-text--acent">
-            <span class="mdl-layout-title">Ticket Now</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="">UserName</a>
-                <a class="mdl-navigation__link" href=""><i class="fa fa-user fa-fw"></i> User Profile</a>
-                <a class="mdl-navigation__link" href=""><i class="fa fa-gear fa-fw"></i> Settings</a>
-                <a class="mdl-navigation__link" href=""><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-            </nav>
-        </div>*@
-
         <div class="drawer mdl-layout__drawer mdl-color-text--accent">
             <header class="drawer-header">
                 <img class="avatar" src="images/user.jpg">
@@ -152,22 +141,17 @@
                     </button>
 
                     <ul for="accbtn" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
-                        <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple">User Profile<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
-                        <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple">Settings<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
-                        <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple"><i class="material-icons">logout</i>Logout<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                        <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple"><i class="fa fa-user fa-fw"></i> User Profile<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                        <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple"><i class="fa fa-gear fa-fw"></i> Settings<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                        <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple"><i class="fa fa-sign-out fa-fw"></i> Logout<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
                     </ul>
                 </div>
             </header>
             <nav class="navigation mdl-navigation">
                 <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">home</i>Home</a>
                 <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Inbox</a>
-                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">delete</i>Trash</a>
-                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">report</i>Spam</a>
-                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">forum</i>Forums</a>
-                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">flag</i>Updates</a>
                 <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">local_offer</i>Promos</a>
-                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">shopping_cart</i>Purchases</a>
-                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">people</i>Social</a>
+                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">shopping_cart</i>Transactions</a>
                 <div class="mdl-layout-spacer"></div>
                 <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">help_outline</i><span class="visuallyhidden">Help</span></a>
             </nav>
@@ -181,7 +165,7 @@
                         <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--middle">
 
                             <!-- Square card -->
-                            <div class="content-card square-card mdl-card mdl-shadow--2dp">
+                            <div class="content-card mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand">
                                     <h2 class="mdl-card__title-text">Movie A</h2>
                                 </div>
@@ -195,12 +179,28 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
-                        <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--middle">
 
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--middle">
+                            <!-- Wide card -->
+                            <div class="content-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title">
+                                    <h2 class="mdl-card__title-text">Featured Movies</h2>
+                                </div>
+                                <div class="mdl-card__media">
+                                    ...
+                                </div>
+                                <div class="mdl-card__menu">
+                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                                        View All
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--middle">
                             <!-- Square card -->
-                            <div class="content-card square-card mdl-card mdl-shadow--2dp">
+                            <div class="content-card mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand">
                                     <h2 class="mdl-card__title-text">Movie B</h2>
                                 </div>
@@ -214,12 +214,11 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
-                        <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--middle">
 
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--middle">
                             <!-- Square card -->
-                            <div class="content-card square-card mdl-card mdl-shadow--2dp">
+                            <div class="content-card mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand">
                                     <h2 class="mdl-card__title-text">Movie C</h2>
                                 </div>
@@ -233,7 +232,6 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
