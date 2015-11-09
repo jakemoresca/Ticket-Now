@@ -30,14 +30,14 @@
             margin: 0 auto;
         }
 
-        .col-centered {
-            padding: 0px;
-            vertical-align: top;
-            float: none;
+        .main-content .mdl-card__media {
             display: flex;
-            flex-flow: row wrap;
+            -ms-flex: 0 0 auto;
+            -webkit-flex: 0 0 auto;
             flex: 0 0 auto;
-            margin: 0px auto;
+            -ms-flex-wrap: wrap;
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
         }
 
         .content-card {
@@ -45,7 +45,7 @@
         }
 
         .wide-card {
-            width: 512px;
+            width: 500px;
         }
 
         .square-card {
@@ -62,6 +62,30 @@
             width: 256px;
             height: 256px;
             background: #3E4EB8;
+        }
+
+        .card-heading {
+            height: 100%;
+        }
+
+        .card-heading h5 {
+            font-weight: 400;
+        }
+
+        .card-heading h6 {
+            font-weight: 300;
+        }
+
+        .card-image {
+            margin: 0 auto;
+            width: 214px; 
+            height: 317px;
+        }
+
+        .card-image-small {
+            width: 157px; 
+            height: 173px;
+            padding: 10px;
         }
 
         .drawer {
@@ -81,6 +105,7 @@
             border-radius: 24px;
             height: 48px;
             width: 48px;
+            font-size: 48px;
         }
 
         .avatar-dropdown {
@@ -116,6 +141,10 @@
             font-weight: 500;
         }
 
+        .mdl-badge[data-badge]::after {
+            top: -9px;
+            right: -12px;
+        }
         
         .navigation .mdl-navigation__link .material-icons {
             color: rgba(0, 0, 0, 0.87) !important;
@@ -133,14 +162,15 @@
                 <div class="mdl-layout-spacer"></div>
             </div>
             <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-                <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Home</a>
-                <a href="#scroll-tab-2" class="mdl-layout__tab">Now Showing</a>
-                <a href="#scroll-tab-3" class="mdl-layout__tab">Coming Soon</a>
+                <a href="#scroll-tab-home" class="mdl-layout__tab is-active">Home</a>
+                <a href="#scroll-tab-nowshowing" class="mdl-layout__tab">Now Showing</a>
+                <a href="#scroll-tab-comingsoon" class="mdl-layout__tab">Coming Soon</a>
             </div>
         </header>
         <div class="drawer mdl-layout__drawer mdl-color-text--accent">
             <header class="drawer-header">
-                <img class="avatar" src="images/user.jpg">
+                @*<img class="avatar" src="images/user.jpg" alt="User Photo">*@
+                <i class="avatar material-icons">person</i>
                 <div class="avatar-dropdown">
                     <span>hello@example.com</span>
                     <div class="mdl-layout-spacer"></div>
@@ -160,28 +190,29 @@
             <nav class="navigation mdl-navigation">
                 <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">home</i>Home</a>
                 <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Inbox</a>
-                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">local_offer</i>Promos</a>
                 <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">shopping_cart</i>Transactions</a>
+                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">local_offer</i>Promos</a>
+                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons mdl-badge" data-badge="1">notifications</i>Notifications</a>
                 <div class="mdl-layout-spacer"></div>
                 <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">help_outline</i><span class="visuallyhidden">Help</span></a>
             </nav>
         </div>
 
         <main class="mdl-layout__content">
-            <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+            <section class="mdl-layout__tab-panel is-active" id="scroll-tab-home">
                 <div class="page-content">
                     
                     <div class="mdl-grid main-content">
                         <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--top">
-
-                            <!-- Square card -->
                             <div class="content-card mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand">
-                                    <h2 class="mdl-card__title-text">Movie A</h2>
+                                    <h2 class="mdl-card__title-text">Spectre</h2>
+                                </div>
+                                <div class="mdl-card__media">
+                                    <img class="card-image" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMjM2Nzg4MzkwOF5BMl5BanBnXkFtZTgwNzA0OTE3NjE&#64;._V1_SX214_AL_.jpg" />
                                 </div>
                                 <div class="mdl-card__supporting-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Aenan convallis.
+                                    A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
@@ -198,12 +229,9 @@
                                     <h2 class="mdl-card__title-text">Featured Movies</h2>
                                 </div>
                                 <div class="mdl-card__media">
-                                    <img src="skytower.jpg" width="173" height="157" border="0" alt=""
-                                         style="padding:10px;">
-                                    <img src="skytower.jpg" width="173" height="157" border="0" alt=""
-                                         style="padding:10px;">
-                                    <img src="skytower.jpg" width="173" height="157" border="0" alt=""
-                                         style="padding:10px;">
+                                    <img class="card-image-small" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMjM2Nzg4MzkwOF5BMl5BanBnXkFtZTgwNzA0OTE3NjE&#64;._V1_SX214_AL_.jpg" />
+                                    <img class="card-image-small" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMTU1MzAxOTY2MV5BMl5BanBnXkFtZTgwNzYzMzM5NTE&#64;._V1_SX214_AL_.jpg" />
+                                    <img class="card-image-small" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMjA1OTUzNTQ5Ml5BMl5BanBnXkFtZTgwODQ4NDkxNjE&#64;._V1_SX214_AL_.jpg" />
                                 </div>
                                 <div class="mdl-card__menu">
                                     <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
@@ -214,14 +242,15 @@
                         </div>
 
                         <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--top">
-                            <!-- Square card -->
                             <div class="content-card mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand">
-                                    <h2 class="mdl-card__title-text">Movie B</h2>
+                                    <h2 class="mdl-card__title-text">The Peanuts Movie</h2>
+                                </div>
+                                <div class="mdl-card__media">
+                                    <img class="card-image" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMTU1MzAxOTY2MV5BMl5BanBnXkFtZTgwNzYzMzM5NTE&#64;._V1_SX214_AL_.jpg" />
                                 </div>
                                 <div class="mdl-card__supporting-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Aenan convallis.
+                                    Snoopy embarks upon his greatest mission as he and his team take to the skies to pursue their arch-nemesis, while his best pal Charlie Brown begins his own epic quest back home.
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
@@ -232,14 +261,15 @@
                         </div>
 
                         <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--top">
-                            <!-- Square card -->
                             <div class="content-card mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand">
-                                    <h2 class="mdl-card__title-text">Movie C</h2>
+                                    <h2 class="mdl-card__title-text">Goosebumps</h2>
+                                </div>
+                                <div class="mdl-card__media">
+                                    <img class="card-image" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMjA1OTUzNTQ5Ml5BMl5BanBnXkFtZTgwODQ4NDkxNjE&#64;._V1_SX214_AL_.jpg" />
                                 </div>
                                 <div class="mdl-card__supporting-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Aenan convallis.
+                                    A teenager teams up with the daughter of young adult horror author R. L. Stine after the writer's imaginary demons are set free on the town of Madison, Delaware.
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
@@ -247,17 +277,138 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </section>
-            <section class="mdl-layout__tab-panel" id="scroll-tab-2">
-                <div class="page-content"><!-- Your content goes here --></div>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-nowshowing">
+                <div class="page-content">
+
+                    <div class="mdl-grid main-content">
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--top">
+                            <div class="content-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <h2 class="mdl-card__title-text">Spectre</h2>
+                                </div>
+                                <div class="mdl-card__media">
+                                    <img class="card-image" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMjM2Nzg4MzkwOF5BMl5BanBnXkFtZTgwNzA0OTE3NjE&#64;._V1_SX214_AL_.jpg" />
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                    A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                        View Schedules
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--top">
+                            <div class="content-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <h2 class="mdl-card__title-text">The Peanuts Movie</h2>
+                                </div>
+                                <div class="mdl-card__media">
+                                    <img class="card-image" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMTU1MzAxOTY2MV5BMl5BanBnXkFtZTgwNzYzMzM5NTE&#64;._V1_SX214_AL_.jpg" />
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                    Snoopy embarks upon his greatest mission as he and his team take to the skies to pursue their arch-nemesis, while his best pal Charlie Brown begins his own epic quest back home.
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                        View Schedules
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-cell--top">
+                            <div class="content-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <h2 class="mdl-card__title-text">Goosebumps</h2>
+                                </div>
+                                <div class="mdl-card__media">
+                                    <img class="card-image" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMjA1OTUzNTQ5Ml5BMl5BanBnXkFtZTgwODQ4NDkxNjE&#64;._V1_SX214_AL_.jpg" />
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                    A teenager teams up with the daughter of young adult horror author R. L. Stine after the writer's imaginary demons are set free on the town of Madison, Delaware.
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                        View Schedules
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
-            <section class="mdl-layout__tab-panel" id="scroll-tab-3">
-                <div class="page-content"><!-- Your content goes here --></div>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-comingsoon">
+                <div class="page-content">
+
+                    <div class="mdl-grid main-content">
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--top">
+                            <div class="wide-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <img class="card-image" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMTgxMDAzNzMyMV5BMl5BanBnXkFtZTgwNjIwMTgxNzE&#64;._V1_SY317_CR0,0,214,317_AL_.jpg"/>
+                                    <div class="card-heading" style="height: 100%;">
+                                        <h5>Warcraft (2016)</h5>
+                                        <h6>Action, Adventure, Fantasy  |  10 June 2016 (USA)</h6>
+                                    </div>
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                    An epic fantasy/adventure based on the popular video game series.
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                        Watch Later
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--top">
+                            <div class="wide-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <img class="card-image" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMTgxMDAzNzMyMV5BMl5BanBnXkFtZTgwNjIwMTgxNzE&#64;._V1_SY317_CR0,0,214,317_AL_.jpg" />
+                                    <div class="card-heading" style="height: 100%;">
+                                        <h5>Warcraft (2016)</h5>
+                                        <h6>Action, Adventure, Fantasy  |  10 June 2016 (USA)</h6>
+                                    </div>
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                    An epic fantasy/adventure based on the popular video game series.
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                        Watch Later
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--top">
+                            <div class="wide-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <img class="card-image" itemprop="image" src="http://ia.media-imdb.com/images/M/MV5BMTgxMDAzNzMyMV5BMl5BanBnXkFtZTgwNjIwMTgxNzE&#64;._V1_SY317_CR0,0,214,317_AL_.jpg" />
+                                    <div class="card-heading" style="height: 100%;">
+                                        <h5>Warcraft (2016)</h5>
+                                        <h6>Action, Adventure, Fantasy  |  10 June 2016 (USA)</h6>
+                                    </div>
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                    An epic fantasy/adventure based on the popular video game series.
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                        Watch Later
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
