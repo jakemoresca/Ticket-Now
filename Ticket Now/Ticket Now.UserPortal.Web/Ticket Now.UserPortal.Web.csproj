@@ -227,6 +227,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\goosebumps.jpg" />
+    <Content Include="Content\Images\peanuts.jpg" />
+    <Content Include="Content\Images\spectre.jpg" />
+    <Content Include="Content\Images\warcraft.jpg" />
     <Content Include="Content\templates\admin-navbar.htm" />
     <Content Include="Scripts\app\base\directives\footer.htm" />
     <Content Include="Content\templates\home.htm" />
@@ -4083,6 +4087,7 @@
     <Content Include="Scripts\lib\material-design-lite\src\_functions.scss" />
     <Content Include="Scripts\lib\material-design-lite\src\_mixins.scss" />
     <Content Include="Scripts\lib\material-design-lite\src\_variables.scss" />
+    <Content Include="Views\Home\ViewSchedules.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

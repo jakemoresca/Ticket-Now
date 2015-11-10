@@ -9,5 +9,10 @@ namespace Ticket_Now.UserPortal.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult ViewSchedules()
+        {
+            return View();
+        }
     }
 }
