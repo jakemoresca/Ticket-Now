@@ -9,6 +9,7 @@
     "ckeditor": "*",
     "angular-ckeditor": "*",
     "bootstrap": "*",
-    "material-design-lite": "*"
+    "material-design-lite": "*",
+    "color-thief": "*"
   }
 }

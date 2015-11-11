@@ -3548,6 +3548,17 @@
     <Content Include="Scripts\lib\ckeditor\plugins\wsc\dialogs\wsc.js" />
     <Content Include="Scripts\lib\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
     <Content Include="Scripts\lib\ckeditor\plugins\xml\plugin.js" />
+    <Content Include="Scripts\lib\color-thief\dist\color-thief.min.js" />
+    <Content Include="Scripts\lib\color-thief\examples\css\screen.css" />
+    <Content Include="Scripts\lib\color-thief\examples\img\photo1.jpg" />
+    <Content Include="Scripts\lib\color-thief\examples\img\photo2.jpg" />
+    <Content Include="Scripts\lib\color-thief\examples\img\photo3.jpg" />
+    <Content Include="Scripts\lib\color-thief\examples\js\demo.js" />
+    <Content Include="Scripts\lib\color-thief\examples\js\jquery.js" />
+    <Content Include="Scripts\lib\color-thief\examples\js\mustache.js" />
+    <Content Include="Scripts\lib\color-thief\Gruntfile.js" />
+    <Content Include="Scripts\lib\color-thief\index.html" />
+    <Content Include="Scripts\lib\color-thief\src\color-thief.js" />
     <Content Include="Scripts\lib\font-awesome\css\font-awesome.css" />
     <Content Include="Scripts\lib\font-awesome\css\font-awesome.min.css" />
     <Content Include="Scripts\lib\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -4088,6 +4099,13 @@
     <Content Include="Scripts\lib\material-design-lite\src\_mixins.scss" />
     <Content Include="Scripts\lib\material-design-lite\src\_variables.scss" />
     <Content Include="Views\Home\ViewSchedules.cshtml" />
+    <Content Include="Scripts\lib\color-thief\.bower.json" />
+    <Content Include="Scripts\lib\color-thief\bower.json" />
+    <Content Include="Scripts\lib\color-thief\examples\sass\screen.sass" />
+    <Content Include="Scripts\lib\color-thief\examples\sass\_normalize.sass" />
+    <Content Include="Scripts\lib\color-thief\LICENSE" />
+    <Content Include="Scripts\lib\color-thief\package.json" />
+    <Content Include="Scripts\lib\color-thief\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

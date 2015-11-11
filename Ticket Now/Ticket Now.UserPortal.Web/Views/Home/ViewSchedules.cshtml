@@ -112,6 +112,7 @@
     <script src="~/Scripts/lib/angular-ckeditor/angular-ckeditor.js"></script>
     <script src="~/Scripts/lib/angular-loading-bar/src/loading-bar.js"></script>
     <script src="~/Scripts/lib/angular-full/angular-animate.js"></script>
+    <script src="~/Scripts/lib/color-thief/dist/color-thief.min.js"></script>
 
     <script src="~/Scripts/app/app.js"></script>
 
@@ -129,5 +130,64 @@
     <script src="~/Scripts/app/base/directives/navbar.js"></script>
     <script src="~/Scripts/app/base/directives/footer.js"></script>
     <script src="~/Scripts/app/base/directives/loginForm.js"></script>
+
+    <script>
+        function getRGBColor(image)
+        {
+            var color = colorThief.getColor(image);
+
+            return "rgb(" + color + ")";
+        }
+
+        function addBackgroundColor(element, color)
+        {
+            element.css("background-color", color);
+        }
+
+        function addTextColor(element, color)
+        {
+            element.css("color", color);
+        }
+
+        function rgb2hex(rgb)
+        {
+            if (rgb.search("rgb") == -1) {
+                return rgb;
+            } else {
+                rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+                function hex(x) {
+                    return ("0" + parseInt(x).toString(16)).slice(-2);
+                }
+                return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+            }
+        }
+
+        function getContrastYIQ(hexcolor)
+        {
+            var r = parseInt(hexcolor.substr(0, 2), 16);
+            var g = parseInt(hexcolor.substr(2, 2), 16);
+            var b = parseInt(hexcolor.substr(4, 2), 16);
+            var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+            return (yiq >= 128) ? 'black' : 'white';
+        }
+
+        var colorThief = new ColorThief();
+
+        var $header = $("header").first();
+        var $cardImage = $(".card-image").first();
+        var $cardImageParent = $cardImage.parent();
+
+        var dominantImageColor = getRGBColor($cardImage[0]);
+        var properTextColor = getContrastYIQ(rgb2hex(dominantImageColor));
+
+        addBackgroundColor($cardImageParent, dominantImageColor);
+        addBackgroundColor($header, dominantImageColor);
+        addBackgroundColor($header.find(".mdl-layout__tab-bar"), dominantImageColor);
+        addTextColor($cardImageParent, properTextColor);
+        addTextColor($header, properTextColor);
+        addTextColor($header.find(".mdl-layout__tab-bar"), properTextColor);
+        
+
+    </script>
 </body>
 </html>

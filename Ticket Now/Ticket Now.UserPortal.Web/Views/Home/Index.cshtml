@@ -28,7 +28,7 @@
                 <a href="#scroll-tab-comingsoon" class="mdl-layout__tab">Coming Soon</a>
             </div>
         </header>
-        <div class="drawer mdl-layout__drawer mdl-color-text--accent">
+        <div class="drawer mdl-layout__drawer">
             <header class="drawer-header">
                 @*<img class="avatar" src="images/user.jpg" alt="User Photo">*@
                 <i class="avatar material-icons">person</i>
@@ -105,7 +105,7 @@
                         <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--10-col-phone mdl-cell--top">
                             <div class="content-card mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__media">
-                                    <img class="card-image" itemprop="image" src="~/Content/Images/peanuts.jpg" />
+                                    <img  class="card-image" itemprop="image" src="~/Content/Images/peanuts.jpg" />
                                 </div>
                                 <div class="mdl-card__title mdl-card--expand">
                                     <h2 class="mdl-card__title-text">The Peanuts Movie</h2>
@@ -294,6 +294,7 @@
     <script src="~/Scripts/lib/angular-ckeditor/angular-ckeditor.js"></script>
     <script src="~/Scripts/lib/angular-loading-bar/src/loading-bar.js"></script>
     <script src="~/Scripts/lib/angular-full/angular-animate.js"></script>
+    <script src="~/Scripts/lib/color-thief/dist/color-thief.min.js"></script>
 
     <script src="~/Scripts/app/app.js"></script>
 
@@ -311,5 +312,53 @@
     <script src="~/Scripts/app/base/directives/navbar.js"></script>
     <script src="~/Scripts/app/base/directives/footer.js"></script>
     <script src="~/Scripts/app/base/directives/loginForm.js"></script>
+
+    <script>
+        function getRGBColor(image)
+        {
+            var color = colorThief.getColor(image);
+
+            return "rgb(" + color + ")";
+        }
+
+        function addBackgroundColor(element, color)
+        {
+            element.css("background-color", color);
+        }
+
+        function rgb2hex(rgb) {
+            if (rgb.search("rgb") == -1) {
+                return rgb;
+            } else {
+                rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+                function hex(x) {
+                    return ("0" + parseInt(x).toString(16)).slice(-2);
+                }
+                return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+            }
+        }
+
+        function getContrastYIQ(hexcolor) {
+            var r = parseInt(hexcolor.substr(0, 2), 16);
+            var g = parseInt(hexcolor.substr(2, 2), 16);
+            var b = parseInt(hexcolor.substr(4, 2), 16);
+            var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+            return (yiq >= 128) ? 'black' : 'white';
+        }
+
+        var colorThief = new ColorThief();
+
+        $(".mdl-card__media").each(function ()
+        {
+            var $mediaContainer = $(this);
+            var $mediaImages = $("img", this);
+            
+            if($mediaImages.length == 1)
+            {
+                var color = getRGBColor($mediaImages[0]);
+                addBackgroundColor($mediaContainer, color);
+            }
+        });
+    </script>
 </body>
 </html>

@@ -92,6 +92,10 @@
             padding: 16px;
         }
 
+        .mdl-layout__tab-bar-button {
+            background-color: transparent;
+        }
+
         .avatar {
             border-radius: 24px;
             height: 48px;
