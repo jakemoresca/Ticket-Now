@@ -10,6 +10,7 @@
     "angular-ckeditor": "*",
     "bootstrap": "*",
     "material-design-lite": "*",
-    "color-thief": "*"
+    "color-thief": "*",
+    "angular-material": "*"
   }
 }

@@ -5,6 +5,7 @@
     <title>Ticket Now - View Schedules</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="~/Scripts/lib/angular-material/angular-material.css" rel="stylesheet" />
     <link href="~/Scripts/lib/material-design-lite/material.css" rel="stylesheet" />
     <link href="~/Scripts/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="~/Scripts/lib/angular-loading-bar/src/loading-bar.css" rel="stylesheet" />
@@ -24,6 +25,17 @@
                 </a>
                 <span class="mdl-layout-title">Spectre</span>
                 <div class="mdl-layout-spacer"></div>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="dateFilter">
+                    <i class="material-icons">more_vert</i>
+                    <span class="visuallyhidden">Filter Date</span>
+                    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
+                </button>
+
+                <ul for="dateFilter" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
+                    <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple">Today<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                    <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple">Tomorrow<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                    <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple">Custom Date<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                </ul>
             </div>
             <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
                 <a href="#scroll-tab-home" class="mdl-layout__tab is-active">Info</a>
@@ -70,22 +82,398 @@
                                 <div class="mdl-card__title mdl-card--expand">
                                     <div class="card-heading" style="height: 100%;">
                                         <h5>Spectre (2015)</h5>
-                                        <h6>Action, Crime  |  11/10/2015 (USA)</h6>
+                                        <h6>Action, Crime |  6 November 2015 (USA) | PG-13 | 148min</h6>
+
+                                        A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.
                                     </div>
                                     <img class="card-image" itemprop="image" src="~/Content/Images/spectre.jpg" />
-                                </div>
-                                <div class="mdl-card__supporting-text">
-                                    A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.
-                                </div>
-                                <div class="mdl-card__actions mdl-card--border">
-                                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                        Watch Later
-                                    </a>
                                 </div>
                             </div>
                         </div>
 
-                        
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--10-col-phone mdl-cell--top">
+                            <div class="content-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <h2 class="mdl-card__title-text">Location A</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+
+                                    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                                        <div class="mdl-tabs__tab-bar">
+                                            <a href="#theatre5-panel" class="mdl-tabs__tab is-active">Theatre 5</a>
+                                            <a href="#theatre2-panel" class="mdl-tabs__tab">Theatre 2</a>
+                                            <a href="#imax-panel" class="mdl-tabs__tab">IMAX Theatre</a>
+                                        </div>
+
+                                        <div class="mdl-tabs__panel is-active" id="theatre5-panel">
+                                            <h6>Today's Availability</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+
+                                            <h6>November 15, 2015</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111520151">
+                                                    <input type="radio" id="option-111520151" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111520152">
+                                                    <input type="radio" id="option-111520152" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111520153">
+                                                    <input type="radio" id="option-111520153" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+
+                                            <h6>November 16, 2015</h6>
+                                            <div>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620151">
+                                                    <input type="radio" id="option-111620151" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620152">
+                                                    <input type="radio" id="option-111620152" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620153">
+                                                    <input type="radio" id="option-111620153" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mdl-tabs__panel" id="theatre2-panel">
+                                            <h6>Today's Availability</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mdl-tabs__panel" id="imax-panel">
+                                            <h6>Today's Availability</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+
+                                            <h6>November 16, 2015</h6>
+                                            <div>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620151">
+                                                    <input type="radio" id="option-111620151" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620152">
+                                                    <input type="radio" id="option-111620152" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620153">
+                                                    <input type="radio" id="option-111620153" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                            Reserve
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--10-col-phone mdl-cell--top">
+                            <div class="content-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <h2 class="mdl-card__title-text">Location B</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+
+                                    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                                        <div class="mdl-tabs__tab-bar">
+                                            <a href="#theatre5-panel" class="mdl-tabs__tab is-active">Theatre 5</a>
+                                            <a href="#theatre2-panel" class="mdl-tabs__tab">Theatre 2</a>
+                                            <a href="#imax-panel" class="mdl-tabs__tab">IMAX Theatre</a>
+                                        </div>
+
+                                        <div class="mdl-tabs__panel is-active" id="theatre5-panel">
+                                            <h6>Today's Availability</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+
+                                            <h6>November 15, 2015</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111520151">
+                                                    <input type="radio" id="option-111520151" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111520152">
+                                                    <input type="radio" id="option-111520152" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111520153">
+                                                    <input type="radio" id="option-111520153" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+
+                                            <h6>November 16, 2015</h6>
+                                            <div>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620151">
+                                                    <input type="radio" id="option-111620151" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620152">
+                                                    <input type="radio" id="option-111620152" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620153">
+                                                    <input type="radio" id="option-111620153" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mdl-tabs__panel" id="theatre2-panel">
+                                            <h6>Today's Availability</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mdl-tabs__panel" id="imax-panel">
+                                            <h6>Today's Availability</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+
+                                            <h6>November 16, 2015</h6>
+                                            <div>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620151">
+                                                    <input type="radio" id="option-111620151" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620152">
+                                                    <input type="radio" id="option-111620152" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620153">
+                                                    <input type="radio" id="option-111620153" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                            Reserve
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--10-col-phone mdl-cell--top">
+                            <div class="content-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <h2 class="mdl-card__title-text">Location C</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+
+                                    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                                        <div class="mdl-tabs__tab-bar">
+                                            <a href="#theatre5-panel" class="mdl-tabs__tab is-active">Theatre 5</a>
+                                            <a href="#theatre2-panel" class="mdl-tabs__tab">Theatre 2</a>
+                                            <a href="#imax-panel" class="mdl-tabs__tab">IMAX Theatre</a>
+                                        </div>
+
+                                        <div class="mdl-tabs__panel is-active" id="theatre5-panel">
+                                            <h6>Today's Availability</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+
+                                            <h6>November 15, 2015</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111520151">
+                                                    <input type="radio" id="option-111520151" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111520152">
+                                                    <input type="radio" id="option-111520152" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111520153">
+                                                    <input type="radio" id="option-111520153" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+
+                                            <h6>November 16, 2015</h6>
+                                            <div>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620151">
+                                                    <input type="radio" id="option-111620151" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620152">
+                                                    <input type="radio" id="option-111620152" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620153">
+                                                    <input type="radio" id="option-111620153" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mdl-tabs__panel" id="theatre2-panel">
+                                            <h6>Today's Availability</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mdl-tabs__panel" id="imax-panel">
+                                            <h6>Today's Availability</h6>
+                                            <div>
+
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+
+                                            <h6>November 16, 2015</h6>
+                                            <div>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620151">
+                                                    <input type="radio" id="option-111620151" class="mdl-radio__button" name="options" value="1">
+                                                    <span class="mdl-radio__label">4:30 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620152">
+                                                    <input type="radio" id="option-111620152" class="mdl-radio__button" name="options" value="2">
+                                                    <span class="mdl-radio__label">7:00 PM</span>
+                                                </label>
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-111620153">
+                                                    <input type="radio" id="option-111620153" class="mdl-radio__button" name="options" value="3">
+                                                    <span class="mdl-radio__label">9:30 PM</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                            Reserve
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -112,6 +500,8 @@
     <script src="~/Scripts/lib/angular-ckeditor/angular-ckeditor.js"></script>
     <script src="~/Scripts/lib/angular-loading-bar/src/loading-bar.js"></script>
     <script src="~/Scripts/lib/angular-full/angular-animate.js"></script>
+    <script src="~/Scripts/lib/angular-full/angular-aria.js"></script>
+    <script src="~/Scripts/lib/angular-material/angular-material.min.js"></script>
     <script src="~/Scripts/lib/color-thief/dist/color-thief.min.js"></script>
 
     <script src="~/Scripts/app/app.js"></script>
