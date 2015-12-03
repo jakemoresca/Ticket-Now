@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="TicketNow">
+<head>
+    <meta charset="utf-8" />
+    <title>Ticket Now - Reservation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="~/Scripts/lib/angular-material/angular-material.css" rel="stylesheet" />
+    <link href="~/Scripts/lib/material-design-lite/material.css" rel="stylesheet" />
+    <link href="~/Scripts/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Scripts/lib/angular-loading-bar/src/loading-bar.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body ng-controller="MainController as main" class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <a class="mdl-button mdl-js-button mdl-button--icon" href="~/Home">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+                <span class="mdl-layout-title">Spectre</span>
+                <div class="mdl-layout-spacer"></div>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="dateFilter">
+                    <i class="material-icons">more_vert</i>
+                    <span class="visuallyhidden">Filter Date</span>
+                    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
+                </button>
+
+                <ul for="dateFilter" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
+                    <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple">Today<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                    <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple">Tomorrow<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                    <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple">Custom Date<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                </ul>
+            </div>
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                <a href="#scroll-tab-home" class="mdl-layout__tab is-active">Info</a>
+            </div>
+        </header>
+        <div class="drawer mdl-layout__drawer">
+            <header class="drawer-header">
+                @*<img class="avatar" src="images/user.jpg" alt="User Photo">*@
+                <i class="avatar material-icons">person</i>
+                <div class="avatar-dropdown mdl-color-text--black">
+                    <span>hello@example.com</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="accbtn">
+                        <i role="presentation" class="material-icons">arrow_drop_down</i>
+                        <span class="visuallyhidden">Accounts</span>
+                        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
+                    </button>
+
+                    <ul for="accbtn" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
+                        <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple"><i class="fa fa-user fa-fw"></i> User Profile<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                        <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple"><i class="fa fa-gear fa-fw"></i> Settings<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                        <li class="mdl-menu__item mdl-js-ripple-effect" tabindex="-1" data-upgraded=",MaterialRipple"><i class="fa fa-sign-out fa-fw"></i> Logout<span class="mdl-menu__item-ripple-container"><span class="mdl-ripple"></span></span></li>
+                    </ul>
+                </div>
+            </header>
+            <nav class="navigation mdl-navigation">
+                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">home</i>Home</a>
+                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Inbox</a>
+                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">shopping_cart</i>Transactions</a>
+                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">local_offer</i>Promos</a>
+                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons mdl-badge" data-badge="1">notifications</i>Notifications</a>
+                <div class="mdl-layout-spacer"></div>
+                <a href="" class="mdl-navigation__link"><i role="presentation" class="mdl-color-text--blue-grey-400 material-icons">help_outline</i><span class="visuallyhidden">Help</span></a>
+            </nav>
+        </div>
+
+        <main class="mdl-layout__content">
+            <section class="mdl-layout__tab-panel is-active" id="scroll-tab-home">
+                <div class="page-content">
+                    <div class="mdl-grid main-content">
+
+                        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-cell--top">
+                            <div class="wide-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <div class="card-heading" style="height: 100%;">
+                                        <h5>Spectre (2015)</h5>
+                                        <h6>Action, Crime |  6 November 2015 (USA) | PG-13 | 148min</h6>
+
+                                        A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.
+                                    </div>
+                                    <img class="card-image" itemprop="image" src="~/Content/Images/spectre.jpg" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-cell--top">
+                            <div class="content-card mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <div class="card-heading">
+                                        <h5>Location A - Dec 6, 2015 5:00 PM</h5>
+                                        <h6>Please select seat/s you want to reserve:</h6>
+                                    </div>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <div class="reservation-container">
+                                        <ul class="seat-row">
+                                            <li class="seat"><input type="checkbox" id="r1s1" /><label for="r1s1"><i class="material-icons">event_seat</i></label></li>
+                                            <li class="seat"><input type="checkbox" id="r1s2" /><label for="r1s2"><i class="material-icons">event_seat</i></label></li>
+                                            <li class="seat space"></li>
+                                            <li class="seat"><input type="checkbox" id="r1s4" /><label for="r1s4"><i class="material-icons">event_seat</i></label></li>
+                                            <li class="seat"><input type="checkbox" id="r1s5" /><label for="r1s5"><i class="material-icons">event_seat</i></label></li>
+                                        </ul>
+                                        <ul class="seat-row">
+                                            <li class="seat"><input type="checkbox" id="r2s1" /><label for="r2s1"><i class="material-icons">event_seat</i></label></li>
+                                            <li class="seat"><input type="checkbox" id="r2s2" /><label for="r2s2"><i class="material-icons">event_seat</i></label></li>
+                                            <li class="seat space"></li>
+                                            <li class="seat"><input type="checkbox" id="r2s4" /><label for="r2s4"><i class="material-icons">event_seat</i></label></li>
+                                            <li class="seat"><input type="checkbox" id="r2s5" /><label for="r2s5"><i class="material-icons">event_seat</i></label></li>
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                            Reserve
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <div ui-view></div>
+
+    <!-- Libraries -->
+    <script src="~/Scripts/lib/angular-full/angular.js"></script>
+    <script src="~/Scripts/lib/angular-full/angular-route.min.js"></script>
+    <script src="~/Scripts/lib/angular-full/angular-resource.js"></script>
+    <script src="~/Scripts/lib/angular-full/angular-sanitize.js"></script>
+    <script src="~/Scripts/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="~/Scripts/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/Scripts/lib/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="~/Scripts/lib/underscore/underscore.js"></script>
+    <script src="~/Scripts/lib/restangular/dist/restangular.js"></script>
+    <script src="~/Scripts/lib/jQuery/dist/jquery.js"></script>
+    <script src="~/Scripts/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/Scripts/lib/material-design-lite/material.js"></script>
+    <script src="~/Scripts/lib/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/lib/angular-ckeditor/angular-ckeditor.js"></script>
+    <script src="~/Scripts/lib/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="~/Scripts/lib/angular-full/angular-animate.js"></script>
+    <script src="~/Scripts/lib/angular-full/angular-aria.js"></script>
+    <script src="~/Scripts/lib/angular-material/angular-material.min.js"></script>
+    <script src="~/Scripts/lib/color-thief/dist/color-thief.min.js"></script>
+
+    <script src="~/Scripts/app/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="~/Scripts/app/base/MainController.js"></script>
+
+    <!-- Services -->
+    <!-- Modules -->
+    <script src="~/Scripts/app/modules/auth/auth-module.js"></script>
+    <script src="~/Scripts/app/modules/auth/auth-service.js"></script>
+    <script src="~/Scripts/app/modules/auth/auth-interceptor-service.js"></script>
+    <script src="~/Scripts/app/modules/auth/auth-controller.js"></script>
+
+    <!-- Directives -->
+    <script src="~/Scripts/app/base/directives/navbar.js"></script>
+    <script src="~/Scripts/app/base/directives/footer.js"></script>
+    <script src="~/Scripts/app/base/directives/loginForm.js"></script>
+
+    <script>
+        function getRGBColor(image)
+        {
+            var color = colorThief.getColor(image);
+
+            return "rgb(" + color + ")";
+        }
+
+        function addBackgroundColor(element, color)
+        {
+            element.css("background-color", color);
+        }
+
+        function addTextColor(element, color)
+        {
+            element.css("color", color);
+        }
+
+        function rgb2hex(rgb)
+        {
+            if (rgb.search("rgb") == -1) {
+                return rgb;
+            } else {
+                rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+                function hex(x) {
+                    return ("0" + parseInt(x).toString(16)).slice(-2);
+                }
+                return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+            }
+        }
+
+        function getContrastYIQ(hexcolor)
+        {
+            var r = parseInt(hexcolor.substr(0, 2), 16);
+            var g = parseInt(hexcolor.substr(2, 2), 16);
+            var b = parseInt(hexcolor.substr(4, 2), 16);
+            var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+            return (yiq >= 128) ? 'black' : 'white';
+        }
+
+        var colorThief = new ColorThief();
+
+        var $header = $("header").first();
+        var $cardImage = $(".card-image").first();
+        var $cardImageParent = $cardImage.parent();
+
+        var dominantImageColor = getRGBColor($cardImage[0]);
+        var properTextColor = getContrastYIQ(rgb2hex(dominantImageColor));
+
+        addBackgroundColor($cardImageParent, dominantImageColor);
+        addBackgroundColor($header, dominantImageColor);
+        addBackgroundColor($header.find(".mdl-layout__tab-bar"), dominantImageColor);
+        addTextColor($cardImageParent, properTextColor);
+        addTextColor($header, properTextColor);
+        addTextColor($header.find(".mdl-layout__tab-bar"), properTextColor);
+
+
+    </script>
+</body>
+</html>

@@ -14,5 +14,10 @@ namespace Ticket_Now.UserPortal.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Reservation()
+        {
+            return View();
+        }
     }
 }
